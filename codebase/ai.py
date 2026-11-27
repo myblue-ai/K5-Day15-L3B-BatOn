@@ -47,6 +47,10 @@ CHAT_ENDPOINTS = {
     "deepinfra": "https://api.deepinfra.com/v1/openai/chat/completions",
     "openai": "https://api.openai.com/v1/chat/completions",
 }
+# Nhà cung cấp trung gian theo chuẩn OpenAI: đặt OPENAI_BASE_URL (vd https://.../v1) trong .env.
+OPENAI_BASE_URL = (os.environ.get("OPENAI_BASE_URL") or "").strip().rstrip("/")
+if OPENAI_BASE_URL:
+    CHAT_ENDPOINTS["openai"] = OPENAI_BASE_URL + "/chat/completions"
 
 
 @model_call
@@ -76,7 +80,7 @@ def call_model(system: str, user: str) -> dict:
         headers={"Authorization": f"Bearer {API_KEY}", "Content-Type": "application/json"},
         method="POST",
     )
-    with urlopen(request, timeout=30) as response:
+    with urlopen(request, timeout=90) as response:
         result = json.load(response)
 
     text = result["choices"][0]["message"]["content"]
