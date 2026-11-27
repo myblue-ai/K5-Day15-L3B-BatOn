@@ -11,11 +11,14 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): __
 - Công cụ / AI đang được dùng cho việc này (nếu có) + nguồn. Không kiểm được thì ghi "chưa kiểm":
 
 ## §1. Người dùng & bằng chứng *(guide 1.1, 1.2)*
-- Người dùng chính (một vai cụ thể):
-- Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI):
+- Người dùng chính (một vai cụ thể): Học viên L3 khoá AI20K đi làm ban ngày, tối mới xem video pre-class một mình, không có TA trực.
+- Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI): Hiểu rõ khái niệm và nắm bắt kiến thức nền từ video bài giảng pre-class vào buổi tối trước khi lên lớp.
 - Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ:
-- Pain (KHÔNG chữ AI): ai — đang làm gì — vướng đâu — hậu quả gì:
-- Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`): __
+  - Hiện giải bằng: Tua đi tua lại video tìm đoạn giải thích, đăng câu hỏi vào khung chat dưới video, nhắn tin hỏi bạn học, hoặc tra cứu ngoài.
+  - Hỏng ở đâu: Tự tua lại video mất nhiều thời gian và ngắt quãng mạch học; câu trả lời nhận được dưới video không chỉ rõ mã đoạn/mốc thời gian để tự kiểm chứng, hoặc trả lời lan man ngoài bài; hỏi bạn bè vào đêm muộn thì không ai trực trả lời ngay.
+  - Vì sao chưa bỏ: Video pre-class là học liệu bắt buộc để có thể làm mini lab và tiếp thu bài trên lớp; không có nguồn học liệu nào khác bám sát giáo trình khoá học hơn.
+- Pain (KHÔNG chữ AI): Học viên L3 xem video pre-class buổi tối — đang làm rõ đoạn kiến thức chưa hiểu — vướng ở chỗ câu trả lời nhận được không chỉ rõ nằm ở đoạn nào trong bài giảng (hoặc nói cả điều bài không dạy), phải tự tua lại tìm kiếm — hậu quả là tốn 15–30 phút ngắt mạch học, nản lòng bỏ qua và lên lớp hôm sau vẫn còn lỗ hổng kiến thức.
+- Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`): Đang thu thập và kiểm chứng theo giả thuyết tại `evidence/hypothesis.md` (kế hoạch: đào data `data/preclass/` và phỏng vấn ≥3 bạn học viên L3 ngoài nhóm).
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
