@@ -11,10 +11,10 @@
 
 | STT | Họ và tên | Mã học viên | Vai trò | Phần việc chính |
 |---|---|---|---|---|
-| 1 | Đào Hồng Thắng | 2A202604076 | Đội trưởng | Canvas, TEAMS, bảng impact (spec §2) |
-| 2 | Lê Hải Lân | 2A202603915 | Thành viên | Mô phỏng chi phí (cost/) |
-| 3 | Trương Văn Hải | 2A202604018 | Thành viên | Bài toán + giả thuyết (spec §1), metric + chuẩn "đạt" (spec §7) |
-| 4 | Khương Hoàng Nguyên | 2A202603987 | Thành viên | Sơ đồ kiến trúc + code khung, bộ câu thử + data card |
+| 1 | Đào Hồng Thắng | 2A202604076 | Đội trưởng | **A1** (Canvas 7 dòng + điền TEAMS.md) · **A3** (Bảng impact ≥3 hướng, đào data pre-class — spec §2) |
+| 2 | Lê Hải Lân | 2A202603915 | Thành viên | Mô phỏng chi phí (persona + chạy simulate — cost/), từ 28/11 |
+| 3 | Trương Văn Hải | 2A202604018 | Thành viên | **A2** (Bài toán + giả thuyết — spec §1, evidence/hypothesis.md) · **B1** (Metric + chuẩn "đạt" — eval/metric_spec.yaml, spec §7) |
+| 4 | Khương Hoàng Nguyên | 2A202603987 | Thành viên | **B2** (Sơ đồ kiến trúc + code khung chạy AI giả — spec §3–§4, codebase/) · **B3** (Bộ câu thử + data card — eval/benchmark.csv, data/DATA_CARD.md) |
 
 **Quy tắc điền**
 - **Lớp:** `L3A` hoặc `L3B`. **Track:** một chữ `A` (EdTech), `B` (Y tế), `C` (Du lịch), `D` (Thương mại điện tử), `E` (Tài chính) hoặc `F` (Làn khác). **Link repo:** link GitHub công khai của nhóm.
