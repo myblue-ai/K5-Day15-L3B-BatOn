@@ -27,12 +27,12 @@
 | Nhãn | Tài liệu biên soạn lại từ học liệu thật, dùng làm video mô phỏng. |
 | Giới hạn | Một bài duy nhất. Mã đoạn thuộc bản thử. Giá trong bài dùng cho ví dụ tính toán. |
 
-## Dataset 3 · Câu thử CP2
+## Dataset 3 · Câu thử CP2 và CP3
 
 | | |
 |---|---|
 | Dùng để làm gì | Thử hỏi đáp theo bài, hỏi lại, dẫn căn cứ và từ chối. [Benchmark](../eval/benchmark.csv) |
-| Từ đâu | 4 câu diễn đạt lại từ các câu phản ánh và bài tập có sẵn trong phiếu Day01 §2.1–§2.3. 8 câu Codex tự viết theo lát cắt. |
-| Xử lý và kiểm tra | Mỗi câu trỏ nguồn và có điều kiện chấm theo đoạn bài. Câu tự viết không dùng seed. Đã thu 12 phản hồi trong một lượt mô phỏng ChatGPT và đối chiếu 5 phản hồi do B1 và B3 chấm riêng. [Kết quả đối chiếu](../eval/README.md#đối-chiếu-b1-và-b3-trên-phản-hồi-chatgpt) |
-| Số dòng / nhãn | 12 câu bản CP2, gồm 4 `data_that` từ phiếu học tập và 8 `tu_viet`. |
-| Giới hạn | Các câu từ phiếu thực hành đại diện cho nội dung học. Ghi chép phỏng vấn sau này có thể bổ sung cách hỏi tự nhiên dưới video. |
+| Từ đâu | 5 câu chuyển thể từ đề thực hành Day01 §2.1–§2.3, 3 câu chuyển thể từ chủ đề cụ thể trong khảo sát R06 (Guardrail Output), R15 (Docker) và R21 (chi phí token), 14 câu tự viết theo lát cắt. |
+| Xử lý và kiểm tra | Mỗi câu ghi nguồn và điều kiện chấm. Câu tự viết không dùng seed. CP2 có 12 phản hồi mô phỏng ChatGPT, trong đó 5 được B1 và B3 đối chiếu. CP3 bổ sung 10 câu và đã chạy lượt 1 với 22 đầu vào. Khi rà lại nguồn, giữ nguyên đầu vào, đáp án và tiêu chí đã chạy. [Hồ sơ đánh giá](../eval/README.md) |
+| Số dòng / nhãn | CP2 có 12 câu. CP3 có 22 câu gồm 5 `data_that`, 3 `nguoi_dung`, 14 `tu_viet`. Có 5 câu `[ngoai_bai]` và 3 câu `[tan_cong]`. |
+| Giới hạn | Câu có nguồn từ khảo sát là câu chuyển thể từ tình huống người dùng mô tả. Số token trong A1-14 do nhóm đặt. Câu có nguồn từ đề thực hành kiểm nội dung học liệu, còn lời hỏi tự nhiên dưới video có thể được bổ sung qua phỏng vấn. |

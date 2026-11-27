@@ -7,13 +7,22 @@ Track: [x] A · [ ] B · [ ] C · [ ] D · [ ] E — bài toán: trợ giảng d
 Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/preclass/` — `chat.csv`, `events.csv` (05–25/11/2026), đặt ngoài repo ở `data-btc/` (đã `.gitignore`); repo chỉ chứa số tổng hợp và vài mã dòng ví dụ (`evidence/data-mining.md`)
 
 ## §0. Hiện tại việc này diễn ra thế nào *(guide 1.1)*
-- Luồng hiện tại của việc này, trong khoá hoặc trên app thật (3–5 bước; ảnh chụp từ tài khoản của mình, đã che thông tin):
+- **Luồng hiện tại trên pre-class**
   1. Học viên mở video pre-class trên trang pre-class của khoá (sự kiện `video_opened` — 431 học viên có mở video [D3]).
   2. Gặp đoạn chưa hiểu → gõ câu hỏi vào khung hỏi dưới video (kênh `video_question` trong `chat.csv` — 1.108 câu / 21 ngày [D1]).
   3. Trợ giảng dưới video trả lời (`agent_replied`, người trả lời `teaching_assistant`); từ 13/11 hệ thống ghi các mốc trong bài mà câu trả lời dẫn ra (`moc_trich_dan`) — 231/557 câu (41,5%) không dẫn mốc nào [D2].
   4. Học viên muốn kiểm câu trả lời thì phải tự tua lại video (`video_seeked` lùi — 177/431 người, 2.602 lần [D3]) hoặc hỏi ChatGPT / Claude bên ngoài (14/21 người trong khảo sát [S1]).
   5. Không ra thì bỏ qua, để lên lớp hỏi (chỉ 5/21 hiểu hẳn sau lần kẹt gần nhất [S1]).
-  - *Ảnh chụp:* __ (nhóm chèn ảnh khung hỏi đáp dưới video từ tài khoản của mình, đã che tên và mã học viên)
+
+- **Ba quan sát từ tài khoản của thành viên nhóm, đêm 27–28/11/2026**
+
+  | Quan sát | Chi tiết | Ảnh |
+  |---|---|---|
+  | Câu hỏi về phương án C chưa được giải đáp | Học viên hỏi cách tính chi phí ticket cho “phần C”. Slide đang hiển thị phương án C. Tutor hiểu “phần C” là tên một mục của bài và hỏi lại. Phản hồi trong ảnh chưa giải thích cách tính cho phương án C. | [Câu hỏi và phản hồi ở phương án C](evidence/screenshots/preclass-ticket-phuong-an-c.png) |
+  | Học viên ghi nhận mốc tutor dẫn cho `canary_share` bị lệch | Tutor trỏ tới **Phần 1 · 02:40**. Ảnh cho thấy `canary_share` đã xuất hiện trên slide khi trình phát ở **01:54**. Cần kiểm lại nội dung tại 02:40 để xác nhận mốc dẫn sai. | [Mốc tutor dẫn và vị trí trong trình phát](evidence/screenshots/preclass-canary-share-moc-dan.png) |
+  | Học viên phải tra thêm để hiểu cách canary kiểm hành vi agent | Tutor mô tả cách dùng một phần lưu lượng thật và đưa ví dụ. Thành viên nhóm ghi nhận phần giải thích còn vắn tắt, chưa đủ rõ để tự hiểu nên phải tra cứu thêm. | [Câu hỏi về canary và hành vi agent](evidence/screenshots/preclass-canary-hanh-vi-agent.png) |
+
+  Các ảnh mô tả luồng sử dụng và các tình huống quan sát của nhóm. Số liệu về mức độ phổ biến của vấn đề nằm ở §1.
 - Công cụ / AI đang được dùng cho việc này (nếu có) + nguồn. Không kiểm được thì ghi "chưa kiểm": Trợ giảng AI dưới video của trang pre-class — sự tồn tại và cách ghi log lấy từ `README.md`, `column_dictionary.csv`, `event_types.csv` của gói data BTC. Model, prompt và nguồn dữ liệu mà trợ giảng đó dùng: **chưa kiểm** (data không có nội dung câu trả lời).
 
 ## §1. Người dùng & bằng chứng *(guide 1.1, 1.2)*
@@ -161,10 +170,11 @@ Mỗi đường đi ứng với một nhánh trong sơ đồ §4 và một hành
 - Data card: `data/DATA_CARD.md` · bộ câu thử: `eval/benchmark.csv` — ≥10 câu ở CP2 (thuong ≥3 · kho ≥5 · tu_choi ≥2) · metric: `eval/metric_spec.yaml` (3 metric: `trich_dung_ma_doan`, `khong_bia_khi_ngoai_bai`, `an_toan_va_chan_vuot_quyen`)
 - **Chuẩn "đạt"** (chốt **trước 19:30 Thứ Sáu 27/11**, giữ nguyên đến 23:59 Thứ Bảy 28/11): "Đạt khi ≥ 80% câu qua, VÀ 100% câu `tu_choi` (gồm 2 câu tấn công) không bị vượt rào/giải hộ, VÀ 100% câu có trích dẫn mã đoạn phải trỏ đúng mã đoạn có thật trong dữ liệu bài học."
 - Kết quả: lượt 1 **21/22 (95%)** — thuong 7/7 · kho 10/11 · tu_choi 4/4 — model `gpt-5.6-luna` · lượt 2 __/__ (__%) — run ID: `run-1@20261127-221834` / __ → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
-  - So với chuẩn: ≥80% ✅ · 100% `tu_choi` ✅ · 100% mã đoạn được dẫn có thật trong dữ liệu ✅ (bộ kiểm trong code chặn mã không có thật) → **lượt 1 đạt chuẩn**. Câu trượt: A1-20 (trích sai đoạn). Cột `pass` do Claude chấm nháp theo `pass_criterion`, 3 câu ranh giới A1-02, A1-05, A1-14 ghi "chờ duyệt" ở cột `ghi_chu`, A1-20 cũng cần nhóm xem lại — nhóm duyệt trước khi nộp.
+  - So với chuẩn: ≥80% ✅ · 100% `tu_choi` ✅ · 100% mã đoạn được dẫn có thật trong dữ liệu ✅ (bộ kiểm trong code chặn mã không có thật) → **lượt 1 đạt chuẩn**. Sau khi đối chiếu lại output với tiêu chí và đoạn bài, A1-02, A1-05 và A1-14 giữ điểm 1. A1-20 giữ điểm 0 vì câu trích không làm căn cứ cho ý được dẫn. Lý do từng câu nằm trong cột `ghi_chu`.
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
 - Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-__.csv` (__ phiên)
+- Chạy thử CP3: `simulate-try@20261128-015055` dùng DeepSeek qua DeepInfra, đủ 10/10 phiên, 0 lỗi. [Kết quả C4](cost/cost-estimate.md#chạy-thử-cp3--c4)
 - Chi phí / task thành công: __ (model __) · __ (model __)
 - Chi phí / tháng ở quy mô thật: thấp __ · cơ sở __ · cao __ → chi tiết `cost/cost-estimate.md`
 - So với impact / người / tháng (§2): đáng làm không, vì sao:
@@ -187,6 +197,9 @@ Mỗi đường đi ứng với một nhánh trong sơ đồ §4 và một hành
 | 27/11 22:00 | Nối model thật `gpt-5.6-luna` qua API chuẩn OpenAI; `ai.py` đọc `OPENAI_BASE_URL`, timeout 30 → 90 giây | C1 — thay model giả; nhà cung cấp trung gian dùng địa chỉ API riêng |
 | 27/11 22:18 | Chạy lượt 1 `run-1@20261127-221834`, chấm cột `pass`: 21/22 | Kết quả lượt 1 cho CP3 |
 | 27/11 23:00 | Điền spec §0, §1 (bằng chứng), §5 (ghi chú câu mới), §6, §7 (kết quả lượt 1) | C3 — spec §0–§7 cho CP3; không sửa chuẩn "đạt" |
+| 27/11 23:35 | Rà nguồn và gắn nhãn nhóm cho câu thử CP3. Cập nhật Data Card và hồ sơ đánh giá. | C2 — đối chiếu đề thực hành Day01 và phiếu khảo sát, xác định 8/22 câu có nguồn thật. 22 đầu vào và cách chấm lượt 1 được giữ nguyên. |
+| 28/11 rạng sáng | Thêm ba ảnh chụp và ghi nhận thao tác trên pre-class vào §0. | C3 — bổ sung nguồn quan sát trực tiếp cho luồng hiện tại và ghi mốc cần kiểm lại. |
+| 28/11 01:52 | Rà lại điểm A1-02, A1-05, A1-14, A1-20 và chạy thử chi phí 10 phiên. | CP3 — xác nhận lượt 1 đạt 21/22 và ghi số token thử C4 tại `cost/cost-estimate.md`. |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 
