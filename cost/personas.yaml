@@ -13,7 +13,9 @@ users:              # số người dùng thật nếu đưa vào dùng — 3 k�
   high: 1000
   source: "Cơ sở: lớp L3 hơn 700 học viên (README hackathon); thấp: 436 học viên active trong data/preclass/events.csv; cao: 1000 học viên toàn khoá AI20K (track-a-edtech.md)"
 
-personas:           # ≥3 kiểu người dùng; share cộng lại = 1
+# share lấy từ log D6. uses_per_month và turns_per_session là giả định
+# (tự ước tính), tham khảo khảo sát câu 4 về số lần gặp chỗ chưa hiểu.
+personas:
   - name: hoi_it
     share: 0.39
     uses_per_month: 3

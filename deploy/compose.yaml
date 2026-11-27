@@ -1,0 +1,32 @@
+name: mini-hackathon
+services:
+  agent:
+    image: mini-hackathon-agent:demo
+    build: ..
+    environment:
+      MODEL_PROVIDER: ${MODEL_PROVIDER:?}
+      MODEL_NAME: ${MODEL_NAME:?}
+      API_KEY: ${API_KEY:?}
+    ports:
+      - "127.0.0.1:8091:8091"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    mem_limit: 192m
+    pids_limit: 64
+  proxy:
+    image: caddy:2
+    user: "65532:65532"
+    network_mode: host
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /config:uid=65532,gid=65532,mode=0700
+      - /data:uid=65532,gid=65532,mode=0700
+    volumes:
+      - "./Caddyfile:/etc/caddy/Caddyfile:ro"
+      - "../replay:/srv/replay:ro"
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    mem_limit: 96m
+    pids_limit: 64

@@ -1,0 +1,19 @@
+[Unit]
+Description=BatOn pre-class tutor demo
+After=docker.service network-online.target
+Requires=docker.service
+
+[Service]
+Type=simple
+User=deploy
+WorkingDirectory=/home/deploy/mini-hackathon
+EnvironmentFile=/home/deploy/mini-hackathon/.env
+ExecStartPre=/usr/bin/docker compose -f deploy/compose.yaml run --rm --no-deps proxy caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
+ExecStart=/usr/bin/docker compose -f deploy/compose.yaml up --no-build --abort-on-container-exit
+ExecStop=/usr/bin/docker compose -f deploy/compose.yaml stop -t 12
+Restart=always
+RestartSec=5
+TimeoutStopSec=45
+
+[Install]
+WantedBy=multi-user.target

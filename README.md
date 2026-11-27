@@ -1,35 +1,12 @@
-> Đây là khung repo nộp bài. Điền mọi chỗ `____`, giữ nguyên tên các mục. **Mục 0 xoá đi sau khi tạo repo xong.**
-> Giờ, mốc, luật, rubric: xem `README.md`, `02-guide.md`, `03-rubric.md` trong repo đề (bộ đề BTC phát).
+# BatOn · Trợ giảng Day 01
 
-# [Tên nhóm] — [Tên lát cắt]
+Học viên hỏi về bài pre-class đang mở. Trợ giảng trả lời kèm mã đoạn và câu trích để học viên bấm vào đối chiếu, hỏi lại khi thiếu ngữ cảnh hoặc hướng dẫn hỏi TA khi bài thiếu căn cứ.
+
+[Mở phòng học](http://demo.202603027.xyz:8090/) · [Video demo dự phòng](http://demo.202603027.xyz:8090/demo.mp4) · [Slide CP4 đang chờ lượt 2](demo-slides.pdf)
 
 **Thành viên, lớp, track:** xem [TEAMS.md](TEAMS.md). **Điền TEAMS.md đúng format**: khi chấm và đánh giá, BTC quét file này để ghép điểm cho từng người.
 
 *Lát cắt = phần nhỏ nhất làm xong được trong hackathon: một người dùng · một việc · một quyết định AI · một kết quả.*
-
----
-
-## 0. Tạo repo nhóm từ khung này *(guide bước 1.0 — xoá mục này khi xong)*
-
-**Hai luật:** repo **mới, công khai (Public)** · tên `K5-Day15-<lớp>-<tên nhóm>`, vd `K5-Day15-L3A-StudyPulse` (tên nhóm viết liền, không dấu). Chép **nội dung bên trong** `starter-repo/` — `README.md`, `run.py` phải nằm ngay ở trang đầu repo.
-
-**(a) Không cần terminal — làm trên web GitHub**
-1. **New repository** → tên theo mẫu → **Public** → không tick thêm gì → tạo.
-2. Trên máy mở thư mục `starter-repo/`, **bật hiện file ẩn** (Mac Finder: `Cmd + Shift + .` · Windows: View → Show → Hidden items) để thấy `.gitignore`, `.env.example`.
-3. Trên repo vừa tạo: **Add file → Upload files** → **kéo thả** tất cả file và thư mục bên trong `starter-repo/` → **Commit changes**. Kéo thả mới giữ được thư mục con; lỗi vì nhiều file quá thì tải từng thư mục.
-4. Kiểm: có `.gitignore` chưa (hay thiếu nhất). Thiếu thì **Add file → Create new file**, tên `.gitignore`, dán nội dung từ máy.
-5. Từ giờ sửa file ngay trên web (biểu tượng bút chì → Commit). Phần code vẫn cần **một** người chạy được trên máy: trước mỗi lượt chạy tải **Code → Download ZIP** về thư mục mới (mang `.env` sang), chạy xong chỉ upload file kết quả và file vừa sửa; trong lúc đang chạy không ai sửa `eval/benchmark.csv` trên web.
-
-**(b) Dùng git**
-```bash
-git clone https://github.com/<tai-khoan>/K5-Day15-L3A-TenNhom.git
-cd K5-Day15-L3A-TenNhom
-cp -R ../duong-dan-toi/starter-repo/. .      # Windows PowerShell: Copy-Item -Recurse -Force ..\duong-dan-toi\starter-repo\* .
-git status                                   # không được có .env, data-btc/
-git add -A && git commit -m "Khung repo từ starter-repo" && git push
-```
-
-**Xong khi:** mở link repo bằng **cửa sổ ẩn danh** thấy được file (link nộp CP1) · đã mời thành viên (Settings → Collaborators) · đã điền `TEAMS.md` và `python run.py check` không báo gì ở phần "Kiểm TEAMS.md".
 
 ---
 
@@ -46,6 +23,8 @@ git add -A && git commit -m "Khung repo từ starter-repo" && git push
 *Ví dụ track A (ví dụ cỡ, không phải lời giải):* nhóm viết công cụ `search_lesson` tra bài pre-class đã đánh mã đoạn, luồng "tra đoạn → model trả lời kèm mã đoạn, không có thì nói không có", metric "mọi khẳng định có mã đoạn đúng", persona "ôn dồn trước kiểm tra". Khung chạy 25 câu thử ra `run-1.csv`, nhóm chấm `pass`, `score` in % đạt; `simulate` chạy 50 phiên ra chi phí / task thành công cho hai model.
 
 ## Chạy trong 3 phút
+
+Để chạy giao diện trên máy, cấu hình `.env` theo [hướng dẫn nối model](docs/connect-model.md), chạy `python codebase/web.py` rồi mở [phòng học local](http://127.0.0.1:8091/). Trang chat, nguồn bài, `POST /api/chat` (hoặc `/api/call`) và `GET /health` dùng chung một cổng. API nhận JSON `{"message":"Streaming là gì?"}` và trả nội dung trong trường `output`. [Vận hành Docker trên VPS](deploy/README.md)
 
 Bộ khung cần **Python 3.10 trở lên** (Python 3.9 có sẵn trên macOS vẫn chạy được, chỉ in một dòng nhắc). **Không cần `pip install`.**
 
@@ -108,14 +87,14 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 
 | Thành phần | Thật / Giả | Ghi chú |
 |---|---|---|
-| Lời gọi AI ở quyết định trung tâm | **Thật** (bắt buộc từ CP3) | Model: ____ |
-|  |  |  |
+| Lời gọi AI tại demo web | Thật | DeepInfra · `deepseek-ai/DeepSeek-V4.1-Flash-1017`. Lượt đánh giá CP3 dùng `gpt-5.6-luna`. |
+| Căn cứ Day 01 | Mô phỏng | 4 đoạn do nhóm biên soạn, gắn mã để kiểm tra trích dẫn. |
+| Kiểm mã và mở đoạn | Thật | Backend đối chiếu mã và câu trích. Nút mã trong chat mở đoạn gốc của bài mô phỏng. |
+| Dữ liệu về nhu cầu | Thật | Thống kê pre-class và khảo sát 21 học viên, tách khỏi dữ liệu chạy demo. |
 
 ## Dùng AI vào việc gì
 
-2–3 dòng (bắt buộc): nhóm dùng công cụ AI nào để làm gì, người kiểm lại phần nào. Chi tiết: [docs/ai-usage.md](docs/ai-usage.md). Coding agent đọc [AGENTS.md](AGENTS.md).
-
-____
+Nhóm dùng Codex để soạn khung agent, tạo các đoạn bài mô phỏng và dựng giao diện. Bốn câu của lượt 1 đã được rà lại theo rubric, lý do giữ điểm có trong `eval/run-1.csv`. Hai ca demo web được quay từ lời gọi DeepInfra thật.
 
 ## File mẫu — điền ở bước nào
 
@@ -141,11 +120,11 @@ ____
 
 | # | Hạng mục | File |
 |---|---|---|
-| 1 | Bằng chứng pain | `evidence/` (tổng hợp ở `evidence/summary.md`) |
-| 2 | Impact có số | `spec.md` §2 |
-| 3 | Thiết kế giải pháp | `spec.md` §4 |
-| 4 | Bản chạy thử làm trọn lát cắt | `codebase/` · lệnh ở mục "Lệnh" |
-| 5 | Định nghĩa "tốt" + bộ câu thử | `data/DATA_CARD.md` · `eval/` |
-| 6 | Mô phỏng chi phí khi dùng thật | `cost/` |
-| 7 | Slide + demo + video dự phòng | `demo-slides.pdf` ở thư mục gốc · link video: ____ |
+| 1 | ☑ Bằng chứng pain | [Dữ liệu pre-class và khảo sát](evidence/summary.md) |
+| 2 | ☑ Impact có số | `spec.md` §2 |
+| 3 | ☑ Thiết kế giải pháp | `spec.md` §4 |
+| 4 | ☑ Bản chạy thử làm trọn lát cắt | `codebase/` · lệnh ở mục "Lệnh" |
+| 5 | ◐ Định nghĩa "tốt" + bộ câu thử | `data/DATA_CARD.md` · `eval/` · đã có 22 câu, 3 metric và lượt 1. Chờ đồng bộ kết quả lượt 2. |
+| 6 | ◐ Mô phỏng chi phí khi dùng thật | [Persona và lượt thử 10 phiên](cost/cost-estimate.md). Chờ lượt 2 và 50 phiên để chốt. |
+| 7 | ◐ Slide + demo + video dự phòng | [Slide 8 trang](demo-slides.pdf) · [Video public](http://demo.202603027.xyz:8090/demo.mp4) · [Bản MP4 phát offline](replay/demo.mp4). Slide 5–8 cần đối chiếu kết quả lượt 2 và D3 trước khi nộp. |
 | + | *Bonus:* người dùng thử | `validation/log.md` |
