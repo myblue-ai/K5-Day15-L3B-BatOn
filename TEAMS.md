@@ -6,15 +6,15 @@
 
 - Tên nhóm: BatOn
 - Lớp: L3B
-- Track: ____
+- Track: A
 - Link repo: https://github.com/myblue-ai/K5-Day15-L3B-BatOn
 
 | STT | Họ và tên | Mã học viên | Vai trò | Phần việc chính |
 |---|---|---|---|---|
-| 1 | Đào Hồng Thắng | 2A202604076 | Đội trưởng | ____ |
-| 2 | Lê Hải Lân | 2A202603915 | Thành viên | ____ |
-| 3 | Trương Văn Hải | 2A202604018 | Thành viên | ____ |
-| 4 | Khương Hoàng Nguyên | 2A202603987 | Thành viên | ____ |
+| 1 | Đào Hồng Thắng | 2A202604076 | Đội trưởng | Canvas, TEAMS, bảng impact (spec §2) |
+| 2 | Lê Hải Lân | 2A202603915 | Thành viên | Mô phỏng chi phí (cost/) |
+| 3 | Trương Văn Hải | 2A202604018 | Thành viên | Bài toán + giả thuyết (spec §1), metric + chuẩn "đạt" (spec §7) |
+| 4 | Khương Hoàng Nguyên | 2A202603987 | Thành viên | Sơ đồ kiến trúc + code khung, bộ câu thử + data card |
 
 **Quy tắc điền**
 - **Lớp:** `L3A` hoặc `L3B`. **Track:** một chữ `A` (EdTech), `B` (Y tế), `C` (Du lịch), `D` (Thương mại điện tử), `E` (Tài chính) hoặc `F` (Làn khác). **Link repo:** link GitHub công khai của nhóm.
