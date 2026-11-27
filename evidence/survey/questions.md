@@ -3,9 +3,9 @@
 > Guide bước 1.2. Ngưỡng: **≥20 người ngoài nhóm**, đúng người dùng (học viên L3).
 > Hỏi **hành vi đã xảy ra**, không hỏi "có thích không". Không thu tên, email, mã học viên.
 
-- **Kênh gửi:** ____ (vd nhóm Zalo lớp L3B, Discord kênh ____)
-- **Giờ mở:** ____ · **Giờ chốt:** ____
-- **Link form:** ____
+- **Kênh gửi:** Zalo
+- **Giờ mở:** 17:45 Thứ Sáu 27/11/2026 · **Giờ chốt:** 19:00 Thứ Sáu 27/11/2026 · **Số phiếu:** 21
+- **Link form:** https://docs.google.com/forms/d/1TZVv2V1yNd1krjw5KGUaDJ893npPBQK15QKYC3_YBiw/viewform
 - **Lọc mẫu:** chỉ tính người chọn L3A / L3B ở câu 1 và không phải thành viên nhóm BatOn.
 
 | # | Câu hỏi | Kiểu trả lời | Kiểm điều gì |
