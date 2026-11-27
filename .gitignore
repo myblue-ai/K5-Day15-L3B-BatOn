@@ -18,6 +18,7 @@ eval/run-try.csv
 eval/run-mock.csv
 eval/run-error.csv
 eval/run-stopped.csv
+/eval/b3-cham-rieng.local.txt
 cost/simulate-try*
 cost/simulate-mock*
 cost/simulate-error*
@@ -35,3 +36,5 @@ evidence/**/raw-*
 # Nguyên file data BTC cấp (data/preclass, data/training-ops… của repo đề): để ở đây, không commit
 data-btc
 data-btc/
+/data/preclass/
+/data/training-ops/

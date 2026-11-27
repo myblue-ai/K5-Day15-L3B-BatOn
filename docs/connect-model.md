@@ -4,6 +4,8 @@
 
 Mục tiêu: `call_model()` trong `codebase/ai.py` gọi model thật và trả về câu trả lời kèm **số token** đo được. Prompt và luồng là phần nhóm tự viết trong `codebase/agent.py`. File này chỉ lo phần kết nối.
 
+Bản chạy thử A1 hỗ trợ DeepInfra và OpenAI trong `codebase/ai.py`. Điền `.env` theo mục 1, chạy `python run.py` và hỏi “Khi nào dùng streaming?”. Kiểm tra câu trả lời có mã `L3-D01-P04`, tên model và hai số token. Chế độ giả trả tình huống thiếu căn cứ để kiểm luồng.
+
 Ba ví dụ dưới đây (OpenAI, Claude, Ollama) **đã chạy với key thật ngày 25/11/2026**: chép vào là chạy.
 
 ## 1. Điền `.env`
@@ -11,16 +13,19 @@ Ba ví dụ dưới đây (OpenAI, Claude, Ollama) **đã chạy với key thậ
 Chép `.env.example` thành `.env`, điền 3 dòng. Ví dụ:
 
 ```
-MODEL_PROVIDER=openai
-MODEL_NAME=gpt-5.4-nano
-API_KEY=<key của nhóm, không dấu ngoặc kép>
+MODEL_PROVIDER=deepinfra
+MODEL_NAME=deepseek-ai/DeepSeek-V4.1-Flash-1017
+API_KEY=<key DeepInfra của nhóm>
 ```
 
 - `MODEL_NAME` là **mã gọi API** của model, lấy ở trang tài liệu của nhà cung cấp.
-- Chưa điền `MODEL_PROVIDER` thì `ai.py` chạy **chế độ giả** (câu giả, token 0). Dùng được cho bản khung trước CP2, nhưng `run.py eval` và `run.py simulate` không tính lượt đó.
+- DeepInfra dùng Chat Completions với đầu ra JSON. [Tài liệu model](https://deepinfra.com/deepseek-ai/DeepSeek-V4.1-Flash-1017/api)
+- Chưa điền `MODEL_PROVIDER` thì `ai.py` chạy **chế độ giả** (quyết định thiếu căn cứ, token 0). Dùng được cho bản khung trước CP2, nhưng `run.py eval` và `run.py simulate` không tính lượt đó.
 - `.env` đã có trong `.gitignore`. **Không commit key.**
 
-## 2. Chép code vào `codebase/ai.py`
+## 2. Ví dụ kết nối nếu đổi nhà cung cấp
+
+Giữ hợp đồng của tutor. Model cần trả JSON theo `SYSTEM` trong `codebase/agent.py` và nhánh `fake` cần trả quyết định mẫu `{"action":"no_source"}`.
 
 Giữ nguyên phần đầu file (`load_env`, các biến) và nhánh `fake`.
 1. Thêm 3 dòng `import` lên đầu file.
@@ -53,9 +58,8 @@ def post_json(url, headers, body, timeout=60):
 
 @model_call
 def call_model(system: str, user: str) -> dict:
-    if MODEL_PROVIDER == "fake":              # nhánh fake của khung — giữ nguyên 3 dòng này
-        last = (user.strip().splitlines() or [""])[-1]
-        return {"text": "[câu trả lời giả — chưa nối model] " + last[:60], "model": "fake", "tokens_in": 0, "tokens_out": 0}
+    if MODEL_PROVIDER == "fake":
+        return {"text": '{"action":"no_source"}', "model": "fake", "tokens_in": 0, "tokens_out": 0}
     if MODEL_PROVIDER == "openai":
         r = call_openai(system, user)
     elif MODEL_PROVIDER == "anthropic":
