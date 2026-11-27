@@ -1,0 +1,22 @@
+phieu,1. Bạn là học viên lớp nào?,2. Tuần qua bạn thường xem video pre-class/đọc slide vào khung giờ nào?,3. Lần gần nhất bạn xem video pre-class/đọc slide bài giảng và gặp một đoạn chưa hiểu là khi nào?,"4. Trong 1 tuần qua, bạn gặp đoạn chưa hiểu khoảng mấy lần? (ghi số)","5. Lần gần nhất đó, bạn đã làm gì?",6. Nếu lần đó bạn hỏi trợ giảng dưới video: câu trả lời có chỉ ra đoạn nào trong bài để bạn xem lại không?,"7. Sau khi nhận câu trả lời (từ bất kỳ đâu), bạn có mở lại bài để kiểm không?","8. Từ lúc gặp chỗ chưa hiểu đến lúc hiểu (hoặc bỏ qua), lần đó mất khoảng bao lâu?",9. Cuối cùng lần đó thế nào?,"10. Kể ngắn lần gần nhất: bạn kẹt ở đoạn nào, điều gì khó chịu nhất?"
+R01,L3A,Sáng;Khuya (sau 22h),Tuần trước,0,Bỏ qua,Lần đó tôi không hỏi trợ giảng,Không kiểm,Dưới 5 phút,Bỏ luôn,Kẹt nhưng không hỏi
+R02,L3B,Tối (19–22h),Tuần này,7,Tua lại video để tìm;Hỏi ChatGPT / Claude riêng,Lần đó tôi không hỏi trợ giảng,"Có, nhưng mất công tìm",15–30 phút,Hiểu hẳn,
+R03,L3B,Chiều;Khuya (sau 22h),Lâu hơn,1,Tua lại video để tìm;Bỏ qua,Không nhớ,Không nhận được câu trả lời,Dưới 5 phút,Bỏ luôn,"Hỏi tutor. Trả lời chung chung, nên bỏ luôn và đọc tài liệu"
+R04,L3B,Khuya (sau 22h),Tuần này,5,Tua lại video để tìm,Không nhớ,"Có, nhưng mất công tìm",Dưới 5 phút,Hiểu một phần,
+R05,L3B,Khuya (sau 22h),Lâu hơn,1,Tua lại video để tìm;Hỏi ChatGPT / Claude riêng,Lần đó tôi không hỏi trợ giảng,Không kiểm,5–15 phút,Hiểu một phần,"Evaluation, không hiểu cách eval. Nội dung tóm tắt nên chỉ hiểu mơ hồ"
+R06,L3A,Sáng;Trưa,Lâu hơn,4,"Tua lại video để tìm;Hỏi trợ giảng dưới video;Hỏi ChatGPT / Claude riêng;Hỏi TA, lab coach","Có, nhưng không đúng đoạn","Có, nhưng mất công tìm",Trên 30 phút,Hiểu hẳn,Kẹt ở Guardrail Output. Tutor không giải thích cụ thể
+R07,L3B,Trưa,Tuần trước,8,Tua lại video để tìm;Hỏi ChatGPT / Claude riêng,Lần đó tôi không hỏi trợ giảng,"Có, nhưng mất công tìm",15–30 phút,Hiểu hẳn,
+R08,L3A,Trưa;Tối (19–22h),Tuần này,4,Tua lại video để tìm;Hỏi ChatGPT / Claude riêng,Lần đó tôi không hỏi trợ giảng,"Có, nhưng mất công tìm",5–15 phút,Hiểu một phần,
+R09,L3B,Tối (19–22h),Hôm nay,10,Tua lại video để tìm;Hỏi trợ giảng dưới video;Hỏi ChatGPT / Claude riêng,"Có, đúng đoạn","Có, nhưng mất công tìm",Trên 30 phút,Hiểu hẳn,
+R10,L3B,Tối (19–22h);Khuya (sau 22h),Tuần trước,5,Tua lại video để tìm;Hỏi trợ giảng dưới video;Hỏi ChatGPT / Claude riêng,Không chỉ đoạn nào,"Có, nhưng mất công tìm",5–15 phút,Hiểu một phần,phần bắt đầu đi sâu vào phần chính
+R11,L3B,Sáng;Khuya (sau 22h),Lâu hơn,3,Tua lại video để tìm;Hỏi bạn / Discord,"Có, nhưng không đúng đoạn","Có, nhưng mất công tìm",Trên 30 phút,"Bỏ qua, để lên lớp hỏi","Đoạn hỏi tutor, hiện câu trả lời không liên quan"
+R12,L3A,Khuya (sau 22h),Tuần này,3,Tua lại video để tìm;Hỏi trợ giảng dưới video;Hỏi ChatGPT / Claude riêng,"Có, đúng đoạn","Có, nhưng mất công tìm",Trên 30 phút,Hiểu một phần,Kẹt ở phần giải thích của tutor. Tutor giải thích khó hiểu
+R13,L3B,Tối (19–22h),Tuần này,5,Hỏi ChatGPT / Claude riêng,"Có, nhưng không đúng đoạn","Có, nhưng mất công tìm",15–30 phút,Hiểu một phần,
+R14,L3B,Chiều,Tuần trước,4,Hỏi ChatGPT / Claude riêng,"Có, đúng đoạn","Có, nhưng mất công tìm",15–30 phút,Hiểu hẳn,
+R15,L3B,Khuya (sau 22h),Hôm nay,2,Hỏi trợ giảng dưới video;Hỏi ChatGPT / Claude riêng;Hỏi bạn / Discord,"Có, đúng đoạn",Không nhận được câu trả lời,15–30 phút,Bỏ luôn,Ở cách đóng gói agent vào docker. Video ngắn nên khó hiểu
+R16,L3B,Trưa;Tối (19–22h),Tuần này,10,Tua lại video để tìm;Hỏi trợ giảng dưới video;Hỏi ChatGPT / Claude riêng,Không chỉ đoạn nào,Không kiểm,5–15 phút,Hiểu một phần,
+R17,L3B,Tối (19–22h),Tuần trước,2,Tua lại video để tìm;Hỏi trợ giảng dưới video,Không chỉ đoạn nào,Không kiểm,15–30 phút,Hiểu một phần,
+R18,L3A,Tối (19–22h);Khuya (sau 22h),Tuần này,2,Tua lại video để tìm;Hỏi trợ giảng dưới video;Hỏi ChatGPT / Claude riêng,Không chỉ đoạn nào,"Có, nhưng mất công tìm",Dưới 5 phút,"Bỏ qua, để lên lớp hỏi","Các khái niệm mới, phức tạp nhưng trợ giảng AI giải thích không sâu"
+R19,L3B,Tối (19–22h),Tuần trước,5,Hỏi ChatGPT / Claude riêng,Lần đó tôi không hỏi trợ giảng,Không kiểm,Dưới 5 phút,Hiểu một phần,
+R20,L3A,Khuya (sau 22h),Tuần trước,5,Tua lại video để tìm;Hỏi trợ giảng dưới video;Hỏi bạn / Discord,Không chỉ đoạn nào,"Có, nhưng mất công tìm",15–30 phút,Hiểu một phần,"Lời giải thích của tutor nhập nhằng, sai"
+R21,L3B,Tối (19–22h),Tuần này,2,Tua lại video để tìm;Hỏi trợ giảng dưới video,Lần đó tôi không hỏi trợ giảng,Không kiểm,15–30 phút,Hiểu một phần,Kẹt ở công thức tính cost token/AI
