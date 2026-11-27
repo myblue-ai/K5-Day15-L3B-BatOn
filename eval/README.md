@@ -87,7 +87,7 @@ Cột B1 lấy từ bảng Trương Văn Hải gửi. Cột B3 lấy từ lượ
 
 | Lượt | Run ID | Model | Cấu hình (prompt / công cụ / thay đổi) | Đạt / tổng | % | Đạt chuẩn? |
 |---|---|---|---|---|---|---|
-| 1 | | | | __/__ | | |
+| 1 | `run-1@20261127-221834` | gpt-5.6-luna | Prompt `SYSTEM` trong `agent.py` · 1 công cụ `read_lesson_segments` · bộ kiểm mã đoạn + câu trích | 21/22 | 95% | Đạt |
 | 2 | | | | __/__ | | |
 
 Lượt chạy lại vì lỗi kỹ thuật, lượt sau CP4: ghi thêm dòng, không sửa dòng cũ.
