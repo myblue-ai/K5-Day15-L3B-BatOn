@@ -19,15 +19,31 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): __
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
+> **Bản nháp CP1.** Số từ `data/preclass/` (05/11–25/11/2026, 21 ngày) là số đếm thật [D1–D6]; số "phút" và quy ra tháng là *(tự ước tính)*, sẽ kiểm lại bằng phỏng vấn trước CP3.
+
 | Hướng | Bao nhiêu người gặp | Bao nhiêu lần / tháng | Mỗi lần tốn gì | Impact / tháng | Làm kịp không | Chọn? |
 |---|---|---|---|---|---|---|
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
+| **A1 · Trợ giảng dưới video trả lời kèm đoạn bài làm căn cứ** | 145/436 học viên có hoạt động (33%) đã hỏi trợ giảng dưới video [D1] | 1.108 câu / 21 ngày [D1] ≈ **1.580 câu / tháng** *(ngoại suy ×30/21)* · trong đó **41%** câu trả lời không dẫn mốc nào trong bài (231/557) [D2] → ≈ 650 câu / tháng | ~3 phút tua lại tìm đoạn *(tự ước tính — kiểm bằng phỏng vấn)*; rủi ro học sai khi câu trả lời không có căn cứ. Hành vi tua lùi phổ biến: 177/431 người xem video (41%) đã tua lùi, 2.602 lần [D3] | ≈ 650 × 3 phút ≈ **32 giờ học viên / tháng** *(tự ước tính)* | Kịp: 1 công cụ tra đoạn + 1 lời gọi model; data bài tự dựng được | ✅ **Chọn** |
+| **A2 · Trợ lý Discord trả lời hạn nộp / lịch** | Chưa có số — data BTC không có Discord *(tự ước tính: phần lớn lớp L3 ~700 người)* | Chưa có số *(tự ước tính: dồn quanh hạn nộp)* | Hỏi lại, chờ TA trả lời; nhận hạn sai *(tự ước tính)* | Chưa tính được | Kịp, nhưng phải tự đếm Discord thủ công + tự dựng thông báo mẫu | ❌ |
+| **A4 · Bạn học AI xen vào bài giảng** | Lời bạn học AI hiện ra 13.975 lần [D4] | Học viên trả lời lại bạn học AI 151 lần / 21 ngày [D5] → chỉ ~1,1% lời xen vào được đáp lại | Chưa rõ tốn gì — data không cho biết vì sao học viên không đáp | Chưa tính được | Khó: phải đo "học được", sản phẩm nhiều vai | ❌ |
 
-- **Impact / tháng** của hướng chọn = __ người × __ lần × __ phút = __ — nguồn từng thừa số: __ (không có nguồn thì ghi rõ *(tự ước tính)*)
-- Hướng ĐÃ LOẠI + vì sao (giữ lại, đừng xoá):
-- Số lần / tháng của từng kiểu người dùng (dùng cho persona ở §8):
+- **Impact / tháng** của hướng chọn = ~1.580 câu hỏi × 41% không có căn cứ × ~3 phút = **~32 giờ / tháng** trên nhóm 436 học viên có hoạt động — nguồn: số câu [D1] *(ngoại suy ra tháng)*, tỉ lệ 41% [D2], 3 phút *(tự ước tính — kiểm bằng phỏng vấn)*. Chưa tính thiệt hại "học sai kiến thức", sẽ bổ sung từ phỏng vấn.
+- **Hướng ĐÃ LOẠI + vì sao** (giữ lại, đừng xoá):
+  - A2 Discord: không có data BTC → mọi số đều tự ước tính, bằng chứng yếu hơn A1.
+  - A4 Bạn học AI: số học viên đáp lại thấp nhưng chưa biết vì sao, khó đo "học được" trong 10 giờ, sản phẩm lớn.
+- **Số lần / tháng của từng kiểu người dùng** (dùng cho persona ở §8) — trong 145 người đã hỏi, 21 ngày [D6]:
+  - Hỏi ít (1–2 câu): 56 người (39%)
+  - Hỏi vừa (3–9 câu): 55 người (38%)
+  - Hỏi nhiều (≥10 câu): 34 người (23%), chiếm 720/1.108 câu (65%)
+- **Nguồn bằng chứng chính:** **đào data** `data/preclass/` (đếm được x/N) → **kiểm lại bằng phỏng vấn** ≥3 bạn L3 (vì sao tua lại, câu trả lời có giúp tự kiểm không, mất bao lâu).
+
+**Cách đếm** (chạy lại được; chi tiết sẽ chép vào `evidence/data-mining.md`):
+- [D1] `chat.csv`, lọc `channel = video_question` → 1.108 dòng, 145 `hv` khác nhau. Mẫu số 436 = số `hv` có ít nhất 1 dòng `actor = learner` trong `events.csv`.
+- [D2] `events.csv`, `type = agent_replied`, nối `ref_id` với 1.108 câu ở D1, chỉ lấy dòng có khoá `moc_trich_dan` trong cột `data` (chỉ có từ 13/11) → 557 câu trả lời của trợ giảng, 231 câu có `moc_trich_dan` rỗng. *Giới hạn:* "không có mốc" chưa chắc là trả lời sai.
+- [D3] `events.csv`, `type = video_seeked` với `to < from` → 2.602 lần, 177 `hv`; mẫu số 431 = số `hv` có `video_opened`.
+- [D4] `events.csv`, `type = agent_message_shown` → 13.975 dòng.
+- [D5] `chat.csv`, `channel = video_discussion_reply` → 151 dòng.
+- [D6] Đếm số câu ở D1 theo từng `hv`, chia 3 nhóm 1–2 / 3–9 / ≥10.
 
 ## §3. Giải pháp tương tự *(guide 2.1)*
 - [sản phẩm / tính năng gần giống]: một điều đáng học · một điều đáng né · mình khác gì
