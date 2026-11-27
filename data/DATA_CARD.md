@@ -33,6 +33,6 @@
 |---|---|
 | Dùng để làm gì | Thử hỏi đáp theo bài, hỏi lại, dẫn căn cứ và từ chối. [Benchmark](../eval/benchmark.csv) |
 | Từ đâu | 4 câu diễn đạt lại từ các câu phản ánh và bài tập có sẵn trong phiếu Day01 §2.1–§2.3. 8 câu Codex tự viết theo lát cắt. |
-| Xử lý và kiểm tra | Mỗi câu trỏ nguồn và có điều kiện chấm theo đoạn bài. Câu tự viết không dùng seed. Đã thu 12 phản hồi trong một lượt mô phỏng ChatGPT. Chờ B1 và B3 chấm độc lập. [Output mô phỏng](../eval/README.md#output-mô-phỏng-cp2) |
+| Xử lý và kiểm tra | Mỗi câu trỏ nguồn và có điều kiện chấm theo đoạn bài. Câu tự viết không dùng seed. Đã thu 12 phản hồi trong một lượt mô phỏng ChatGPT và đối chiếu 5 phản hồi do B1 và B3 chấm riêng. [Kết quả đối chiếu](../eval/README.md#đối-chiếu-b1-và-b3-trên-phản-hồi-chatgpt) |
 | Số dòng / nhãn | 12 câu bản CP2, gồm 4 `data_that` từ phiếu học tập và 8 `tu_viet`. |
 | Giới hạn | Các câu từ phiếu thực hành đại diện cho nội dung học. Ghi chép phỏng vấn sau này có thể bổ sung cách hỏi tự nhiên dưới video. |
