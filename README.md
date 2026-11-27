@@ -2,7 +2,7 @@
 
 Học viên hỏi về bài pre-class đang mở. Trợ giảng trả lời kèm mã đoạn và câu trích để học viên bấm vào đối chiếu, hỏi lại khi thiếu ngữ cảnh hoặc hướng dẫn hỏi TA khi bài thiếu căn cứ.
 
-[Mở phòng học](http://demo.202603027.xyz:8090/) · [Video demo dự phòng](http://demo.202603027.xyz:8090/demo.mp4) · [Slide CP4 đang chờ lượt 2](demo-slides.pdf)
+[Mở phòng học](https://demo.202603027.xyz:8090/) · [Video demo dự phòng](https://demo.202603027.xyz:8090/demo.mp4) · [Slide CP4 đang chờ lượt 2](demo-slides.pdf)
 
 **Thành viên, lớp, track:** xem [TEAMS.md](TEAMS.md). **Điền TEAMS.md đúng format**: khi chấm và đánh giá, BTC quét file này để ghép điểm cho từng người.
 
@@ -126,5 +126,5 @@ Nhóm dùng Codex để soạn khung agent, tạo các đoạn bài mô phỏng 
 | 4 | ☑ Bản chạy thử làm trọn lát cắt | `codebase/` · lệnh ở mục "Lệnh" |
 | 5 | ◐ Định nghĩa "tốt" + bộ câu thử | `data/DATA_CARD.md` · `eval/` · đã có 22 câu, 3 metric và lượt 1. Chờ đồng bộ kết quả lượt 2. |
 | 6 | ◐ Mô phỏng chi phí khi dùng thật | [Persona và lượt thử 10 phiên](cost/cost-estimate.md). Chờ lượt 2 và 50 phiên để chốt. |
-| 7 | ◐ Slide + demo + video dự phòng | [Slide 8 trang](demo-slides.pdf) · [Video public](http://demo.202603027.xyz:8090/demo.mp4) · [Bản MP4 phát offline](replay/demo.mp4). Slide 5–8 cần đối chiếu kết quả lượt 2 và D3 trước khi nộp. |
+| 7 | ◐ Slide + demo + video dự phòng | [Slide 8 trang](demo-slides.pdf) · [Video public](https://demo.202603027.xyz:8090/demo.mp4) · [Bản MP4 phát offline](replay/demo.mp4). Slide 5–8 cần đối chiếu kết quả lượt 2 và D3 trước khi nộp. |
 | + | *Bonus:* người dùng thử | `validation/log.md` |

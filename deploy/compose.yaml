@@ -25,6 +25,7 @@ services:
       - /data:uid=65532,gid=65532,mode=0700
     volumes:
       - "./Caddyfile:/etc/caddy/Caddyfile:ro"
+      - "../tls:/etc/caddy/tls:ro"
       - "../replay:/srv/replay:ro"
     cap_drop: [ALL]
     security_opt: ["no-new-privileges:true"]

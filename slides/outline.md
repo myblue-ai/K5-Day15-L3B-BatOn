@@ -16,7 +16,7 @@
 
 ## Bản demo hiện có
 
-[PDF 8 trang](../demo-slides.pdf) · [Nguồn slide để sửa](deck.html) · [Phòng học](http://demo.202603027.xyz:8090/) · [Video dự phòng](http://demo.202603027.xyz:8090/demo.mp4) · [MP4 để tải về trước buổi demo](../replay/demo.mp4)
+[PDF 8 trang](../demo-slides.pdf) · [Nguồn slide để sửa](deck.html) · [Phòng học](https://demo.202603027.xyz:8090/) · [Video dự phòng](https://demo.202603027.xyz:8090/demo.mp4) · [MP4 để tải về trước buổi demo](../replay/demo.mp4)
 
 1. Mở Day 01, nhập câu A1-01 về temperature của chatbot. Bấm mã P01 để đối chiếu với đoạn nói về tính nhất quán.
 2. Bấm **Hỏi lại từ đầu**, nhập A1-07 về streaming và hạn nộp side lab. Mở P04, chỉ ra phần về hạn nộp cần hỏi TA.
