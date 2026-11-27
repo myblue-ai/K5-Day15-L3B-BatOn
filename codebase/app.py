@@ -34,7 +34,8 @@ def main() -> int:
         print("Không nạp được codebase/ — lỗi ở %s: %s: %s" % (_where(e), type(e).__name__, e))
         print("Sửa lỗi rồi chạy lại. Cách nối model: docs/connect-model.md")
         return 1
-    print("Bản chạy thử — gõ đầu vào rồi Enter. Thoát: Ctrl+C (hoặc Enter 2 lần với dòng trống).")
+    print("Tutor pre-class · Video mẫu Day01 về LLM API.")
+    print("Gõ câu hỏi về bài đang xem rồi Enter. Thoát: Ctrl+C (hoặc Enter 2 lần với dòng trống).")
     blank = 0
     while True:
         try:

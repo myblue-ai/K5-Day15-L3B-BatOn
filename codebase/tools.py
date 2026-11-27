@@ -8,11 +8,20 @@ Số công cụ, kiểu công cụ do thiết kế của nhóm quyết định �
 Công cụ có tác động ra ngoài: KHÔNG tự làm. Trả về bản nháp chờ người duyệt (guide bước 2.2, "chỗ người duyệt").
 Dữ liệu công cụ đọc (bài mẫu, thông báo mẫu, lịch…): để trong data/ và mô tả ở data/DATA_CARD.md.
 """
-from tracing import tool, TOOLS  # noqa: F401  (TOOLS: danh sách công cụ đã đăng ký, dùng khi viết vòng lặp agent)
+import json
+from pathlib import Path
+
+from tracing import tool
+
+
+DEMO_LESSON = Path(__file__).resolve().parents[1] / "data" / "a1_demo_lesson.json"
 
 
 @tool
-def search_example(query: str) -> list:
-    """(ví dụ — thay bằng công cụ của nhóm) Tra dữ liệu mẫu theo câu hỏi.
-    Input: câu hỏi (str). Output: danh sách đoạn {"code", "text"}. Không tác động ra ngoài."""
-    return [{"code": "VD-1", "text": "(ví dụ) đoạn dữ liệu giả — thay bằng dữ liệu thật của bài toán"}]
+def read_lesson_segments() -> list[dict[str, str]]:
+    """Đọc các đoạn của video Day01 mô phỏng đang mở.
+    Input: không có. Output: danh sách đoạn {"code", "text"}.
+    Chỉ đọc tệp cục bộ, không tác động ra ngoài.
+    """
+    with DEMO_LESSON.open(encoding="utf-8") as file:
+        return json.load(file)

@@ -1,0 +1,18 @@
+[
+  {
+    "code": "L3-D01-P01",
+    "text": "Temperature điều chỉnh mức ngẫu nhiên khi model chọn token tiếp theo. Mức thấp nghiêng về các lựa chọn có xác suất cao và thường cho câu trả lời ổn định hơn. Mức cao cho phép nhiều cách diễn đạt hơn. Với chatbot hỗ trợ khách hàng cần câu trả lời nhất quán, hãy bắt đầu ở mức thấp và thử trên các câu hỏi thường gặp."
+  },
+  {
+    "code": "L3-D01-P02",
+    "text": "Bài thực hành giữ nguyên một prompt rồi thử temperature 0.0, 0.5, 1.0 và 1.5. Hãy chạy cùng một model và đọc bốn phản hồi để so sánh mức đa dạng của chúng. Nhận xét về một lần chạy phải dựa trên các phản hồi thực tế của lần đó."
+  },
+  {
+    "code": "L3-D01-P03",
+    "text": "Trong ví dụ tính chi phí của bài thực hành, đơn giá giả định của terra là 1 USD cho một triệu token đầu vào và 5 USD cho một triệu token đầu ra. Đơn giá ví dụ của luna lần lượt là 0,10 USD và 0,50 USD. Chi phí cộng riêng phần vào và phần ra. Nếu hai model dùng cùng số token vào và cùng số token ra, terra đắt gấp 10 lần theo đơn giá trong ví dụ."
+  },
+  {
+    "code": "L3-D01-P04",
+    "text": "Streaming hiển thị dần nội dung khi model sinh câu trả lời, phù hợp với chat tương tác cần bắt đầu đọc sớm. Non-streaming nhận toàn bộ câu trả lời một lần, phù hợp khi chương trình cần kiểm tra hoặc xử lý toàn bộ kết quả trước khi dùng."
+  }
+]
