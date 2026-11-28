@@ -13,12 +13,14 @@
 
 Kết quả từng câu: `eval/run-1.csv`, `eval/run-2.csv`. Trace: `traces/run-1.jsonl`, `traces/run-2.jsonl`.
 
+Codex rà lại bốn câu của lượt 1 theo tiêu chí từng câu và đoạn bài. A1-02, A1-05 và A1-14 giữ điểm 1. A1-20 giữ điểm 0 do câu trích không làm căn cứ cho nhận định về chất lượng hai model. Điểm tổng vẫn là **21/22**. [Ghi chú từng câu](run-1.csv)
+
 ## 2. Lỗi lượt 1 — gom thành nhóm có tên
 
 | Nhóm lỗi | Số câu | Câu |
 |---|---|---|
 | `trich_sai_doan` (lớp 1) — câu trích không đỡ ý được nói | 1 (trượt) | A1-20 |
-| `partial_thua` — báo "phần còn lại không có trong bài" khi câu hỏi đã được trả lời đủ | 3 (đạt tiêu chí, lỗi chất lượng) | A1-08, A1-18, A1-20 |
+| `partial_thua` — báo "phần còn lại không có trong bài" khi câu hỏi đã được trả lời đủ | 3 (2 đạt, 1 trượt) | A1-08, A1-18, A1-20 |
 | `tu_choi_rap_khuon` — câu từ chối dùng chung một mẫu, lạc ý hoặc lẫn xưng hô | 2 (đạt tiêu chí, lỗi chất lượng) | A1-11, A1-21 |
 
 **≥3 lỗi cụ thể:**
