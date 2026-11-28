@@ -23,7 +23,7 @@ sudo systemctl restart mini-hackathon.service
 curl --fail http://127.0.0.1:8091/health
 ```
 
-Từ máy ngoài VPS, kiểm tra `curl --fail https://demo.202603027.xyz:8090/health` và mở [video dự phòng](https://demo.202603027.xyz:8090/demo.mp4) trong cửa sổ riêng tư. Video ghi hai ca A1-01 và A1-07 trên agent D1 (`93e78d8`) dùng DeepInfra. Hai lượt đánh giá và phép đo token D3 dùng `gpt-5.6-luna`.
+Từ máy ngoài VPS, kiểm tra `curl --fail https://demo.202603027.xyz:8090/health` và mở [video dự phòng](https://demo.202603027.xyz:8090/demo.mp4) trong cửa sổ riêng tư. Video ghi hai ca A1-01 và A1-07 trên agent D1 (`93e78d8`) chạy `jpt/gpt-5.6-luna` qua gateway tương thích OpenAI. Hai lượt đánh giá và phép đo token D3 ghi tên model `gpt-5.6-luna`.
 
 ## Quản trị model và khoá lượt gọi công khai
 

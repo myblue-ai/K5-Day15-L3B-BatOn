@@ -91,14 +91,14 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 
 | Thành phần | Thật / Giả | Ghi chú |
 |---|---|---|
-| Lời gọi AI tại demo web | Thật | Agent D1 (`93e78d8`) gọi `deepseek-ai/DeepSeek-V4.1-Flash-1017` qua DeepInfra. Hai lượt đánh giá và phép đo token D3 dùng `gpt-5.6-luna`. |
+| Lời gọi AI tại demo web | Thật | Agent D1 (`93e78d8`) gọi `jpt/gpt-5.6-luna` qua gateway tương thích OpenAI. Hai lượt đánh giá và phép đo token D3 ghi tên model `gpt-5.6-luna`. |
 | Căn cứ Day 01 | Mô phỏng | 4 đoạn do nhóm biên soạn, gắn mã để kiểm tra trích dẫn. |
 | Kiểm mã và mở đoạn | Thật | Backend đối chiếu mã và câu trích. Nút mã trong chat mở đoạn gốc của bài mô phỏng. |
 | Dữ liệu về nhu cầu | Thật | Thống kê pre-class và khảo sát 21 học viên, tách khỏi dữ liệu chạy demo. |
 
 ## Dùng AI vào việc gì
 
-Nhóm dùng Codex để soạn khung agent, tạo các đoạn bài mô phỏng và dựng giao diện. Bốn câu của lượt 1 đã được rà lại theo rubric, lý do giữ điểm có trong `eval/run-1.csv`. Hai ca demo web được quay từ lời gọi DeepInfra thật.
+Nhóm dùng Codex để soạn khung agent, tạo các đoạn bài mô phỏng và dựng giao diện. Bốn câu của lượt 1 đã được rà lại theo rubric, lý do giữ điểm có trong `eval/run-1.csv`. Video demo ghi hai lời gọi Luna thật qua giao diện web.
 
 ## File mẫu — điền ở bước nào
 
