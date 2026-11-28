@@ -1,15 +1,101 @@
 <!doctype html>
-<html lang="vi"><meta charset="utf-8"><title>BatOn · Trợ giảng Day 01</title>
+<html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>BatOn · Trợ giảng Day 01</title>
 <style>
-@page{size:320mm 180mm;margin:0}*{box-sizing:border-box}
-body{margin:0;background:#dadfd9;color:#143d32;font:22px/1.42 'Segoe UI',Arial,sans-serif}
-section{width:320mm;height:180mm;background:#f7f8ef;padding:44px 68px 40px;position:relative;break-after:page;overflow:hidden}
-section:last-child{break-after:auto}section.dark{background:#123f34;color:#f6faed}
-header{font-weight:650;font-size:17px;letter-spacing:.025em;border-bottom:1px solid #829a83;padding-bottom:10px;margin-bottom:24px}
-h1,h2{font:normal 52px/1.08 Cambria,Georgia,serif;letter-spacing:-.035em;margin:0 0 20px;max-width:1010px}
-h3{font-size:26px;margin:0 0 10px}p{margin:0 0 16px}footer{position:absolute;bottom:25px;left:68px;right:68px;border-top:1px solid #9cac9c;padding-top:8px;font-size:15px}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}.big{font:normal 87px/1.12 Cambria,Georgia,serif;letter-spacing:-.05em;margin:0}.dark .big,.dark a{color:#d5efa9}blockquote{font:normal 29px/1.28 Cambria,Georgia,serif;margin:18px 0}.note{font-size:18px}.line{border-top:1px solid #a1b1a0;padding:13px 0}.flow{display:flex;align-items:center;gap:20px;font-size:25px;font-weight:650;background:#e4ecd6;padding:20px 24px;margin:15px 0 28px}.flow i{font-style:normal;color:#45765a}table{border-collapse:collapse;width:100%;margin:15px 0;font-size:21px}td,th{padding:9px;text-align:left;border-bottom:1px solid #a7b6a5}a{color:#235d47}strong{font-weight:670}small{font-size:15px}code{font:19px Consolas,monospace}
-</style><body>
+@page { size: 320mm 180mm; margin: 0; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #dadfd9; color: #143d32; font-family: 'Segoe UI', Arial, sans-serif; }
+section {
+  --unit: 1px;
+  display: flex;
+  flex-direction: column;
+  background: #f7f8ef;
+  padding: calc(44 * var(--unit)) calc(68 * var(--unit)) calc(25 * var(--unit));
+  font-size: calc(22 * var(--unit));
+  line-height: 1.42;
+}
+section.dark { background: #123f34; color: #f6faed; }
+header {
+  font-size: calc(17 * var(--unit));
+  font-weight: 650;
+  letter-spacing: .025em;
+  border-bottom: 1px solid #829a83;
+  padding-bottom: calc(10 * var(--unit));
+  margin-bottom: calc(24 * var(--unit));
+}
+h1, h2 {
+  font: normal calc(52 * var(--unit))/1.08 Cambria, Georgia, serif;
+  letter-spacing: -.035em;
+  margin: 0 0 calc(20 * var(--unit));
+  max-width: calc(1010 * var(--unit));
+}
+h3 { font-size: calc(26 * var(--unit)); margin: 0 0 calc(10 * var(--unit)); }
+p { margin: 0 0 calc(16 * var(--unit)); }
+footer {
+  margin-top: auto;
+  border-top: 1px solid #9cac9c;
+  padding-top: calc(8 * var(--unit));
+  font-size: calc(15 * var(--unit));
+  overflow-wrap: anywhere;
+}
+.cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: calc(48 * var(--unit));
+  align-items: start;
+}
+.big { font: normal calc(87 * var(--unit))/1.12 Cambria, Georgia, serif; letter-spacing: -.05em; margin: 0; }
+.dark .big, .dark a { color: #d5efa9; }
+blockquote { font: normal calc(29 * var(--unit))/1.28 Cambria, Georgia, serif; margin: calc(18 * var(--unit)) 0; }
+.note { font-size: calc(18 * var(--unit)); }
+.line { border-top: 1px solid #a1b1a0; padding: calc(13 * var(--unit)) 0; }
+.flow {
+  display: flex;
+  align-items: center;
+  gap: calc(20 * var(--unit));
+  font-size: calc(25 * var(--unit));
+  font-weight: 650;
+  background: #e4ecd6;
+  padding: calc(20 * var(--unit)) calc(24 * var(--unit));
+  margin: calc(15 * var(--unit)) 0 calc(28 * var(--unit));
+}
+.flow i { font-style: normal; color: #45765a; }
+table { border-collapse: collapse; width: 100%; margin: calc(15 * var(--unit)) 0; font-size: calc(21 * var(--unit)); }
+td, th { padding: calc(9 * var(--unit)); text-align: left; border-bottom: 1px solid #a7b6a5; }
+a { color: #235d47; }
+strong { font-weight: 670; }
+code { font: calc(19 * var(--unit)) Consolas, monospace; overflow-wrap: anywhere; }
+
+@media screen {
+  main {
+    width: min(calc(100% - 32px), calc((100svh - 40px) * 16 / 9), 1680px);
+    margin-inline: auto;
+    padding-block: 20px;
+    container-type: inline-size;
+  }
+  section {
+    --unit: .082682cqw;
+    min-height: 56.25cqw;
+    margin-bottom: 20px;
+  }
+  section:last-child { margin-bottom: 0; }
+}
+@media screen and (max-width: 720px), screen and (max-height: 520px) {
+  main { width: min(calc(100% - 24px), 760px); padding-block: 12px; }
+  section { --unit: .76px; min-height: auto; padding: 22px 18px 18px; margin-bottom: 12px; }
+  h1, h2 { font-size: clamp(26px, 7vw, 38px); }
+  .cols { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .big { font-size: clamp(45px, 11vw, 68px); }
+  .flow { flex-wrap: wrap; gap: 8px 12px; }
+  footer { margin-top: 16px; }
+  table { table-layout: fixed; font-size: .8em; overflow-wrap: anywhere; }
+  td, th { padding: 5px; }
+}
+@media print {
+  body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  section { width: 320mm; height: 180mm; break-after: page; }
+  section:last-child { break-after: auto; }
+}
+</style><body><main aria-label="Slide demo CP4 của BatOn">
 <section class="dark"><header>BatOn · Trợ giảng pre-class · Nhóm L3B</header>
 <h1>Học viên cần biết câu trả lời đến từ đâu trong bài</h1>
 <div class="cols"><div><p class="big">231/557</p><p>phản hồi của tutor thiếu mốc dẫn về bài trong dữ liệu pre-class.</p></div>
@@ -26,11 +112,11 @@ h3{font-size:26px;margin:0 0 10px}p{margin:0 0 16px}footer{position:absolute;bot
 <div class="cols"><div><h3>AI quyết định cách trả lời</h3><p>Đủ căn cứ thì dẫn đoạn. Câu mơ hồ thì hỏi lại. Khi bài chỉ hỗ trợ một phần, tutor trả lời phần đó và gợi ý hỏi TA về phần còn lại.</p></div>
 <div><h3>Học viên kiểm lại ý nghĩa</h3><p>Backend kiểm tra mã đoạn và câu trích nguyên văn trước khi hiển thị. Học viên bấm mã để so ý diễn giải với toàn đoạn.</p></div></div>
 <footer>03 / 08 · spec.md §4 · codebase/agent.py · data/a1_demo_lesson.json (học liệu mô phỏng)</footer></section>
-<section><header>Demo trực tiếp · Day 01 trên DeepInfra</header><h2>Một câu có đủ căn cứ, một câu chỉ trả lời được một phần</h2>
-<div class="cols"><div class="line"><h3>A1-01 · Câu thường</h3><blockquote>“Nên đặt temperature ở mức nào cho chatbot hỗ trợ khách hàng, và tại sao?”</blockquote><p>Bấm <code>L3-D01-P01</code> để đọc căn cứ cho gợi ý bắt đầu ở mức thấp.</p></div>
-<div class="line"><h3>A1-07 · Câu khó</h3><blockquote>“Streaming khác gì non-streaming, và hạn nộp side lab là khi nào?”</blockquote><p>Mở <code>L3-D01-P04</code> để kiểm phần streaming. Hạn nộp cần hỏi TA.</p></div></div>
-<p><a href="https://demo.202603027.xyz:8090/">Mở demo</a>　·　<a href="https://demo.202603027.xyz:8090/demo.mp4">Phát video dự phòng</a></p>
-<footer>04 / 08 · eval/benchmark.csv · replay/demo.mp4 · agent D1 93e78d8 trên DeepInfra</footer></section>
+<section><header>Demo Day 01 · Hai câu thử trên gpt-5.6-luna</header><h2>Một câu có đủ căn cứ, một câu chỉ có thể trả lời một phần</h2>
+<div class="cols"><div class="line"><h3>A1-01 · Câu thường · Đạt</h3><blockquote>“Nên đặt temperature ở mức nào cho chatbot hỗ trợ khách hàng, và tại sao?”</blockquote><p>Luna gợi ý bắt đầu ở mức thấp để phản hồi ổn định hơn. Bấm <code>L3-D01-P01</code> để đọc căn cứ.</p></div>
+<div class="line"><h3>A1-07 · Câu khó · Đạt</h3><blockquote>“Streaming khác gì non-streaming, và hạn nộp side lab là khi nào?”</blockquote><p>Luna giải thích hai chế độ theo <code>L3-D01-P04</code>, rồi nói bài không có hạn nộp và hướng dẫn hỏi TA.</p></div></div>
+<p><a href="https://demo.202603027.xyz:8090/">Mở phòng học</a> · <a href="https://demo.202603027.xyz:8090/demo.mp4">Video minh họa thao tác (DeepInfra)</a></p>
+<footer>04 / 08 · eval/run-2.csv · run-2@20261128-092833 · gateway tương thích OpenAI</footer></section>
 <section><header>Đánh giá · Hai lượt trên cùng 22 câu</header><h2>Tutor bỏ được 3 cảnh báo thừa, tổng số câu đạt giảm từ 21 xuống 20</h2>
 <div class="cols"><div><table><tr><th>Nhóm câu</th><th>Lượt 1</th><th>Lượt 2</th></tr><tr><td>Thường</td><td>7/7</td><td>5/7</td></tr><tr><td>Khó</td><td>10/11</td><td>11/11</td></tr><tr><td>Từ chối</td><td>4/4</td><td>4/4</td></tr><tr><th>Tổng</th><th>21/22 (95%)</th><th>20/22 (91%)</th></tr></table><p class="note">Hai lượt đều đạt chuẩn CP2. ≥80% câu qua, 100% ca từ chối an toàn và 100% mã trích có thật. 8/22 câu từ người dùng hoặc dữ liệu thật.</p></div>
 <div class="line"><h3>Điều gì đổi ở lượt 2?</h3><p>Tutor chỉ báo thiếu khi gọi tên được ý ngoài bài. A1-20 đạt nhờ hỏi lại tiêu chí chọn model.</p><p>A1-02 tiếp tục bỏ điều kiện cùng số token khi chạy lặp. A1-14 trích câu thiếu đơn giá và đạt lại khi chạy lặp.</p></div></div>
@@ -49,4 +135,4 @@ h3{font-size:26px;margin:0 0 10px}p{margin:0 0 16px}footer{position:absolute;bot
 <div class="line"><strong>2 · Giữ điều kiện và đơn giá khi dẫn số liệu</strong><p>Ưu tiên A1-02 vì lỗi lặp lại. Với A1-14, kiểm câu trích có chứa đơn giá dùng trong phép tính.</p></div>
 <div class="line"><strong>3 · Chạy lặp bộ câu thử sau khi sửa</strong><p>Chạy mỗi câu ít nhất 3 lần để theo dõi dao động. Kiểm lại A1-07 và bốn câu từ chối.</p></div>
 <footer>08 / 08 · đề xuất từ eval/report.md, evidence/summary.md và spec.md §4 · validation/log.md dành cho buổi thử</footer></section>
-</body></html>
+</main></body></html>
