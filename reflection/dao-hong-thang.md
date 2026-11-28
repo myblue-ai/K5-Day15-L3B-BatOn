@@ -10,10 +10,8 @@
 
 Hồ sơ nhóm ghi Codex rà bốn câu ranh giới của lượt 1 theo điều kiện chấm và đoạn bài. [Báo cáo đánh giá](../eval/report.md)
 
-Bổ sung công cụ mình trực tiếp dùng, phần AI hỗ trợ và một chỗ mình đã đối chiếu hoặc sửa.
-
 ## 3. Một câu trượt và bài học cá nhân
 
 A1-02 bỏ điều kiện cùng số token vào và ra ở lượt 2. Lỗi lặp lại khi chạy lại với cùng cấu hình. [Kiểm lặp](../eval/report.md#kiểm-lặp-sau-lượt-2-không-tính-là-một-lượt)
 
-Bổ sung lượt kiểm lặp này đã ảnh hưởng thế nào đến cách mình đánh giá lần cải tiến.
+Kết quả lặp lại cho thấy cần đọc các câu bị ảnh hưởng khi sửa prompt, kể cả khi cả lượt vẫn đạt chuẩn tổng.

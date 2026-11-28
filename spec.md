@@ -19,11 +19,11 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/prec
   | Quan sát | Chi tiết | Ảnh |
   |---|---|---|
   | Câu hỏi về phương án C chưa được giải đáp | Học viên hỏi cách tính chi phí ticket cho “phần C”. Slide đang hiển thị phương án C. Tutor hiểu “phần C” là tên một mục của bài và hỏi lại. Phản hồi trong ảnh chưa giải thích cách tính cho phương án C. | [Câu hỏi và phản hồi ở phương án C](evidence/screenshots/preclass-ticket-phuong-an-c.png) |
-  | Học viên ghi nhận mốc tutor dẫn cho `canary_share` bị lệch | Tutor trỏ tới **Phần 1 · 02:40**. Ảnh cho thấy `canary_share` đã xuất hiện trên slide khi trình phát ở **01:54**. Cần kiểm lại nội dung tại 02:40 để xác nhận mốc dẫn sai. | [Mốc tutor dẫn và vị trí trong trình phát](evidence/screenshots/preclass-canary-share-moc-dan.png) |
+  | Mốc dẫn của tutor và vị trí hiển thị `canary_share` | Tutor trỏ tới **Phần 1 · 02:40**. Ảnh ghi `canary_share` xuất hiện trên slide khi trình phát ở **01:54**. | [Mốc tutor dẫn và vị trí trong trình phát](evidence/screenshots/preclass-canary-share-moc-dan.png) |
   | Học viên phải tra thêm để hiểu cách canary kiểm hành vi agent | Tutor mô tả cách dùng một phần lưu lượng thật và đưa ví dụ. Thành viên nhóm ghi nhận phần giải thích còn vắn tắt, chưa đủ rõ để tự hiểu nên phải tra cứu thêm. | [Câu hỏi về canary và hành vi agent](evidence/screenshots/preclass-canary-hanh-vi-agent.png) |
 
   Các ảnh mô tả luồng sử dụng và các tình huống quan sát của nhóm. Số liệu về mức độ phổ biến của vấn đề nằm ở §1.
-- Công cụ / AI đang được dùng cho việc này (nếu có) + nguồn. Không kiểm được thì ghi "chưa kiểm": Trợ giảng AI dưới video của trang pre-class — sự tồn tại và cách ghi log lấy từ `README.md`, `column_dictionary.csv`, `event_types.csv` của gói data BTC. Model, prompt và nguồn dữ liệu mà trợ giảng đó dùng: **chưa kiểm** (data không có nội dung câu trả lời).
+- Trang pre-class có trợ giảng dưới video. `README.md`, `column_dictionary.csv` và `event_types.csv` của gói BTC mô tả cách ghi log. Gói log chỉ ghi hành vi và độ dài chat.
 
 ## §1. Người dùng & bằng chứng *(guide 1.1, 1.2)*
 - Người dùng chính (một vai cụ thể): Học viên L3 khoá AI20K đi làm ban ngày, tối mới xem video pre-class một mình, không có TA trực.
@@ -35,10 +35,10 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/prec
 - Pain (KHÔNG chữ AI): Học viên L3 xem video pre-class buổi tối — đang làm rõ đoạn kiến thức chưa hiểu — vướng ở chỗ câu trả lời nhận được không chỉ rõ nằm ở đoạn nào trong bài giảng (hoặc nói cả điều bài không dạy), phải tự tua lại tìm kiếm — hậu quả là tốn 15–30 phút ngắt mạch học, nản lòng bỏ qua và lên lớp hôm sau vẫn còn lỗ hổng kiến thức.
 - Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`):
   - **Đào data** `data/preclass/` (đạt ngưỡng, script `evidence/count.py`): **231/557 (41,5%)** câu trả lời của trợ giảng dưới video không dẫn mốc nào trong bài [D2]; 145/436 (33,3%) học viên có hoạt động đã hỏi dưới video [D1]; 177/431 (41,1%) người xem có tua lùi [D3]; 332/1.108 (30%) câu hỏi gửi lúc 22h–02h.
-  - **Khảo sát** có 21 phiếu học viên L3 [S1], chờ xác nhận ngưỡng ≥20 người ngoài nhóm. **8/12** người đã hỏi trợ giảng nói câu trả lời không chỉ đúng đoạn; 16/21 phải tua lại để tìm; **12/21 mất ≥15 phút**; 13/21 mở lại bài nhưng mất công tìm; chỉ 5/21 hiểu hẳn.
+  - **Khảo sát** có 21 phiếu học viên L3 [S1]. Nhóm đã xác nhận ít nhất 20 người ngoài nhóm, đạt ngưỡng R1. Trong **12 phiếu có câu trả lời xác định ở câu 6**, **8 phiếu** ghi trợ giảng không chỉ đúng đoạn. Trong toàn mẫu, 16/21 phải tua lại để tìm, **12/21 mất ≥15 phút**, 13/21 mở lại bài nhưng mất công tìm và 5/21 hiểu hẳn.
   - Trích dẫn: *"Hỏi tutor. Trả lời chung chung, nên bỏ luôn và đọc tài liệu"* — phiếu R03.
   - **Kết luận:** giả thuyết đúng một phần — hai nguồn khớp ở chỗ câu trả lời thường không trỏ về đoạn bài và học viên phải tự tìm; lệch ở chỗ thời gian mất lớn hơn ước tính (≥15 phút, không phải ~3 phút) và học viên còn chê câu trả lời "chung chung, không sâu".
-  - Chưa làm: phỏng vấn ≥3 học viên để hỏi "vì sao"; chưa xác nhận lại không có phiếu khảo sát nào của thành viên nhóm.
+  - **Phỏng vấn.** Nhóm đã xác nhận hồ sơ P1–P3 của 3 buổi phỏng vấn học viên L3 và ghi nhận xu hướng tương tự khảo sát. Số liệu và trích dẫn trong từng hồ sơ có ghi nguồn phiếu tương ứng. [Hồ sơ phỏng vấn](evidence/summary.md#1-nguồn-đã-dùng)
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
@@ -59,7 +59,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/prec
   - Hỏi ít (1–2 câu): 56 người (39%)
   - Hỏi vừa (3–9 câu): 55 người (38%)
   - Hỏi nhiều (≥10 câu): 34 người (23%), chiếm 720/1.108 câu (65%)
-- **Nguồn bằng chứng chính:** **đào data** `data/preclass/` (đếm được x/N) → **kiểm lại bằng khảo sát** n = 21 học viên L3 [S1] (đã xong) và phỏng vấn ≥3 bạn L3 (đang hẹn) để hỏi "vì sao".
+- **Nguồn bằng chứng chính** là log `data/preclass/` với số đếm x/N. Khảo sát 21 phiếu học viên L3 [S1] cung cấp bối cảnh cho mốc 15 phút. Hồ sơ ba buổi phỏng vấn ghi các tình huống thiếu mốc, sai mốc và khó hiểu dù đã có mốc đúng. [Tổng hợp bằng chứng](evidence/summary.md)
 - [S1] Khảo sát Google Form 27/11, n = 21 (L3B 15, L3A 6) — `evidence/survey/results.csv` (đã ẩn danh), tổng hợp ở `evidence/summary.md`.
 
 **Cách đếm** (chạy lại được; chi tiết sẽ chép vào `evidence/data-mining.md`):
@@ -211,7 +211,7 @@ Mỗi đường đi ứng với một nhánh trong sơ đồ §4 và một hành
   | CP4 | **D3** · Mô phỏng chi phí | Khương Hoàng Nguyên (làm) · Lê Hải Lân (chạy simulate) | Nguyên: quy mô 3 kịch bản, giá 2 model, bảng chi phí, so với impact, §8 · Lân: chạy `simulate-1@20261128-115039` 50 phiên, tỉ lệ đạt từ `run-2` | `cost/cost-estimate.md`, `cost/simulate-1.csv`, `spec.md` §8 |
   | CP4 | **D4** · Slide + demo | Khương Hoàng Nguyên (làm) · Đào Hồng Thắng (bổ sung) | Nguyên: slide 8 trang, demo web, video dự phòng, deploy, §9 · Thắng: cập nhật slide 5 (lượt 1 → 2), slide 7 (quyết định iterate) | `demo-slides.pdf`, `slides/deck.html`, `codebase/web.py`, `deploy/`, `README.md` |
   | Sau CP4 | Reflection | Mỗi người | 1 file `reflection/<ten-khong-dau>.md` | `reflection/` |
-- Nhóm dùng Codex để soạn khung tutor, học liệu mô phỏng và câu thử. Claude Code hỗ trợ nối model thật và chấm nháp lượt 1. Nhóm ghi các lượt chạy thật và lý do giữ điểm ở các câu được rà lại. [Khai báo dùng AI](docs/ai-usage.md) · [Báo cáo đánh giá](eval/report.md)
+- Nhóm dùng Codex để soạn khung tutor, học liệu mô phỏng và câu thử. Claude Code hỗ trợ nối model thật và chấm lượt 1. Nhóm ghi các lượt chạy thật và lý do giữ điểm ở các câu được rà lại. [Khai báo dùng AI](docs/ai-usage.md) · [Báo cáo đánh giá](eval/report.md)
 - Nhật ký thay đổi — **mọi thay đổi sau CP2 19:30 Thứ Sáu 27/11 phải có dòng ở đây**:
 
 **CP2 → CP4** (vd thu hẹp lát cắt, hỏi thêm người dùng, lần cải tiến trước lượt 2)
@@ -243,5 +243,8 @@ Mỗi đường đi ứng với một nhánh trong sơ đồ §4 và một hành
 | Thời điểm | Đổi gì | Vì sao |
 |---|---|---|
 | 28/11 14:38 | Cập nhật video dự phòng với bản quay A1-01 và A1-07 trên VPS dùng `jpt/gpt-5.6-luna`. | Video dự phòng và demo live dùng cùng model trên gateway tương thích OpenAI. |
-| 28/11 16:19 | Làm rõ nguồn chính ở `evidence/summary.md` và tạo bốn bản nháp reflection cá nhân. | Trỏ mục “Đạt ngưỡng ≥1 nguồn” tới kết quả D2, phương pháp, script và năm ví dụ. Mỗi thành viên có phần đóng góp để đối chiếu và tự hoàn tất reflection. |
+| 28/11 16:19 | Làm rõ nguồn chính ở `evidence/summary.md` và lập hồ sơ reflection cho bốn thành viên. | Trỏ mục “Đạt ngưỡng ≥1 nguồn” tới kết quả D2, phương pháp, script và năm ví dụ. Reflection ghi phần đóng góp của từng thành viên. |
 | 28/11 16:27 | Ghi hỏi đáp CP4, diễn giải phép tính impact tại §2 và đồng bộ mô tả nguồn câu thử, hội thoại web và AI hỗ trợ. | Trả lời câu hỏi về ~160 giờ/tháng và lưu căn cứ cho phần nhóm xác nhận với lab coach. |
+| 28/11 16:41 | Ghi nhận ba buổi phỏng vấn và thêm hồ sơ P1–P3 theo mẫu. | Gắn từng hồ sơ với phiếu khảo sát cung cấp số liệu và trích dẫn. |
+| 28/11 16:57 | Đồng bộ tiêu đề và cách dẫn nguồn ở P1–P3 theo mẫu phỏng vấn. | Các hồ sơ dùng cùng cấu trúc và trỏ về nguồn tương ứng. |
+| 28/11 17:15 | Ghi trạng thái nhóm đã xác nhận khảo sát, P1–P3 và các tài liệu nộp. | Thống nhất trạng thái hồ sơ giữa spec, tổng hợp bằng chứng, reflection, data card và khai báo dùng AI. |
