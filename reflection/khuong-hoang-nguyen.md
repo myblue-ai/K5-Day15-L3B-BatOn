@@ -1,7 +1,5 @@
 # Reflection — Khương Hoàng Nguyên
 
-*Bản nháp. Nguyên rà phần đóng góp và hoàn tất hai mục cá nhân trước khi nộp.*
-
 ## 1. Vai trò và phần đóng góp
 
 - Thiết kế workflow đọc đoạn bài, gọi model và kiểm mã đoạn cùng câu trích. Chuẩn bị 12 câu thử đầu, bốn đoạn Day01 và data card. [Agent](../codebase/agent.py) · [Data card](../data/DATA_CARD.md) (`2b58489`)
