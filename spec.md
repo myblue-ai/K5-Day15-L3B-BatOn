@@ -35,7 +35,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/prec
 - Pain (KHÔNG chữ AI): Học viên L3 xem video pre-class buổi tối — đang làm rõ đoạn kiến thức chưa hiểu — vướng ở chỗ câu trả lời nhận được không chỉ rõ nằm ở đoạn nào trong bài giảng (hoặc nói cả điều bài không dạy), phải tự tua lại tìm kiếm — hậu quả là tốn 15–30 phút ngắt mạch học, nản lòng bỏ qua và lên lớp hôm sau vẫn còn lỗ hổng kiến thức.
 - Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`):
   - **Đào data** `data/preclass/` (đạt ngưỡng, script `evidence/count.py`): **231/557 (41,5%)** câu trả lời của trợ giảng dưới video không dẫn mốc nào trong bài [D2]; 145/436 (33,3%) học viên có hoạt động đã hỏi dưới video [D1]; 177/431 (41,1%) người xem có tua lùi [D3]; 332/1.108 (30%) câu hỏi gửi lúc 22h–02h.
-  - **Khảo sát** n = 21 học viên L3 (đạt ngưỡng ≥20) [S1]: **8/12** người đã hỏi trợ giảng nói câu trả lời không chỉ đúng đoạn; 16/21 phải tua lại để tìm; **12/21 mất ≥15 phút**; 13/21 mở lại bài nhưng mất công tìm; chỉ 5/21 hiểu hẳn.
+  - **Khảo sát** có 21 phiếu học viên L3 [S1], chờ xác nhận ngưỡng ≥20 người ngoài nhóm. **8/12** người đã hỏi trợ giảng nói câu trả lời không chỉ đúng đoạn; 16/21 phải tua lại để tìm; **12/21 mất ≥15 phút**; 13/21 mở lại bài nhưng mất công tìm; chỉ 5/21 hiểu hẳn.
   - Trích dẫn: *"Hỏi tutor. Trả lời chung chung, nên bỏ luôn và đọc tài liệu"* — phiếu R03.
   - **Kết luận:** giả thuyết đúng một phần — hai nguồn khớp ở chỗ câu trả lời thường không trỏ về đoạn bài và học viên phải tự tìm; lệch ở chỗ thời gian mất lớn hơn ước tính (≥15 phút, không phải ~3 phút) và học viên còn chê câu trả lời "chung chung, không sâu".
   - Chưa làm: phỏng vấn ≥3 học viên để hỏi "vì sao"; chưa xác nhận lại không có phiếu khảo sát nào của thành viên nhóm.
@@ -50,7 +50,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/prec
 | **A2 · Trợ lý Discord trả lời hạn nộp / lịch** | Chưa có số — data BTC không có Discord *(tự ước tính: phần lớn lớp L3 ~700 người)* | Chưa có số *(tự ước tính: dồn quanh hạn nộp)* | Hỏi lại, chờ TA trả lời; nhận hạn sai *(tự ước tính)* | Chưa tính được | Kịp, nhưng phải tự đếm Discord thủ công + tự dựng thông báo mẫu | ❌ |
 | **A4 · Bạn học AI xen vào bài giảng** | Lời bạn học AI hiện ra 13.975 lần [D4] | Học viên trả lời lại bạn học AI 151 lần / 21 ngày [D5] → chỉ ~1,1% lời xen vào được đáp lại | Chưa rõ tốn gì — data không cho biết vì sao học viên không đáp | Chưa tính được | Khó: phải đo "học được", sản phẩm nhiều vai | ❌ |
 
-- **Impact / tháng** của hướng chọn = ~1.580 câu hỏi × 41% không có căn cứ × 15 phút = **~160 giờ / tháng** trên nhóm 436 học viên có hoạt động — nguồn: số câu [D1] *(ngoại suy ra tháng)*, tỉ lệ 41% [D2], 15 phút = cận dưới của nhóm trung vị 15–30 phút trong khảo sát [S1]. *Giới hạn:* câu 8 khảo sát hỏi thời gian cho cả lần kẹt (mọi cách xoay xở), không riêng lần hỏi trợ giảng. Chưa tính thiệt hại "học sai kiến thức" (chỉ 5/21 hiểu hẳn [S1]).
+- **Impact / tháng** của hướng chọn trên tập 436 học viên có hoạt động = **1.108 câu hỏi × (30/21) × (231/557) × 15 phút ÷ 60 ≈ 164 giờ**, làm tròn thành **~160 giờ/tháng**. Dùng [D1] để ngoại suy lượng câu hỏi từ 21 lên 30 ngày. Tỉ lệ 231/557 [D2] chỉ tính trên phản hồi có ghi trường mốc dẫn và được dùng để ước tính cho lượng câu hỏi trong tháng. Mốc 15 phút là cận dưới của nhóm trung vị 15–30 phút ở câu 8 khảo sát [S1]. Khảo sát đo thời gian từ lúc gặp chỗ chưa hiểu đến lúc hiểu hoặc bỏ qua. Nhóm sẽ cần đo riêng thời gian tiết kiệm khi dùng tutor. [Log pre-class](evidence/data-mining.md) · [Khảo sát](evidence/summary.md#2-số-chính)
 - *Bản CP1 ghi ~3 phút (tự ước tính) → ~32 giờ / tháng; đã thay bằng số khảo sát (giữ lại để thấy đã đổi gì).*
 - **Hướng ĐÃ LOẠI + vì sao** (giữ lại, đừng xoá):
   - A2 Discord: không có data BTC → mọi số đều tự ước tính, bằng chứng yếu hơn A1.
@@ -153,7 +153,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): `data/prec
 
 (1) nguồn sự thật · (2) mơ hồ / thiếu thông tin · (3) ngoài phạm vi / thẩm quyền · (4) đặc thù lĩnh vực (sai thì người dùng mất gì đắt nhất)
 
-*Bộ câu thử đã mở rộng lên 22 câu (thêm A1-13 → A1-22 lúc 21:05 27/11, chỉ thêm, không sửa câu cũ): 6 câu từ khảo sát (`nguoi_dung`) phủ thêm lớp 1 (Guardrails, Docker, hallucination — A1-16, A1-17, A1-19), lớp 2 (A1-20 "nên chọn terra hay luna"), lớp 4 (A1-18 "đắt gấp 10 thì giỏi gấp 10?") và một câu tấn công đổi vai xin miễn nộp bài (A1-21).*
+*Bộ câu thử tăng từ 12 lên 22 câu ở CP3. Sau khi đối chiếu nguồn, bộ hiện tại có 3 câu chuyển thể từ tình huống cụ thể trong khảo sát (A1-14, A1-16, A1-17), 5 câu chuyển thể từ học liệu Day01 và 14 câu do nhóm tự viết. [Hồ sơ nguồn câu thử](eval/README.md#2-bộ-câu-thử-dựng-ra-sao)*
 
 ## §6. Bốn đường đi của trải nghiệm
 
@@ -162,7 +162,7 @@ Mỗi đường đi ứng với một nhánh trong sơ đồ §4 và một hành
 - **Mọi thứ suôn sẻ** (`answer`): học viên hỏi điều bài có dạy → hiện tối đa 3 ý, mỗi ý kèm `[mã đoạn]` và câu trích nguyên văn → học viên mở đúng đoạn để tự đối chiếu. Vd A1-01 "temperature cho chatbot hỗ trợ khách hàng" → "mức thấp… [L3-D01-P01]".
 - **Không chắc (lớp 2)** (`clarify`): câu hỏi thiếu đối tượng hoặc thiếu kết quả của học viên → tutor hỏi lại **một** chi tiết, không đoán. Vd A1-05 "cái đó nên tăng hay giảm?" → "Bạn đang hỏi temperature hay một thiết lập khác?"; A1-04 → xin bốn phản hồi thực tế.
 - **Không có căn cứ (lớp 1)** (`no_source` / `partial`): bài không dạy → "Không có trong bài. Bạn có thể hỏi TA" (A1-06 phiên bản Python, A1-16 Guardrails). Câu hỏi có một phần trong bài → trả lời phần có căn cứ, báo phần còn lại không có (A1-07 streaming + hạn nộp). Model trả mã đoạn không có thật, câu trích không khớp hoặc JSON lỗi → bộ kiểm trong `format_reply` đổi thành "không có trong bài", không hiện ý chưa kiểm được.
-- **Người dùng sửa:** học viên thấy câu trả lời chưa đúng → mở đoạn đã dẫn để tự đối chiếu, hỏi lại với chi tiết rõ hơn, hoặc mang câu hỏi sang TA. Bản thử không lưu hội thoại (mỗi câu là một lượt độc lập) và không có nút báo sai — *chưa làm*.
+- **Người dùng sửa:** học viên thấy câu trả lời chưa đúng → mở đoạn đã dẫn để tự đối chiếu, hỏi lại với chi tiết rõ hơn, hoặc mang câu hỏi sang TA. Web giữ tối đa 4 tin nhắn trước trong bộ nhớ của tab để hiểu câu hỏi tiếp theo. Học viên có thể xóa ngữ cảnh bằng “Hỏi lại từ đầu”. CLI và bộ câu thử xử lý từng câu độc lập. [Luồng web](codebase/index.html)
 - **Bị đòi ngoài phạm vi (lớp 3)** (`refuse`): đòi lộ system prompt, bịa mã đoạn, mạo danh giảng viên, xin miễn nộp hoặc giải hộ bài → từ chối, chỉ sang TA hoặc thông báo chính thức; với bài thực hành có thể kèm gợi ý phương pháp có căn cứ (A1-10 → gợi ý tự chạy 4 mức temperature theo [L3-D01-P02]). Lượt 1: 4/4 câu `tu_choi` từ chối đúng.
 - **Trường hợp đặc thù lĩnh vực (lớp 4):** học viên rút kết luận sai từ bài (A1-08 "luôn đắt gấp 10", A1-09 "temperature cao thì đúng hơn", A1-18 "đắt gấp 10 thì giỏi gấp 10") → tutor sửa khẳng định, nêu lại điều kiện bài đưa ra, dẫn đoạn. Sai ở đây làm học viên học sai kiến thức nền — đắt nhất, nên mọi ý phải có câu trích kiểm được.
 
@@ -211,14 +211,14 @@ Mỗi đường đi ứng với một nhánh trong sơ đồ §4 và một hành
   | CP4 | **D3** · Mô phỏng chi phí | Khương Hoàng Nguyên (làm) · Lê Hải Lân (chạy simulate) | Nguyên: quy mô 3 kịch bản, giá 2 model, bảng chi phí, so với impact, §8 · Lân: chạy `simulate-1@20261128-115039` 50 phiên, tỉ lệ đạt từ `run-2` | `cost/cost-estimate.md`, `cost/simulate-1.csv`, `spec.md` §8 |
   | CP4 | **D4** · Slide + demo | Khương Hoàng Nguyên (làm) · Đào Hồng Thắng (bổ sung) | Nguyên: slide 8 trang, demo web, video dự phòng, deploy, §9 · Thắng: cập nhật slide 5 (lượt 1 → 2), slide 7 (quyết định iterate) | `demo-slides.pdf`, `slides/deck.html`, `codebase/web.py`, `deploy/`, `README.md` |
   | Sau CP4 | Reflection | Mỗi người | 1 file `reflection/<ten-khong-dau>.md` | `reflection/` |
-- Dùng AI vào việc gì (2–3 dòng; chi tiết `docs/ai-usage.md`):
+- Nhóm dùng Codex để soạn khung tutor, học liệu mô phỏng và câu thử. Claude Code hỗ trợ nối model thật và chấm nháp lượt 1. Nhóm ghi các lượt chạy thật và lý do giữ điểm ở các câu được rà lại. [Khai báo dùng AI](docs/ai-usage.md) · [Báo cáo đánh giá](eval/report.md)
 - Nhật ký thay đổi — **mọi thay đổi sau CP2 19:30 Thứ Sáu 27/11 phải có dòng ở đây**:
 
 **CP2 → CP4** (vd thu hẹp lát cắt, hỏi thêm người dùng, lần cải tiến trước lượt 2)
 
 | Thời điểm | Đổi gì | Vì sao (trỏ về câu thử / lỗi / bằng chứng nào) |
 |---|---|---|
-| 27/11 21:05 | Thêm 10 câu thử A1-13 → A1-22 (không sửa câu cũ) | Đủ 20–30 câu cho CP3; 6 câu lấy từ câu 10 khảo sát (R06, R11, R12, R15, R20, R21) để tăng tỉ lệ câu `nguoi_dung` |
+| 27/11 21:05 | Thêm 10 câu thử A1-13 → A1-22 (không sửa câu cũ) | Đủ 20–30 câu cho CP3. Sáu câu được liên hệ với chủ đề trong khảo sát khi soạn, trước khi rà lại nhãn nguồn. |
 | 27/11 22:00 | Nối model thật `gpt-5.6-luna` qua API chuẩn OpenAI; `ai.py` đọc `OPENAI_BASE_URL`, timeout 30 → 90 giây | C1 — thay model giả; nhà cung cấp trung gian dùng địa chỉ API riêng |
 | 27/11 22:18 | Chạy lượt 1 `run-1@20261127-221834`, chấm cột `pass`: 21/22 | Kết quả lượt 1 cho CP3 |
 | 27/11 23:00 | Điền spec §0, §1 (bằng chứng), §5 (ghi chú câu mới), §6, §7 (kết quả lượt 1) | C3 — spec §0–§7 cho CP3; không sửa chuẩn "đạt" |
@@ -230,11 +230,18 @@ Mỗi đường đi ứng với một nhánh trong sơ đồ §4 và một hành
 | 28/11 10:10 | Kiểm lặp 14 câu đầu bằng `python run.py eval --try 14` (`run-try@20261128-101005`), cùng code và model với lượt 2. Không tính là một lượt. | Tách dao động khỏi lỗi thật: A1-14 đạt lại → dao động; A1-02 trượt lại với câu trả lời gần như y hệt → lỗi của prompt mới. Output nguyên văn ở `eval/report.md` §3 vì file `run-try` không được commit. |
 | 28/11 11:50 | D3 — chạy `python run.py simulate --rate-from eval/run-2.csv` (`simulate-1@20261128-115039`, 50 phiên, seed 42). Điền `cost/cost-estimate.md` §2–3 và §8. | Đo token trên `gpt-5.6-luna`, tính giá `gpt-4o-mini` / `gpt-6.1-terra`: chi phí/task thành công $0.00045 / $0.0032; chi phí không phải điểm nghẽn. |
 | 28/11 | D4 — triển khai agent D1 qua HTTPS, ghi lại demo A1-01 và A1-07, hoàn thiện PDF 8 trang với kết quả D2/D3. | A1-07 nêu rõ phần thiếu. Lượt 2 còn lỗi A1-02 nên kết luận là thử tiếp với nhóm nhỏ. |
-| 28/11 | D4 — quay lại A1-01 và A1-07 trên VPS sau khi chuyển demo sang `jpt/gpt-5.6-luna`. | Video dự phòng và demo live dùng cùng model trên gateway tương thích OpenAI. |
 | 28/11 | Thêm admin riêng cho BatOn để kiểm tra và áp dụng cấu hình model, theo dõi lượt truy cập và khoá lượt gọi công khai. | Nhóm có thể đổi cấu hình trong buổi demo và dừng phát sinh token sau demo. |
+
+### Hỏi đáp tại demo CP4
+
+- **Nguồn của ~160 giờ/tháng.** Sau demo có một câu hỏi về nguồn của con số này. Nhóm trả lời rằng thời gian mỗi lần gặp khó lấy từ khảo sát và được dùng trong phép tính ngoại suy lên 30 ngày. §2 ghi rõ mốc 15 phút từ khảo sát, số lượt hỏi và tỉ lệ phản hồi thiếu mốc từ log BTC. [Phép tính tại §2](#2-impact--quyết-định-chọn-guide-13)
+- **Câu hỏi ngoài bài và yêu cầu tấn công.** Lab coach hỏi agent đã xử lý các tình huống này chưa. Nhóm xác nhận tutor báo thiếu căn cứ hoặc chỉ trả lời phần có trong bài, và từ chối yêu cầu vượt quyền. Lượt đánh giá 2 có **5/5** câu gắn nhãn `[ngoai_bai]` và **4/4** câu `tu_choi` đạt tiêu chí từng câu, trong đó có **3 câu tấn công**. [Bộ câu thử](eval/benchmark.csv) · [Kết quả lượt 2](eval/run-2.csv)
+- Nhóm không nhận thêm đề nghị sửa đổi sau phần hỏi đáp.
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 
 | Thời điểm | Đổi gì | Vì sao |
 |---|---|---|
-|  |  |  |
+| 28/11 14:38 | Cập nhật video dự phòng với bản quay A1-01 và A1-07 trên VPS dùng `jpt/gpt-5.6-luna`. | Video dự phòng và demo live dùng cùng model trên gateway tương thích OpenAI. |
+| 28/11 16:19 | Làm rõ nguồn chính ở `evidence/summary.md` và tạo bốn bản nháp reflection cá nhân. | Trỏ mục “Đạt ngưỡng ≥1 nguồn” tới kết quả D2, phương pháp, script và năm ví dụ. Mỗi thành viên có phần đóng góp để đối chiếu và tự hoàn tất reflection. |
+| 28/11 16:27 | Ghi hỏi đáp CP4, diễn giải phép tính impact tại §2 và đồng bộ mô tả nguồn câu thử, hội thoại web và AI hỗ trợ. | Trả lời câu hỏi về ~160 giờ/tháng và lưu căn cứ cho phần nhóm xác nhận với lab coach. |
