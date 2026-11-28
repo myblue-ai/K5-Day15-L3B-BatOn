@@ -3,13 +3,15 @@
 > Guide bước 1.2, xong trước **CP3 10:00 Thứ Bảy 28/11**. Chấm ở rubric R1.
 > Cập nhật 27/11 tối: đã có đào data + khảo sát. Phỏng vấn đang hẹn.
 
+Nguồn chính đáp ứng mục **“Đạt ngưỡng ≥1 nguồn”** ở CP3/CP4 là nhật ký hành vi pre-class do BTC cấp (`chat.csv`, `events.csv`). Trong **557** phản hồi của trợ giảng dưới video có trường `moc_trich_dan`, **231 phản hồi (41,5%)** có trường này rỗng. Nhóm ghép sự kiện `agent_replied` với câu hỏi dưới video qua `ref_id` và tính trên dữ liệu từ 13/11/2026, khi trường này bắt đầu xuất hiện. [Cách chọn mẫu và cách đếm](data-mining.md#1-cách-đếm--viết-trước-khi-chạy) · [Script kiểm lại](count.py) · [Năm ví dụ có mã dòng đã ẩn danh](data-mining.md#4-5-ví-dụ-cụ-thể-mã-dòng-đã-ẩn-danh-không-đoán-ai-là-ai)
+
 ## 1. Nguồn đã dùng
 
 | Nguồn | Đạt ngưỡng? | File |
 |---|---|---|
 | Đào data (x/N, %, cách đếm chạy lại được, ≥5 ví dụ) | ☑ | `evidence/data-mining.md` · script `evidence/count.py` |
 | Phỏng vấn (≥3 người ngoài nhóm, đúng người dùng) | ☐ chưa làm | `evidence/interviews/P1.md`… |
-| Khảo sát (≥20 người ngoài nhóm, đúng người dùng) | ☑ n = 21 học viên L3 *(cần xác nhận không có thành viên nhóm điền — nếu có thì bỏ phiếu đó, ghi lại n)* | `evidence/survey/questions.md` · `evidence/survey/results.csv` (đã ẩn danh) |
+| Khảo sát (≥20 người ngoài nhóm, đúng người dùng) | Chờ xác nhận số người ngoài nhóm trong 21 phiếu học viên L3 | `evidence/survey/questions.md` · `evidence/survey/results.csv` (đã ẩn danh) |
 
 ## 2. Số chính
 
