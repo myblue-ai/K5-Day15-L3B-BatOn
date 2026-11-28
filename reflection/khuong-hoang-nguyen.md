@@ -10,10 +10,10 @@
 
 Hồ sơ nhóm ghi Codex hỗ trợ soạn workflow, câu thử ban đầu và bốn đoạn học liệu mô phỏng. [Khai báo dùng AI](../docs/ai-usage.md)
 
-*Nguyên bổ sung một đoạn code, câu thử hoặc đoạn học liệu mình đã đối chiếu với yêu cầu và sửa sau khi nhận gợi ý từ AI.*
+Bổ sung một đoạn code, câu thử hoặc đoạn học liệu mình đã đối chiếu với yêu cầu và sửa sau khi nhận gợi ý từ AI.
 
 ## 3. Một câu trượt và bài học cá nhân
 
 A1-20 cho thấy bộ kiểm có thể xác nhận câu trích nằm trong tài liệu, trong khi câu trích vẫn thiếu căn cứ cho nhận định mà tutor đưa ra. [Lỗi trích dẫn lượt 1](../eval/report.md#2-lỗi-lượt-1--gom-thành-nhóm-có-tên)
 
-*Nguyên bổ sung bài học về cách mình sẽ kiểm mối liên hệ giữa câu trả lời và câu trích trước khi hiển thị.*
+Bổ sung bài học về cách mình sẽ kiểm mối liên hệ giữa câu trả lời và câu trích trước khi hiển thị.
