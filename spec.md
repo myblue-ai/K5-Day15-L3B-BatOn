@@ -190,7 +190,26 @@ Mỗi đường đi ứng với một nhánh trong sơ đồ §4 và một hành
 - Học viên có thể hiểu sai dù mã đoạn có thật, như ca A1-20 của lượt 1. Backend đối chiếu mã và câu trích với bài trước khi hiển thị. Trên web, học viên bấm mã để đọc nguyên đoạn và tự kiểm ý diễn giải.
 
 ## §10. Phân công & changelog
-- Phân công có tên (theo chặng, chia cặp — guide "Cách chia việc"): __
+- Phân công có tên (theo chặng, chia cặp — guide "Cách chia việc").
+  | Chặng | Task | Người làm | Việc cụ thể | File |
+  |---|---|---|---|---|
+  | CP1 | **A1** · Canvas + TEAMS | Đào Hồng Thắng | Điền track, thành viên, phần việc · viết canvas 7 dòng · push, kiểm repo công khai bằng cửa sổ ẩn danh · nộp form CP1 | `TEAMS.md`, `canvas.md` |
+  | CP1 | **A2** · Bài toán + giả thuyết | Trương Văn Hải | Trả lời câu 1–3 "Năm câu hỏi" (ai · việc gì · đang giải bằng gì, hỏng ở đâu) · viết giả thuyết "Mình nghĩ… / Mình đúng nếu thấy…" | `spec.md` §1, `evidence/hypothesis.md` |
+  | CP1 | **A3** · Bảng impact | Đào Hồng Thắng | Đào data · bảng impact 3 hướng A1 / A2 / A4 có nguồn · chọn A1 · ghi hướng bị loại · persona hỏi ít / vừa / nhiều | `spec.md` §2, `evidence/data-mining.md`, `evidence/count.py` |
+  | CP1–CP2 | Khảo sát | Đào Hồng Thắng | Soạn 11 câu hỏi · gửi Zalo 17:45–19:00 27/11 · thu 21 phiếu · ẩn danh · tổng hợp số + trích dẫn | `evidence/survey/`, `evidence/summary.md` |
+  | CP2 | **B1** · Metric + chuẩn "đạt" | Trương Văn Hải | Đặt tên lỗi (taxonomy) · viết 3 metric (định nghĩa · cách chấm · ngưỡng) · chấm chéo 5 output · chốt chuẩn "đạt" trước 19:30 | `eval/metric_spec.yaml`, `spec.md` §5, §7 |
+  | CP2 | **B2** · Sơ đồ + code khung | Khương Hoàng Nguyên | Giải pháp tương tự · sơ đồ kiến trúc (workflow, công cụ, chỗ chặn rủi ro, người duyệt, HAX) · chạy với AI giả | `spec.md` §3–§4, `codebase/` |
+  | CP2 | **B3** · Bộ câu thử + data card | Khương Hoàng Nguyên | Viết 12 câu thử đầu (A1-01 → A1-12) · dựng 4 đoạn bài Day01 · data card · chấm chéo 5 output với B1 | `eval/benchmark.csv`, `data/a1_demo_lesson.json`, `data/DATA_CARD.md` |
+  | CP3 | **C1** · Nối model thật + video | Lê Hải Lân | Nối `gpt-5.6-luna` qua API chuẩn OpenAI · chạy eval thấy token > 0 · quay video 30s gọi AI thật | `codebase/ai.py`, video Drive |
+  | CP3 | **C2** · Mở rộng bộ câu thử | Trương Văn Hải (làm) · Khương Hoàng Nguyên (rà, align) | Hải thêm 10 câu A1-13 → A1-22 từ khảo sát và đề Day01 · Nguyên rà nguồn, gắn nhãn `[ngoai_bai]` / `[tan_cong]`, đồng bộ với data bài | `eval/benchmark.csv` |
+  | CP3 | **C3** · Bằng chứng + spec §0–§7 | Lê Hải Lân | Điền §0 (luồng hiện tại + ảnh quan sát) · cập nhật bằng chứng §1 · soát §5–§7 · ghi kết quả lượt 1 | `spec.md` §0–§7, `evidence/` |
+  | CP3 | **C4** · Persona + thử chi phí | Trương Văn Hải | Viết `personas.yaml` (39% / 38% / 23%, số lần/tháng có nguồn) · chạy `simulate --try` 10 phiên | `cost/personas.yaml`, `cost/cost-estimate.md` |
+  | CP3 | Chạy lượt 1 | Cả nhóm | `run-1@20261127-221834` · chấm cột `pass` · `score` 21/22 | `eval/run-1.csv`, `traces/run-1.jsonl` |
+  | CP4 | **D1** · Cải tiến → lượt 2 | Lê Hải Lân (làm) · Đào Hồng Thắng (chạy lặp) | Lân sửa prompt nhắm nhóm lỗi `partial_thua`, chạy lượt 2 `run-2@20261128-092833` (20/22) · Thắng chạy `eval --try 14` (`run-try@20261128-101005`) để tách dao động khỏi lỗi thật (A1-02, A1-14) | `codebase/agent.py`, `eval/run-2.csv` |
+  | CP4 | **D2** · Báo cáo đánh giá | Đào Hồng Thắng | Báo cáo lượt 1 → lượt 2, ≥3 lỗi, đã sửa gì, lỗi còn lại · hồ sơ đánh giá một trang | `eval/report.md`, `eval/README.md` |
+  | CP4 | **D3** · Mô phỏng chi phí | Khương Hoàng Nguyên (làm) · Lê Hải Lân (chạy simulate) | Nguyên: quy mô 3 kịch bản, giá 2 model, bảng chi phí, so với impact, §8 · Lân: chạy `simulate-1@20261128-115039` 50 phiên, tỉ lệ đạt từ `run-2` | `cost/cost-estimate.md`, `cost/simulate-1.csv`, `spec.md` §8 |
+  | CP4 | **D4** · Slide + demo | Khương Hoàng Nguyên (làm) · Đào Hồng Thắng (bổ sung) | Nguyên: slide 8 trang, demo web, video dự phòng, deploy, §9 · Thắng: cập nhật slide 5 (lượt 1 → 2), slide 7 (quyết định iterate) | `demo-slides.pdf`, `slides/deck.html`, `codebase/web.py`, `deploy/`, `README.md` |
+  | Sau CP4 | Reflection | Mỗi người | 1 file `reflection/<ten-khong-dau>.md` | `reflection/` |
 - Dùng AI vào việc gì (2–3 dòng; chi tiết `docs/ai-usage.md`):
 - Nhật ký thay đổi — **mọi thay đổi sau CP2 19:30 Thứ Sáu 27/11 phải có dòng ở đây**:
 
