@@ -175,7 +175,14 @@ Mỗi đường đi ứng với một nhánh trong sơ đồ §4 và một hành
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
 - Ba nhóm hỏi ít/vừa/nhiều chiếm 39%/38%/23%. Chi phí được mô phỏng ở quy mô 436, 700 và 1.000 người, với hai mức giá `gpt-4o-mini` và `gpt-6.1-terra`. [Nguồn và giả định](cost/cost-estimate.md)
 - Chạy thử CP3: `simulate-try@20261128-015055` dùng DeepSeek qua DeepInfra, đủ 10/10 phiên, 0 lỗi. [Kết quả C4](cost/cost-estimate.md#chạy-thử-cp3--c4)
-- Chờ lượt 2 đã chấm để chạy 50 phiên với seed 42, tính chi phí/task thành công và ba mức chi phí tháng. §2 ước tính khoảng 22 phút gặp khó/người/tháng, làm căn cứ so với chi phí/người/tháng sau phép đo.
+- Bản nộp: `simulate-1@20261128-115039`, 50/50 phiên, 0 lỗi, seed 42. Đo token trên `gpt-5.6-luna`, tỉ lệ đạt 20/22 (91%) từ `run-2@20261128-092833`. [Bảng đầy đủ](cost/cost-estimate.md#2-kết-quả-mô-phỏng)
+
+| Model | Chi phí / task thành công | / tháng — thấp (436) · cơ sở (700) · cao (1.000) | / người / tháng (cơ sở) |
+|---|---:|---:|---:|
+| gpt-4o-mini | $0.00045 (≈ 12 ₫) | $1.77 · $2.84 · $4.06 | ≈ 103 ₫ |
+| gpt-6.1-terra | $0.0032 (≈ 83 ₫) | $12.68 · $20.36 · $29.08 | ≈ 739 ₫ |
+
+- **Đáng làm không:** đáng thử tiếp — chi phí model dưới 1.000 ₫/người/tháng so với ~22 phút gặp khó/người/tháng (§2), nên điểm nghẽn là chất lượng câu trả lời và thời gian tiết kiệm thật (chưa đo qua người dùng), không phải chi phí.
 
 ## §9. Rủi ro & an toàn
 - Demo chỉ dùng 4 đoạn Day01 mô phỏng. Khi bấm Gửi, trình duyệt chuyển câu hỏi và tối đa 4 tin nhắn trước tới backend. Backend chuyển nội dung này cùng đoạn bài đến nhà cung cấp model. Lịch sử nằm trong bộ nhớ của tab, người dùng có thể xoá bằng “Hỏi lại từ đầu”. Tránh nhập tên thật, mã học viên hoặc nội dung riêng. Log ứng dụng chỉ ghi loại lỗi kỹ thuật.
@@ -201,6 +208,7 @@ Mỗi đường đi ứng với một nhánh trong sơ đồ §4 và một hành
 | 28/11 03:31 · chuẩn bị CP4 | Đóng gói demo web, quay A1-01/A1-07 và chuẩn bị slide, đầu vào D3. | D4 có bản dự phòng, D3 chờ số đo trên lượt 2. |
 | 28/11 09:28 | D1 — sửa `agent.py`: chỉ dùng `partial` khi có ý hỏi riêng ngoài bài và phải ghi tên ý đó (`missing`), không có tên thì không hiện dòng báo thiếu; cấm ý "bài không nói…" trong `claims`; thiếu tiêu chí lựa chọn thì `clarify`. Chạy lượt 2 `run-2@20261128-092833`: 20/22. | Nhóm lỗi `partial_thua` (A1-08, A1-18, A1-20) ở lượt 1: 3/3 câu hết lỗi, A1-20 từ trượt thành đạt. Tệ đi: A1-02, A1-14 bỏ mất điều kiện / chữ "đơn giá ví dụ". Chi tiết `eval/run-2.csv` cột `ghi_chu`. |
 | 28/11 10:10 | Kiểm lặp 14 câu đầu bằng `python run.py eval --try 14` (`run-try@20261128-101005`), cùng code và model với lượt 2. Không tính là một lượt. | Tách dao động khỏi lỗi thật: A1-14 đạt lại → dao động; A1-02 trượt lại với câu trả lời gần như y hệt → lỗi của prompt mới. Output nguyên văn ở `eval/report.md` §3 vì file `run-try` không được commit. |
+| 28/11 11:50 | D3 — chạy `python run.py simulate --rate-from eval/run-2.csv` (`simulate-1@20261128-115039`, 50 phiên, seed 42). Điền `cost/cost-estimate.md` §2–3 và §8. | Đo token trên `gpt-5.6-luna`, tính giá `gpt-4o-mini` / `gpt-6.1-terra`: chi phí/task thành công $0.00045 / $0.0032; chi phí không phải điểm nghẽn. |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

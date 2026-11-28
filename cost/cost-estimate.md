@@ -40,19 +40,30 @@ Hai mức giá chuẩn cho mỗi triệu token vào/ra là **0,15/0,60 USD** cho
 
 ## 2. Kết quả mô phỏng
 
-Đang chờ bản D1 và `eval/run-2.csv` chấm đủ cột `pass`. Chọn đúng model đã đánh giá, chạy `python run.py simulate --rate-from eval/run-2.csv` với 50 phiên, seed 42. Ghi model đo token, run ID đánh giá, run ID mô phỏng và bảng từ `cost/simulate-N-summary.md` vào đây.
+Ngày 28/11/2026, `python run.py simulate --rate-from eval/run-2.csv` hoàn tất **50/50 phiên**, **0 phiên lỗi**, seed **42**. Run ID mô phỏng `simulate-1@20261128-115039`. **Đo token trên `gpt-5.6-luna`** (cùng model và code với lượt 2), **tính giá theo `gpt-4o-mini` và `gpt-6.1-terra`**. Tỉ lệ đạt lấy từ lượt 2 `run-2@20261128-092833`: **20/22 (91%)**. [Bảng gốc](simulate-1-summary.md) · [Số theo phiên](simulate-1.csv)
 
-| Model | Chi phí / phiên | Chi phí / task thành công | / tháng — thấp | / tháng — cơ sở | / tháng — cao | / người / tháng (cơ sở) |
-|---|---|---|---|---|---|---|
-| gpt-4o-mini | Chờ đo | — | — | — | — | — |
-| gpt-6.1-terra | Chờ đo | — | — | — | — | — |
+| Persona | Phiên mô phỏng | Lượt hỏi / phiên | Token vào / phiên | Token ra / phiên |
+|---|---:|---:|---:|---:|
+| Hỏi ít | 15 | 1 | 867 | 84 |
+| Hỏi vừa | 22 | 2 | 1.731 | 204 |
+| Hỏi nhiều | 13 | 4 | 3.464 | 351 |
 
-Chi phí / task thành công = chi phí trung bình mỗi phiên ÷ tỉ lệ đạt — **không coi như đạt 100%**.
+Tổng gồm **111 lượt hỏi**, **96.112 token vào** và **10.318 token ra**, trung bình 2,2 lượt hỏi/phiên.
+
+| Model | Chi phí / phiên | Chi phí / task thành công | / tháng — thấp (436) | / tháng — cơ sở (700) | / tháng — cao (1.000) | / người / tháng (cơ sở) |
+|---|---:|---:|---:|---:|---:|---:|
+| gpt-4o-mini | $0.00041 (≈ 10 ₫) | **$0.00045 (≈ 12 ₫)** | $1.77 (≈ 44.966 ₫) | $2.84 (≈ 72.192 ₫) | $4.06 (≈ 103.132 ₫) | $0.0041 (≈ 103 ₫) |
+| gpt-6.1-terra | $0.0030 (≈ 75 ₫) | **$0.0032 (≈ 83 ₫)** | $12.68 (≈ 322.046 ₫) | $20.36 (≈ 517.046 ₫) | $29.08 (≈ 738.637 ₫) | $0.0291 (≈ 739 ₫) |
+
+Chi phí / task thành công = chi phí trung bình mỗi phiên ÷ tỉ lệ đạt — **không coi như đạt 100%**. Chi phí / câu hỏi đạt là $0.00020 (gpt-4o-mini) và $0.0015 (gpt-6.1-terra). Tỷ giá 1 USD = 25.400 ₫.
+
+Giới hạn: mỗi hãng tách token khác nhau nên số token thật trên `gpt-4o-mini` / `gpt-6.1-terra` có thể lệch so với số đo trên `gpt-5.6-luna`. Tỉ lệ đạt 91% đo trên 22 câu thử, không phải trên phiên thật. Chưa tính hosting, lưu trữ và giờ công TA.
 
 ## 3. So với impact
 
 - Nhóm ước tính khoảng 160 giờ học viên gặp khó mỗi tháng trên 436 người có hoạt động, tương đương **22 phút/người/tháng**. Thời gian tutor thực sự tiết kiệm cần đo qua người dùng. [Cách tính và giới hạn ở §2](../spec.md)
-- Khi có lượt 2, đối chiếu chi phí/người/tháng với 22 phút này và ghi quyết định triển khai, thử tiếp hoặc dừng.
+- Ở kịch bản cơ sở, chi phí model là **$0.0041 (≈ 103 ₫)/người/tháng** với `gpt-4o-mini` và **$0.029 (≈ 739 ₫)/người/tháng** với `gpt-6.1-terra`. Kể cả kịch bản cao dùng model mạnh, tổng chỉ ≈ **$29/tháng** cho 1.000 người.
+- **Đáng làm không:** đáng thử tiếp. Chi phí model không phải điểm nghẽn — dưới 1.000 ₫/người/tháng so với khoảng 22 phút gặp khó/người/tháng. Điều quyết định là chất lượng (lượt 2 còn 2/22 câu trượt) và thời gian tiết kiệm thật, cần đo qua người dùng trước khi triển khai rộng.
 
 ## 4. *(Muốn sâu hơn, không bắt buộc)*
 
