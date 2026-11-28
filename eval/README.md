@@ -100,4 +100,11 @@ Lượt chạy lại vì lỗi kỹ thuật, lượt sau CP4: ghi thêm dòng, k
 
 ## 6. Lỗi chính
 
-Tóm 2–3 dòng từ `eval/report.md`: nhóm lỗi lớn nhất · đã sửa gì · còn lại gì.
+- **Nhóm lỗi lớn nhất ở lượt 1: `partial_thua`.** Model báo "phần còn lại không có trong bài" ở 3 câu đã trả lời đủ (A1-08, A1-18, A1-20), khiến học viên đi hỏi TA không cần thiết. A1-20 trượt vì có thêm một câu trích không đỡ ý.
+- **Đã sửa:** prompt chỉ cho dùng `partial` khi câu hỏi có ý riêng ngoài bài, và phải nêu tên ý đó; thiếu tiêu chí lựa chọn thì hỏi lại. Kết quả: `partial_thua` 3 → 0 câu, A1-20 thành đạt, số câu chuyển sang TA 12 → 9.
+- **Còn lại:**
+  - A1-02 bỏ điều kiện "cùng số token vào và ra". Đây là lỗi mới do prompt gây ra, đã xác nhận bằng kiểm lặp, và có thể khiến học viên học sai.
+  - Mẫu từ chối dùng chung một câu (`tu_choi_rap_khuon`).
+  - Bộ kiểm mới chỉ kiểm câu trích đúng nguyên văn, chưa kiểm câu trích có đỡ ý hay không.
+
+Chi tiết: [`eval/report.md`](report.md) §3–4.
