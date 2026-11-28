@@ -3,7 +3,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 BIND_HOST=0.0.0.0 PORT=8091
 WORKDIR /app
 COPY requirements.txt .
 RUN python -m venv /app/venv && /app/venv/bin/pip install --no-cache-dir -r requirements.txt
-COPY codebase/*.py codebase/index.html ./codebase/
+COPY codebase/*.py codebase/index.html codebase/admin.html ./codebase/
 COPY data/a1_demo_lesson.json ./data/a1_demo_lesson.json
 USER 65532:65532
 EXPOSE 8091

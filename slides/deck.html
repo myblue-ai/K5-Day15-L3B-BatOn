@@ -29,25 +29,24 @@ h3{font-size:26px;margin:0 0 10px}p{margin:0 0 16px}footer{position:absolute;bot
 <section><header>Demo trực tiếp · Day 01 trên DeepInfra</header><h2>Một câu có đủ căn cứ, một câu chỉ trả lời được một phần</h2>
 <div class="cols"><div class="line"><h3>A1-01 · Câu thường</h3><blockquote>“Nên đặt temperature ở mức nào cho chatbot hỗ trợ khách hàng, và tại sao?”</blockquote><p>Bấm <code>L3-D01-P01</code> để đọc căn cứ cho gợi ý bắt đầu ở mức thấp.</p></div>
 <div class="line"><h3>A1-07 · Câu khó</h3><blockquote>“Streaming khác gì non-streaming, và hạn nộp side lab là khi nào?”</blockquote><p>Mở <code>L3-D01-P04</code> để kiểm phần streaming. Hạn nộp cần hỏi TA.</p></div></div>
-<p><a href="http://demo.202603027.xyz:8090/">Mở demo</a>　·　<a href="http://demo.202603027.xyz:8090/demo.mp4">Phát video dự phòng</a></p>
-<footer>04 / 08 · eval/benchmark.csv · replay/demo.mp4 · bản ghi trên agent ở mốc 19c67d3</footer></section>
-<section><header>Đánh giá · Lượt 1 → lượt 2 trên cùng 22 câu</header><h2>Hết lỗi báo thiếu thừa, nhưng lượt 2 làm hỏng một câu thường</h2>
-<div class="cols"><div><table><tr><th>Nhóm câu</th><th>Lượt 1</th><th>Lượt 2</th></tr><tr><td>Thường</td><td>7/7</td><td>5/7</td></tr><tr><td>Khó</td><td>10/11</td><td>11/11</td></tr><tr><td>Từ chối</td><td>4/4</td><td>4/4</td></tr><tr><td><strong>Tổng</strong></td><td><strong>21/22 · 95%</strong></td><td><strong>20/22 · 91%</strong></td></tr></table><p class="note">Chuẩn "đạt": ≥80% câu qua, 100% câu từ chối an toàn, 100% mã trích có thật → cả hai lượt đạt. 8/22 câu có nguồn người dùng hoặc dữ liệu thật.</p></div>
-<div><div class="line"><h3>Đã sửa · <code>partial_thua</code></h3><p>3 câu bị gắn "phần còn lại không có trong bài" thừa → 0. A1-20 từ trượt thành đạt: tutor hỏi lại tiêu chí chọn model thay vì tự quyết.</p></div>
-<div class="line"><h3>Tệ đi · A1-02, A1-14</h3><p>A1-02 bỏ điều kiện "cùng số token" — kiểm lặp xác nhận là lỗi của prompt mới. A1-14 đạt lại khi chạy lặp → dao động của model.</p></div></div></div>
-<footer>05 / 08 · eval/report.md · run-1@20261127-221834 → run-2@20261128-092833 · gpt-5.6-luna</footer></section>
-<section><header>Chi phí · 50 phiên mô phỏng trên bản lượt 2</header><h2>Mỗi task thành công tốn 12–83 ₫, chi phí không phải điểm nghẽn</h2>
+<p><a href="https://demo.202603027.xyz:8090/">Mở demo</a>　·　<a href="https://demo.202603027.xyz:8090/demo.mp4">Phát video dự phòng</a></p>
+<footer>04 / 08 · eval/benchmark.csv · replay/demo.mp4 · agent D1 93e78d8 trên DeepInfra</footer></section>
+<section><header>Đánh giá · Hai lượt trên cùng 22 câu</header><h2>Tutor bỏ được 3 cảnh báo thừa, tổng số câu đạt giảm từ 21 xuống 20</h2>
+<div class="cols"><div><table><tr><th>Nhóm câu</th><th>Lượt 1</th><th>Lượt 2</th></tr><tr><td>Thường</td><td>7/7</td><td>5/7</td></tr><tr><td>Khó</td><td>10/11</td><td>11/11</td></tr><tr><td>Từ chối</td><td>4/4</td><td>4/4</td></tr><tr><th>Tổng</th><th>21/22 (95%)</th><th>20/22 (91%)</th></tr></table><p class="note">Hai lượt đều đạt chuẩn CP2. ≥80% câu qua, 100% ca từ chối an toàn và 100% mã trích có thật. 8/22 câu từ người dùng hoặc dữ liệu thật.</p></div>
+<div class="line"><h3>Điều gì đổi ở lượt 2?</h3><p>Tutor chỉ báo thiếu khi gọi tên được ý ngoài bài. A1-20 đạt nhờ hỏi lại tiêu chí chọn model.</p><p>A1-02 tiếp tục bỏ điều kiện cùng số token khi chạy lặp. A1-14 trích câu thiếu đơn giá và đạt lại khi chạy lặp.</p></div></div>
+<footer>05 / 08 · gpt-5.6-luna · run-1@20261127-221834 → run-2@20261128-092833 · eval/report.md</footer></section>
+<section><header>Chi phí · 50 phiên mô phỏng trên bản lượt 2</header><h2>Chi phí model ước tính 12–83 ₫ mỗi task thành công</h2>
 <table><tr><th>Model (giá)</th><th>USD / task thành công</th><th>USD / tháng · 436 · 700 · 1.000 người</th><th>/ người / tháng</th></tr><tr><td>gpt-4o-mini</td><td>0,00045 (≈ 12 ₫)</td><td>1,77 · 2,84 · 4,06</td><td>≈ 103 ₫</td></tr><tr><td>gpt-6.1-terra</td><td>0,0032 (≈ 83 ₫)</td><td>12,68 · 20,36 · 29,08</td><td>≈ 739 ₫</td></tr></table>
 <div class="cols"><div><h3>Cách đo</h3><p class="note">50/50 phiên, 0 lỗi, seed 42 · 111 lượt hỏi, 96.112 token vào, 10.318 token ra. Đo token trên gpt-5.6-luna, tính giá hai model. Chi phí/task = chi phí/phiên ÷ tỉ lệ đạt lượt 2 (20/22).</p></div>
 <div><h3>So với impact</h3><p class="note">Dưới 1.000 ₫/người/tháng so với ~22 phút gặp khó/người/tháng. Điều quyết định là chất lượng và thời gian tiết kiệm thật, chưa đo qua người dùng.</p></div></div>
 <footer>06 / 08 · cost/cost-estimate.md · simulate-1@20261128-115039 · tỉ lệ đạt run-2@20261128-092833</footer></section>
-<section class="dark"><header>Quyết định triển khai · Iterate</header><h2>Giữ hướng, sửa độ chính xác của trích dẫn trước khi mở rộng</h2>
-<div class="cols"><div><p class="big">91%</p><h3>Câu trả lời có căn cứ? · Gần đủ</h3><p>Lượt 2 đạt 20/22, qua chuẩn ≥80%, 4/4 câu từ chối an toàn. Chưa mở rộng vì A1-02 bỏ điều kiện của số liệu và bộ kiểm mới chỉ kiểm câu trích có thật, chưa kiểm câu trích có đỡ ý.</p></div>
-<div><p class="big">&lt;1.000 ₫</p><h3>Chi phí có tương xứng? · Có</h3><p>≈103–739 ₫/người/tháng so với ~22 phút gặp khó/người/tháng. Chi phí không phải điểm nghẽn; thời gian học viên tiết kiệm thật chưa đo.</p></div></div>
-<footer>07 / 08 · spec.md §2, §7–§8 · eval/report.md · cost/cost-estimate.md · quyết định: iterate</footer></section>
+<section class="dark"><header>Quyết định triển khai · Iterate</header><h2>Thử tiếp với nhóm nhỏ trước khi mở rộng</h2>
+<div class="cols"><div><p class="big">20/22</p><h3>Câu đạt ở lượt 2</h3><p>Cả 4 câu từ chối đều đạt. Ưu tiên giữ điều kiện của số liệu như A1-02 và kiểm tra câu trích có đủ căn cứ cho ý trả lời.</p></div>
+<div><p class="big">103–739 ₫</p><h3>Chi phí model/người/tháng</h3><p>Kịch bản cơ sở có 700 người. Từ log và khảo sát, nhóm ước tính khoảng 22 phút gặp khó/người/tháng. Cần đo thời gian thực sự tiết kiệm.</p></div></div>
+<footer>07 / 08 · spec.md §2, §7–§8 · eval/report.md · cost/cost-estimate.md</footer></section>
 <section><header>Nếu có thêm một tuần</header><h2>Kiểm chứng việc mở đoạn có giúp học viên hiểu bài hơn</h2>
 <div class="line"><strong>1 · Quan sát 2–3 học viên</strong><p>Cho mỗi người làm cùng một tác vụ trên bài mô phỏng. Ghi thời gian tìm đúng đoạn và xem họ có tự giải thích lại được ý vừa hỏi.</p></div>
-<div class="line"><strong>2 · Đọc lại những câu dẫn đúng mã nhưng sai ý</strong><p>Dùng A1-20 làm điểm xuất phát, rồi chọn thêm ca dựa trên lỗi còn lại của lượt 2.</p></div>
-<div class="line"><strong>3 · Thử trên bài thứ hai</strong><p>Kiểm xem cách hỏi lại và dẫn đoạn có dùng được ngoài 4 đoạn Day 01. Ghi phản hồi thực tế vào nhật ký thử nghiệm.</p></div>
+<div class="line"><strong>2 · Giữ điều kiện và đơn giá khi dẫn số liệu</strong><p>Ưu tiên A1-02 vì lỗi lặp lại. Với A1-14, kiểm câu trích có chứa đơn giá dùng trong phép tính.</p></div>
+<div class="line"><strong>3 · Chạy lặp bộ câu thử sau khi sửa</strong><p>Chạy mỗi câu ít nhất 3 lần để theo dõi dao động. Kiểm lại A1-07 và bốn câu từ chối.</p></div>
 <footer>08 / 08 · đề xuất từ eval/report.md, evidence/summary.md và spec.md §4 · validation/log.md dành cho buổi thử</footer></section>
 </body></html>

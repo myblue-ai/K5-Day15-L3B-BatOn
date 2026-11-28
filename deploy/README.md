@@ -1,6 +1,8 @@
 # Demo BatOn trên VPS
 
-Site [demo.202603027.xyz:8090](https://demo.202603027.xyz:8090/) dùng HTTPS và chuyển hướng link HTTP cũ trên cùng cổng. Backend dùng Python chuẩn trong venv của image Docker và chỉ xuất cổng `127.0.0.1:8091`. Proxy demo dùng `deploy/Caddyfile`. Caddy production và staging dùng 80/443.
+Để chạy chat và admin bằng Python trên máy của bạn, dùng [hướng dẫn setup và test local](../docs/local-setup.md).
+
+Site [demo.202603027.xyz:8090](https://demo.202603027.xyz:8090/) dùng HTTPS và chuyển hướng link HTTP cũ trên cùng cổng. Backend dùng Python chuẩn trong venv của image Docker. Cổng `127.0.0.1:8091` phục vụ chat qua proxy demo. Cổng riêng `127.0.0.1:8092` phục vụ quản trị qua SSH tunnel. Caddy production và staging dùng 80/443.
 
 Project trên máy `vps-aiv2` nằm ở `/home/deploy/mini-hackathon`. Unit `mini-hackathon.service` chạy dưới user `deploy`, đọc `.env` quyền 0600 và quản lý hai container của project Compose `mini-hackathon`. Cấu hình web hiện cho phép 4 lượt gọi đồng thời, tổng cộng 120 lượt/giờ cho toàn bộ demo. Video phục vụ từ `replay/demo.mp4`.
 
@@ -15,13 +17,37 @@ sudo journalctl -fu mini-hackathon
 Sau khi đồng bộ các tệp runtime đã cập nhật vào thư mục này, chạy:
 
 ```bash
-docker compose --env-file .env -f deploy/compose.yaml build agent
+sh deploy/build-agent.sh
 docker compose --env-file .env -f deploy/compose.yaml run --rm --no-deps proxy caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
 sudo systemctl restart mini-hackathon.service
 curl --fail http://127.0.0.1:8091/health
 ```
 
-Từ máy ngoài VPS, kiểm tra `curl --fail https://demo.202603027.xyz:8090/health` và mở [video dự phòng](https://demo.202603027.xyz:8090/demo.mp4) trong cửa sổ riêng tư. Hai ca trong video là A1-01 và A1-07, trên agent ở mốc `19c67d3` với DeepInfra. Đối chiếu lại demo khi dùng phiên bản D1.
+Từ máy ngoài VPS, kiểm tra `curl --fail https://demo.202603027.xyz:8090/health` và mở [video dự phòng](https://demo.202603027.xyz:8090/demo.mp4) trong cửa sổ riêng tư. Video ghi hai ca A1-01 và A1-07 trên agent D1 (`93e78d8`) dùng DeepInfra. Hai lượt đánh giá và phép đo token D3 dùng `gpt-5.6-luna`.
+
+## Quản trị model và khoá lượt gọi công khai
+
+Trên máy của bạn, giữ lệnh tunnel chạy và mở địa chỉ local bằng trình duyệt.
+
+```bash
+ssh -N -o ExitOnForwardFailure=yes -L 127.0.0.1:8092:127.0.0.1:8092 vps-aiv2
+```
+
+[Mở trang quản trị qua tunnel](http://127.0.0.1:8092/)
+
+Trong cửa sổ PowerShell khác, lấy token vào clipboard rồi dán vào trang admin. Quyền đọc token thuộc người có quyền quản trị VPS.
+
+```powershell
+ssh vps-aiv2 'sudo -n cat /home/deploy/mini-hackathon/runtime-config/admin-token' | Set-Clipboard
+```
+
+- **Đổi model.** Điền provider, model, base URL và key. Bấm **Kiểm tra gateway**, rồi **Áp dụng** trong vòng 5 phút. Có thể giữ key bằng cách để trống ô key khi dùng cùng provider và base URL. **Quay lại cấu hình trước** khôi phục phiên bản liền trước. Lượt gọi mới lấy cấu hình từ RAM.
+- **Kết thúc demo.** Bấm **Khoá lượt gọi công khai**. Hai endpoint `/api/chat` và `/api/call` trả 503 trước khi gọi model. Các lượt đã bắt đầu có thể hoàn tất. Trạng thái khoá vẫn còn sau restart và có thể mở lại từ admin. Đây là khoá trên BatOn, còn key do gateway quản lý.
+- **Xem lưu lượng.** Admin hiển thị số lần mở trang, yêu cầu chat, phản hồi thành công, lượt bị chặn, lỗi và tối đa 100 sự kiện gần đây. Biểu đồ theo 24 khung giờ và bắt đầu gom dữ liệu từ khi tiến trình khởi động. Các bộ đếm và nhật ký trên trang được đặt lại khi restart. Log chỉ chứa loại sự kiện, thời gian, trạng thái và thời lượng.
+
+Kho `runtime-config/` trên VPS lưu token quản trị và hai phiên bản cấu hình model. Hãy giữ thư mục quyền 0700, file quyền 0600 cho user trong container (UID 65532). Khi chưa có bản ghi đã lưu, agent dùng model từ `.env`.
+
+Trang admin cho phép endpoint mặc định của DeepInfra và OpenAI. Để thêm gateway đã dùng cho `gpt-5.6-luna`, khai báo URL HTTPS chính xác trong `MODEL_ALLOWED_BASE_URLS` ở `.env`, phân cách các mục bằng dấu phẩy. Sau đó khởi động lại riêng `mini-hackathon` để nạp danh sách cho phép. Việc đổi cấu hình sang gateway đã được phép diễn ra trực tiếp trong admin. Agent hỗ trợ các gateway nhận `/chat/completions` và trả usage token.
 
 ## Chứng chỉ HTTPS
 

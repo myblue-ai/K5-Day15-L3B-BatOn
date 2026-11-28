@@ -6,6 +6,8 @@ Học viên hỏi về bài pre-class đang mở. Trợ giảng trả lời kèm
 
 **Kết quả:** lượt 1 → lượt 2 **21/22 (95%) → 20/22 (91%)**, đạt chuẩn ở cả hai lượt (`gpt-5.6-luna`, [eval/report.md](eval/report.md)) · chi phí / task thành công **$0.00045 (gpt-4o-mini) – $0.0032 (gpt-6.1-terra)**, token đo trên `gpt-5.6-luna` ([cost/cost-estimate.md](cost/cost-estimate.md)) · quyết định: **iterate**.
 
+Nhóm vận hành có thể đổi cấu hình model, xem lưu lượng và khóa lượt gọi công khai qua trang quản trị riêng. [Cách mở admin](deploy/README.md#quản-trị-model-và-khoá-lượt-gọi-công-khai)
+
 **Thành viên, lớp, track:** xem [TEAMS.md](TEAMS.md). **Điền TEAMS.md đúng format**: khi chấm và đánh giá, BTC quét file này để ghép điểm cho từng người.
 
 *Lát cắt = phần nhỏ nhất làm xong được trong hackathon: một người dùng · một việc · một quyết định AI · một kết quả.*
@@ -26,7 +28,7 @@ Học viên hỏi về bài pre-class đang mở. Trợ giảng trả lời kèm
 
 ## Chạy trong 3 phút
 
-Để chạy giao diện trên máy, cấu hình `.env` theo [hướng dẫn nối model](docs/connect-model.md), chạy `python codebase/web.py` rồi mở [phòng học local](http://127.0.0.1:8091/). Trang chat, nguồn bài, `POST /api/chat` (hoặc `/api/call`) và `GET /health` dùng chung một cổng. API nhận JSON `{"message":"Streaming là gì?"}` và trả nội dung trong trường `output`. [Vận hành Docker trên VPS](deploy/README.md)
+Để chạy riêng trang chat, dùng `python codebase/web.py` rồi mở [phòng học local](http://127.0.0.1:8091/). Trang chat, nguồn bài, `POST /api/chat` (hoặc `/api/call`) và `GET /health` dùng chung một cổng. API nhận JSON `{"message":"Streaming là gì?"}` và trả nội dung trong trường `output`. [Chạy và kiểm tra web cùng admin trên máy local](docs/local-setup.md) · [Vận hành Docker trên VPS](deploy/README.md)
 
 Bộ khung cần **Python 3.10 trở lên** (Python 3.9 có sẵn trên macOS vẫn chạy được, chỉ in một dòng nhắc). **Không cần `pip install`.**
 
@@ -89,7 +91,7 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 
 | Thành phần | Thật / Giả | Ghi chú |
 |---|---|---|
-| Lời gọi AI tại demo web | Thật | DeepInfra · `deepseek-ai/DeepSeek-V4.1-Flash-1017`. Lượt đánh giá CP3 dùng `gpt-5.6-luna`. |
+| Lời gọi AI tại demo web | Thật | Agent D1 (`93e78d8`) gọi `deepseek-ai/DeepSeek-V4.1-Flash-1017` qua DeepInfra. Hai lượt đánh giá và phép đo token D3 dùng `gpt-5.6-luna`. |
 | Căn cứ Day 01 | Mô phỏng | 4 đoạn do nhóm biên soạn, gắn mã để kiểm tra trích dẫn. |
 | Kiểm mã và mở đoạn | Thật | Backend đối chiếu mã và câu trích. Nút mã trong chat mở đoạn gốc của bài mô phỏng. |
 | Dữ liệu về nhu cầu | Thật | Thống kê pre-class và khảo sát 21 học viên, tách khỏi dữ liệu chạy demo. |
@@ -129,4 +131,4 @@ Nhóm dùng Codex để soạn khung agent, tạo các đoạn bài mô phỏng 
 | 5 | ☑ Định nghĩa "tốt" + bộ câu thử | `data/DATA_CARD.md` · `eval/` · 22 câu (7 thuong · 11 kho · 4 tu_choi), 3 metric. Lượt 1 → 2: **21/22 → 20/22** (`run-1@20261127-221834` → `run-2@20261128-092833`) · [báo cáo](eval/report.md) · [hồ sơ đánh giá](eval/README.md) |
 | 6 | ☑ Mô phỏng chi phí khi dùng thật | [cost/cost-estimate.md](cost/cost-estimate.md) · `simulate-1@20261128-115039`, 50 phiên, seed 42, tỉ lệ đạt từ `run-2` · chi phí / task thành công $0.00045 (gpt-4o-mini) · $0.0032 (gpt-6.1-terra) · 3 kịch bản 436 / 700 / 1.000 người |
 | 7 | ☑ Slide + demo + video dự phòng | [Slide 8 trang](demo-slides.pdf) (trang 5 lượt 1 → 2, trang 6 chi phí, trang 7 quyết định iterate) · [Video public](https://demo.202603027.xyz:8090/demo.mp4) · [Bản MP4 phát offline](replay/demo.mp4) · [Video 30s gọi AI thật (Drive)](https://drive.google.com/file/d/1blXiDiqi20w2_6hk1c_svHu2dM8Nu0aW/view?usp=sharing) |
-| + | *Bonus:* người dùng thử | `validation/log.md` |
+| + | *Bonus:* người dùng thử | Chưa có buổi thử với học viên ngoài nhóm. [Mẫu ghi nhận](validation/log.md) |
