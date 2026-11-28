@@ -1,7 +1,5 @@
 # Reflection — Đào Hồng Thắng
 
-*Bản nháp. Thắng rà phần đóng góp và hoàn tất hai mục cá nhân trước khi nộp.*
-
 ## 1. Vai trò và phần đóng góp
 
 - Đội trưởng, phụ trách canvas và hồ sơ nhóm ở CP1. [Canvas](../canvas.md) · [TEAMS](../TEAMS.md)
