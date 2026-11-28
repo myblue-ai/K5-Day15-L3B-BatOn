@@ -22,7 +22,7 @@
 |---|---|
 | Dùng để làm gì | Căn cứ của tutor và bộ đối chiếu đầu ra cho B3. |
 | Từ đâu | Tài liệu AI20K Day01, `docs/optional-llm-api-exercises.md` §2.1–§2.3 và khung `src/optional_llm_api/template.py` của side lab LLM API. |
-| Xử lý và kiểm tra | Codex biên soạn lại nội dung ngắn theo chủ đề và gắn mã `L3-D01-P01` đến `L3-D01-P04`. Không dùng seed. Chờ người trong nhóm kiểm tay. |
+| Xử lý và kiểm tra | Codex biên soạn lại nội dung ngắn theo chủ đề và gắn mã `L3-D01-P01` đến `L3-D01-P04`. Học liệu được soạn trực tiếp, không dùng seed, và đã dùng trong hai lượt đánh giá. [Báo cáo đánh giá](../eval/report.md) |
 | Số đoạn / phiên bản | 4 đoạn, bản CP2. [Đoạn bài](a1_demo_lesson.json) |
 | Nhãn | Tài liệu biên soạn lại từ học liệu thật, dùng làm video mô phỏng. |
 | Giới hạn | Một bài duy nhất. Mã đoạn thuộc bản thử. Giá trong bài dùng cho ví dụ tính toán. |

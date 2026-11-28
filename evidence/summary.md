@@ -1,7 +1,7 @@
 # Tổng hợp bằng chứng pain
 
 > Guide bước 1.2, xong trước **CP3 10:00 Thứ Bảy 28/11**. Chấm ở rubric R1.
-> Cập nhật 27/11 tối: đã có đào data + khảo sát. Phỏng vấn đang hẹn.
+> Cập nhật 28/11. Nhóm đã xác nhận kết quả đào data, khảo sát và hồ sơ của 3 buổi phỏng vấn.
 
 Nguồn chính đáp ứng mục **“Đạt ngưỡng ≥1 nguồn”** ở CP3/CP4 là nhật ký hành vi pre-class do BTC cấp (`chat.csv`, `events.csv`). Trong **557** phản hồi của trợ giảng dưới video có trường `moc_trich_dan`, **231 phản hồi (41,5%)** có trường này rỗng. Nhóm ghép sự kiện `agent_replied` với câu hỏi dưới video qua `ref_id` và tính trên dữ liệu từ 13/11/2026, khi trường này bắt đầu xuất hiện. [Cách chọn mẫu và cách đếm](data-mining.md#1-cách-đếm--viết-trước-khi-chạy) · [Script kiểm lại](count.py) · [Năm ví dụ có mã dòng đã ẩn danh](data-mining.md#4-5-ví-dụ-cụ-thể-mã-dòng-đã-ẩn-danh-không-đoán-ai-là-ai)
 
@@ -10,8 +10,8 @@ Nguồn chính đáp ứng mục **“Đạt ngưỡng ≥1 nguồn”** ở CP3
 | Nguồn | Đạt ngưỡng? | File |
 |---|---|---|
 | Đào data (x/N, %, cách đếm chạy lại được, ≥5 ví dụ) | ☑ | `evidence/data-mining.md` · script `evidence/count.py` |
-| Phỏng vấn (≥3 người ngoài nhóm, đúng người dùng) | ☐ chưa làm | `evidence/interviews/P1.md`… |
-| Khảo sát (≥20 người ngoài nhóm, đúng người dùng) | Chờ xác nhận số người ngoài nhóm trong 21 phiếu học viên L3 | `evidence/survey/questions.md` · `evidence/survey/results.csv` (đã ẩn danh) |
+| Phỏng vấn (≥3 người ngoài nhóm, đúng người dùng) | Nhóm đã xác nhận hồ sơ 3 buổi phỏng vấn học viên L3. | [P1](interviews/P1.md) · [P2](interviews/P2.md) · [P3](interviews/P3.md) |
+| Khảo sát (≥20 người ngoài nhóm, đúng người dùng) | Đạt ngưỡng. Có 21 phiếu L3, nhóm xác nhận ít nhất 20 người ngoài nhóm. | `evidence/survey/questions.md` · `evidence/survey/results.csv` (đã ẩn danh) |
 
 ## 2. Số chính
 
@@ -26,19 +26,13 @@ Nguồn chính đáp ứng mục **“Đạt ngưỡng ≥1 nguồn”** ở CP3
 - Lần gần nhất gặp đoạn chưa hiểu: 10/21 (47,6%) là hôm nay / tuần này; 7/21 tuần trước; 4/21 lâu hơn.
 - Số lần gặp đoạn chưa hiểu trong 1 tuần: trung vị **4 lần**, trung bình 4,2 (từ 0 đến 10).
 - Lần gần nhất đã làm gì *(chọn nhiều)*: **16/21 (76,2%)** tua lại video để tìm · 14/21 (66,7%) hỏi ChatGPT / Claude riêng · 10/21 (47,6%) hỏi trợ giảng dưới video · 3/21 hỏi bạn / Discord · 1/21 hỏi TA.
-- Câu trả lời của trợ giảng có chỉ đúng đoạn không — trong 12 phiếu trả lời có / không: **8/12 không chỉ đúng đoạn** (5 không chỉ đoạn nào, 3 chỉ sai đoạn) · 4/12 chỉ đúng đoạn. *(7 phiếu "không hỏi trợ giảng", 2 phiếu "không nhớ".)*
+- Trong 12 phiếu có câu trả lời xác định ở câu 6, **8/12 ghi trợ giảng không chỉ đúng đoạn** (5 không chỉ đoạn nào, 3 chỉ sai đoạn) và 4/12 ghi chỉ đúng đoạn. *(7 phiếu "không hỏi trợ giảng", 2 phiếu "không nhớ".)*
 - Có mở lại bài để kiểm câu trả lời không: **13/21 (61,9%) "có, nhưng mất công tìm"** · 6/21 không kiểm · 2/21 không nhận được câu trả lời.
 - Mất bao lâu: dưới 5 phút 5 · 5–15 phút 4 · **15–30 phút 8** · trên 30 phút 4 → **12/21 (57,1%) mất ≥15 phút**; trung vị nằm ở nhóm 15–30 phút.
 - Kết quả: chỉ **5/21 (23,8%) hiểu hẳn** · 11/21 hiểu một phần · 2/21 bỏ qua để lên lớp hỏi · 3/21 bỏ luôn.
 - *Mâu thuẫn trong phiếu (giữ nguyên, không xoá):* R11, R13, R14 không chọn "hỏi trợ giảng" ở câu 5 nhưng trả lời câu 6 như đã hỏi; R21 chọn "hỏi trợ giảng" ở câu 5 nhưng câu 6 ghi "không hỏi". Số ở câu 6 tính theo đúng câu trả lời câu 6.
 
-**Phỏng vấn:** chưa có. Bảng sẽ điền khi xong.
-
-| | Vai | Gặp pain? | Số lần / 1 tháng qua | Lần gần nhất mất | Đang xoay xở bằng |
-|---|---|---|---|---|---|
-| P1 | | | | | |
-| P2 | | | | | |
-| P3 | | | | | |
+**Phỏng vấn.** Nhóm xác nhận nhận định chung từ 3 buổi tương tự khảo sát. Hồ sơ P1–P3 lần lượt đề cập tình huống thiếu mốc dẫn, chỉ sai đoạn và chỉ đúng đoạn nhưng giải thích khó hiểu. Số liệu và câu trích trong từng hồ sơ dẫn về phiếu khảo sát tương ứng R18, R06 và R12. [P1](interviews/P1.md) · [P2](interviews/P2.md) · [P3](interviews/P3.md)
 
 ## 3. ≥5 trích dẫn hoặc ví dụ nguyên văn (có nguồn, bỏ tên)
 
@@ -52,7 +46,7 @@ Nguồn chính đáp ứng mục **“Đạt ngưỡng ≥1 nguồn”** ở CP3
 ## 4. Các nguồn có khớp nhau không
 
 - **Data nói:** 41,5% câu trả lời của trợ giảng không dẫn mốc bài; 41,1% người xem có tua lùi; 30% câu hỏi gửi lúc khuya.
-- **Người dùng nói (khảo sát):** 8/12 người đã hỏi trợ giảng cho biết câu trả lời không chỉ đúng đoạn; 16/21 phải tua lại tìm; 13/21 mở lại bài nhưng mất công tìm; 18/21 xem buổi tối / khuya.
+- **Khảo sát.** Trong 12 phiếu có câu trả lời xác định ở câu 6, 8 phiếu ghi trợ giảng không chỉ đúng đoạn. Trong toàn mẫu, 16/21 phải tua lại tìm, 13/21 mở lại bài nhưng mất công tìm và 18/21 xem buổi tối hoặc khuya.
 - **Khớp:** cả hai nguồn cùng cho thấy câu trả lời thường không trỏ về chỗ trong bài và học viên phải tự tua lại tìm, chủ yếu vào buổi tối.
 - **Lệch / điều mới:** khảo sát cho thấy thời gian mất **lớn hơn nhiều** so với ước tính ban đầu (≥15 phút ở 12/21, không phải ~3 phút). Một số lời phàn nàn là về **chất lượng giải thích** ("không sâu", "nhập nhằng, sai", "chung chung"), không chỉ về việc thiếu mã đoạn — kể cả khi đã chỉ đúng đoạn (R12). 14/21 phải hỏi thêm ChatGPT / Claude bên ngoài.
 
@@ -60,12 +54,4 @@ Nguồn chính đáp ứng mục **“Đạt ngưỡng ≥1 nguồn”** ở CP3
 
 Giả thuyết ở `evidence/hypothesis.md`: **đúng một phần, phải chỉnh** — vì data và khảo sát cùng xác nhận câu trả lời thường không chỉ ra đoạn bài (41,5% theo data; 8/12 theo khảo sát) và học viên mất nhiều thời gian tua lại tìm (12/21 mất ≥15 phút), chủ yếu khi học buổi tối. Nhưng pain không chỉ là "thiếu mã đoạn": học viên còn phàn nàn câu trả lời chung chung, khó hiểu. Lát cắt giữ nguyên (trả lời kèm mã đoạn + câu trích để tự kiểm), metric cần đo cả "nội dung khớp đoạn được dẫn".
 
-**Điều vẫn chưa biết:** (1) câu trả lời không dẫn mốc là sai hay chỉ thiếu căn cứ — data không có nội dung chat; (2) tiêu chí "≥20% lượt chat bị chấm chưa đạt trong `answers.csv`" ở giả thuyết chưa đếm — `answers.csv` chấm câu **học viên** viết, không chấm câu trả lời của trợ giảng, nên đã dùng `moc_trich_dan` thay; (3) chưa có phỏng vấn để hỏi "vì sao" sâu hơn.
-
-## Lịch hẹn (dùng cho CP2 — chỉ ghi vai và giờ, không tên)
-
-| Vai | Giờ hẹn | Đã xong? |
-|---|---|---|
-| Học viên L3 | ____ | ☐ |
-| Học viên L3 | ____ | ☐ |
-| Học viên L3 | ____ | ☐ |
+**Giới hạn của số liệu.** Log chỉ ghi sự hiện diện của mốc dẫn và độ dài chat, nên chỉ số D2 đo tình trạng thiếu mốc. `answers.csv` ghi đánh giá câu học viên viết, vì vậy nhóm dùng `moc_trich_dan` để phân tích phản hồi của trợ giảng.

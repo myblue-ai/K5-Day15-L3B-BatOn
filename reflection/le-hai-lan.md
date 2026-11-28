@@ -10,10 +10,10 @@
 
 Hồ sơ nhóm ghi Claude Code hỗ trợ cấu hình `OPENAI_BASE_URL`, tăng timeout và soạn một số mục spec dựa trên bằng chứng và kết quả lượt 1. [Khai báo dùng AI](../docs/ai-usage.md)
 
-Bổ sung một đề xuất cụ thể của AI mình đã kiểm bằng lần chạy thật hoặc đã sửa trước khi dùng
+Lượt 1 xác nhận tích hợp gọi được model và ghi token sử dụng. [Kết quả lượt 1](../eval/run-1.csv)
 
 ## 3. Một câu trượt và bài học cá nhân
 
 Ở lượt 1, A1-20 dẫn một câu trích không hỗ trợ nhận định so sánh hai model. Lượt 2 hỏi người học về tiêu chí chọn model và đạt câu này. [Phân tích cải tiến](../eval/report.md#3-một-lần-cải-tiến)
 
-Bổ sung bài học về lúc cần hỏi rõ tiêu chí và cách kiểm xem thay đổi prompt ảnh hưởng đến các câu khác
+Khi người học chưa nêu tiêu chí chọn model, một câu hỏi làm rõ giúp tránh suy diễn từ đoạn chỉ nói về giá. Chạy lại cả bộ câu thử cho thấy thay đổi prompt đồng thời làm trượt A1-02 và A1-14.

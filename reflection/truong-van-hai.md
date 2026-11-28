@@ -10,10 +10,8 @@
 
 Hồ sơ đánh giá lưu phản hồi mô phỏng từ ChatGPT, bảng chấm B1 và kết quả Codex chấm riêng. [Đối chiếu B1 và B3](../eval/README.md#đối-chiếu-b1-và-b3-trên-phản-hồi-chatgpt)
 
-Bổ sung công cụ mình trực tiếp dùng, nếu có, và một quyết định chấm hoặc viết metric mình đã tự đối chiếu.
-
 ## 3. Một câu trượt và bài học cá nhân
 
 A1-14 ở lượt 2 dẫn đúng mã đoạn, nhưng câu trích được chọn thiếu đơn giá cần để kiểm phép tính. [Lỗi còn lại](../eval/report.md#4-còn-lại)
 
-Bổ sung bài học về cách viết điều kiện chấm để người chấm xác định được câu trích có đủ dữ kiện cho kết luận hay không.
+Điều kiện chấm một câu tính chi phí cần giúp người chấm kiểm tra câu trích có đủ dữ kiện để đối chiếu phép tính.
