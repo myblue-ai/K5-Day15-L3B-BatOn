@@ -89,10 +89,22 @@ Cột B1 lấy từ bảng Trương Văn Hải gửi. Cột B3 lấy từ lượ
 | Lượt | Run ID | Model | Cấu hình (prompt / công cụ / thay đổi) | Đạt / tổng | % | Đạt chuẩn? |
 |---|---|---|---|---|---|---|
 | 1 | `run-1@20261127-221834` | gpt-5.6-luna | Prompt `SYSTEM` trong `agent.py` · 1 công cụ `read_lesson_segments` · bộ kiểm mã đoạn + câu trích | 21/22 | 95% | Đạt |
-| 2 | | | | __/__ | | |
+| 2 | `run-2@20261128-092833` | gpt-5.6-luna | Sửa prompt `SYSTEM` (D1): chỉ dùng `partial` khi có ý hỏi riêng ngoài bài và ghi tên ý đó vào `missing` · cấm ý "bài không nói…" trong `claims` · thiếu tiêu chí lựa chọn thì `clarify`. Công cụ và bộ kiểm giữ nguyên | 20/22 | 91% | Đạt |
+
+**Kiểm lặp (không tính là lượt):**
+- `run-try@20261128-101005`: 14 câu đầu, cùng cấu hình với lượt 2.
+- Kết quả: A1-14 đạt lại (lần trượt ở lượt 2 là dao động); A1-02 trượt lại (lỗi của prompt mới).
+- Khung không commit file `run-try`, nên output nguyên văn được trích ở `eval/report.md` §3.
 
 Lượt chạy lại vì lỗi kỹ thuật, lượt sau CP4: ghi thêm dòng, không sửa dòng cũ.
 
 ## 6. Lỗi chính
 
-Tóm 2–3 dòng từ `eval/report.md`: nhóm lỗi lớn nhất · đã sửa gì · còn lại gì.
+- **Nhóm lỗi lớn nhất ở lượt 1: `partial_thua`.** Model báo "phần còn lại không có trong bài" ở 3 câu đã trả lời đủ (A1-08, A1-18, A1-20), khiến học viên đi hỏi TA không cần thiết. A1-20 trượt vì có thêm một câu trích không đỡ ý.
+- **Đã sửa:** prompt chỉ cho dùng `partial` khi câu hỏi có ý riêng ngoài bài, và phải nêu tên ý đó; thiếu tiêu chí lựa chọn thì hỏi lại. Kết quả: `partial_thua` 3 → 0 câu, A1-20 thành đạt, số câu chuyển sang TA 12 → 9.
+- **Còn lại:**
+  - A1-02 bỏ điều kiện "cùng số token vào và ra". Đây là lỗi mới do prompt gây ra, đã xác nhận bằng kiểm lặp, và có thể khiến học viên học sai.
+  - Mẫu từ chối dùng chung một câu (`tu_choi_rap_khuon`).
+  - Bộ kiểm mới chỉ kiểm câu trích đúng nguyên văn, chưa kiểm câu trích có đỡ ý hay không.
+
+Chi tiết: [`eval/report.md`](report.md) §3–4.
