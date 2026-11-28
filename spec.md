@@ -173,16 +173,14 @@ Mỗi đường đi ứng với một nhánh trong sơ đồ §4 và một hành
   - So với chuẩn: ≥80% ✅ · 100% `tu_choi` ✅ · 100% mã đoạn được dẫn có thật trong dữ liệu ✅ (bộ kiểm trong code chặn mã không có thật) → **lượt 1 đạt chuẩn**. Sau khi đối chiếu lại output với tiêu chí và đoạn bài, A1-02, A1-05 và A1-14 giữ điểm 1. A1-20 giữ điểm 0 vì câu trích không làm căn cứ cho ý được dẫn. Lý do từng câu nằm trong cột `ghi_chu`.
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
-- Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-__.csv` (__ phiên)
+- Ba nhóm hỏi ít/vừa/nhiều chiếm 39%/38%/23%. Chi phí được mô phỏng ở quy mô 436, 700 và 1.000 người, với hai mức giá `gpt-4o-mini` và `gpt-6.1-terra`. [Nguồn và giả định](cost/cost-estimate.md)
 - Chạy thử CP3: `simulate-try@20261128-015055` dùng DeepSeek qua DeepInfra, đủ 10/10 phiên, 0 lỗi. [Kết quả C4](cost/cost-estimate.md#chạy-thử-cp3--c4)
-- Chi phí / task thành công: __ (model __) · __ (model __)
-- Chi phí / tháng ở quy mô thật: thấp __ · cơ sở __ · cao __ → chi tiết `cost/cost-estimate.md`
-- So với impact / người / tháng (§2): đáng làm không, vì sao:
+- Chờ lượt 2 đã chấm để chạy 50 phiên với seed 42, tính chi phí/task thành công và ba mức chi phí tháng. §2 ước tính khoảng 22 phút gặp khó/người/tháng, làm căn cứ so với chi phí/người/tháng sau phép đo.
 
 ## §9. Rủi ro & an toàn
-- Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model gói miễn phí:
-- AI **không được** làm gì kể cả khi người dùng yêu cầu:
-- Ai có thể bị hại nếu AI sai, và nhóm chặn thế nào:
+- Demo chỉ dùng 4 đoạn Day01 mô phỏng. Khi bấm Gửi, trình duyệt chuyển câu hỏi và tối đa 4 tin nhắn trước tới backend. Backend chuyển nội dung này cùng đoạn bài đến nhà cung cấp model. Lịch sử nằm trong bộ nhớ của tab, người dùng có thể xoá bằng “Hỏi lại từ đầu”. Tránh nhập tên thật, mã học viên hoặc nội dung riêng. Log ứng dụng chỉ ghi loại lỗi kỹ thuật.
+- Tutor có quyền đọc bài. Các yêu cầu giải hộ bài nộp, thao tác LMS, bịa mã đoạn hoặc tiết lộ chỉ dẫn thuộc nhóm phải từ chối. Học viên tự quyết định có hỏi TA tiếp hay không.
+- Học viên có thể hiểu sai dù mã đoạn có thật, như ca A1-20 của lượt 1. Backend đối chiếu mã và câu trích với bài trước khi hiển thị. Trên web, học viên bấm mã để đọc nguyên đoạn và tự kiểm ý diễn giải.
 
 ## §10. Phân công & changelog
 - Phân công có tên (theo chặng, chia cặp — guide "Cách chia việc"): __
@@ -200,6 +198,7 @@ Mỗi đường đi ứng với một nhánh trong sơ đồ §4 và một hành
 | 27/11 23:35 | Rà nguồn và gắn nhãn nhóm cho câu thử CP3. Cập nhật Data Card và hồ sơ đánh giá. | C2 — đối chiếu đề thực hành Day01 và phiếu khảo sát, xác định 8/22 câu có nguồn thật. 22 đầu vào và cách chấm lượt 1 được giữ nguyên. |
 | 28/11 rạng sáng | Thêm ba ảnh chụp và ghi nhận thao tác trên pre-class vào §0. | C3 — bổ sung nguồn quan sát trực tiếp cho luồng hiện tại và ghi mốc cần kiểm lại. |
 | 28/11 01:52 | Rà lại điểm A1-02, A1-05, A1-14, A1-20 và chạy thử chi phí 10 phiên. | CP3 — xác nhận lượt 1 đạt 21/22 và ghi số token thử C4 tại `cost/cost-estimate.md`. |
+| 28/11 03:31 · chuẩn bị CP4 | Đóng gói demo web, quay A1-01/A1-07 và chuẩn bị slide, đầu vào D3. | D4 có bản dự phòng, D3 chờ số đo trên lượt 2. |
 | 28/11 09:28 | D1 — sửa `agent.py`: chỉ dùng `partial` khi có ý hỏi riêng ngoài bài và phải ghi tên ý đó (`missing`), không có tên thì không hiện dòng báo thiếu; cấm ý "bài không nói…" trong `claims`; thiếu tiêu chí lựa chọn thì `clarify`. Chạy lượt 2 `run-2@20261128-092833`: 20/22. | Nhóm lỗi `partial_thua` (A1-08, A1-18, A1-20) ở lượt 1: 3/3 câu hết lỗi, A1-20 từ trượt thành đạt. Tệ đi: A1-02, A1-14 bỏ mất điều kiện / chữ "đơn giá ví dụ". Chi tiết `eval/run-2.csv` cột `ghi_chu`. |
 | 28/11 10:10 | Kiểm lặp 14 câu đầu bằng `python run.py eval --try 14` (`run-try@20261128-101005`), cùng code và model với lượt 2. Không tính là một lượt. | Tách dao động khỏi lỗi thật: A1-14 đạt lại → dao động; A1-02 trượt lại với câu trả lời gần như y hệt → lỗi của prompt mới. Output nguyên văn ở `eval/report.md` §3 vì file `run-try` không được commit. |
 

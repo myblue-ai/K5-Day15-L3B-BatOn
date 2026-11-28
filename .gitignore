@@ -2,6 +2,8 @@
 .env
 .env.*
 !.env.example
+/acme/
+/tls/
 *.pem
 *service-account*.json
 credentials*.json

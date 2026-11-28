@@ -1,0 +1,8 @@
+**
+!Dockerfile
+!requirements.txt
+!codebase/
+!codebase/*.py
+!codebase/index.html
+!data/
+!data/a1_demo_lesson.json

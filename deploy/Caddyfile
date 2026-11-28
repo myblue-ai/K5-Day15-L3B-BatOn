@@ -1,0 +1,36 @@
+{
+	admin off
+	auto_https off
+	persist_config off
+	servers :8090 {
+		listener_wrappers {
+			http_redirect
+			tls
+		}
+		protocols h1
+		timeouts {
+			read_header 10s
+			read_body 15s
+			idle 45s
+		}
+	}
+}
+https://demo.202603027.xyz:8090 {
+	tls /etc/caddy/tls/fullchain.pem /etc/caddy/tls/privkey.pem
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy no-referrer
+		X-Frame-Options DENY
+	}
+	@video path /demo.mp4
+	handle @video {
+		root * /srv/replay
+		file_server
+	}
+	handle {
+		request_body {
+			max_size 32KB
+		}
+		reverse_proxy 127.0.0.1:8091
+	}
+}

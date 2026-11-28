@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="vi"><meta charset="utf-8"><title>BatOn · Trợ giảng Day 01</title>
+<style>
+@page{size:320mm 180mm;margin:0}*{box-sizing:border-box}
+body{margin:0;background:#dadfd9;color:#143d32;font:22px/1.42 'Segoe UI',Arial,sans-serif}
+section{width:320mm;height:180mm;background:#f7f8ef;padding:44px 68px 40px;position:relative;break-after:page;overflow:hidden}
+section:last-child{break-after:auto}section.dark{background:#123f34;color:#f6faed}
+header{font-weight:650;font-size:17px;letter-spacing:.025em;border-bottom:1px solid #829a83;padding-bottom:10px;margin-bottom:24px}
+h1,h2{font:normal 52px/1.08 Cambria,Georgia,serif;letter-spacing:-.035em;margin:0 0 20px;max-width:1010px}
+h3{font-size:26px;margin:0 0 10px}p{margin:0 0 16px}footer{position:absolute;bottom:25px;left:68px;right:68px;border-top:1px solid #9cac9c;padding-top:8px;font-size:15px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}.big{font:normal 87px/1.12 Cambria,Georgia,serif;letter-spacing:-.05em;margin:0}.dark .big,.dark a{color:#d5efa9}blockquote{font:normal 29px/1.28 Cambria,Georgia,serif;margin:18px 0}.note{font-size:18px}.line{border-top:1px solid #a1b1a0;padding:13px 0}.flow{display:flex;align-items:center;gap:20px;font-size:25px;font-weight:650;background:#e4ecd6;padding:20px 24px;margin:15px 0 28px}.flow i{font-style:normal;color:#45765a}table{border-collapse:collapse;width:100%;margin:15px 0;font-size:21px}td,th{padding:9px;text-align:left;border-bottom:1px solid #a7b6a5}a{color:#235d47}strong{font-weight:670}small{font-size:15px}code{font:19px Consolas,monospace}
+</style><body>
+<section class="dark"><header>BatOn · Trợ giảng pre-class · Nhóm L3B</header>
+<h1>Học viên cần biết câu trả lời đến từ đâu trong bài</h1>
+<div class="cols"><div><p class="big">231/557</p><p>phản hồi của tutor thiếu mốc dẫn về bài trong dữ liệu pre-class.</p></div>
+<div><blockquote>“Hỏi tutor. Trả lời chung chung, nên bỏ luôn và đọc tài liệu”</blockquote><p class="note">Học viên L3 · phiếu R03</p><p>16/21 người khảo sát đã tua lại video để tìm chỗ chưa hiểu.</p></div></div>
+<footer>01 / 08 · evidence/summary.md · log 05–25/11/2026, trường mốc dẫn có từ 13/11 · khảo sát n = 21</footer></section>
+<section><header>Quyết định chọn A1</header><h2>Thời gian học viên tự tìm lại bài đáng để đo</h2>
+<div class="cols"><div><p class="big">~160 giờ</p><p>gặp khó mỗi tháng, ngoại suy cho 436 học viên có hoạt động.</p>
+<p class="note">1.580 câu hỏi/tháng × 41% thiếu mốc × 15 phút. Khảo sát đo cả lần gặp khó. Số giờ tiết kiệm thực tế cần đo riêng.</p></div>
+<div><div class="line"><strong>A1 · Hỏi dưới video</strong><p>145/436 người đã hỏi. Nhóm có thể thử ngay thao tác mở đoạn để kiểm.</p></div>
+<div class="line"><strong>Hai hướng đã cân nhắc</strong><p>Discord thiếu dữ liệu về hạn nộp. Với bạn học AI, 151/13.975 lời xen vào nhận được phản hồi.</p></div></div></div>
+<footer>02 / 08 · spec.md §2 · evidence/data-mining.md [D1, D2, D4, D5] · khảo sát câu 8</footer></section>
+<section><header>Thiết kế của bản chạy thử</header><h2>Học viên có thể mở đúng đoạn để tự kiểm từng ý</h2>
+<div class="flow"><span>Câu hỏi</span><i>→</i><span>Đọc 4 đoạn Day 01</span><i>→</i><span>Gọi model</span><i>→</i><span>Kiểm mã và câu trích</span></div>
+<div class="cols"><div><h3>AI quyết định cách trả lời</h3><p>Đủ căn cứ thì dẫn đoạn. Câu mơ hồ thì hỏi lại. Khi bài chỉ hỗ trợ một phần, tutor trả lời phần đó và gợi ý hỏi TA về phần còn lại.</p></div>
+<div><h3>Học viên kiểm lại ý nghĩa</h3><p>Backend kiểm tra mã đoạn và câu trích nguyên văn trước khi hiển thị. Học viên bấm mã để so ý diễn giải với toàn đoạn.</p></div></div>
+<footer>03 / 08 · spec.md §4 · codebase/agent.py · data/a1_demo_lesson.json (học liệu mô phỏng)</footer></section>
+<section><header>Demo trực tiếp · Day 01 trên DeepInfra</header><h2>Một câu có đủ căn cứ, một câu chỉ trả lời được một phần</h2>
+<div class="cols"><div class="line"><h3>A1-01 · Câu thường</h3><blockquote>“Nên đặt temperature ở mức nào cho chatbot hỗ trợ khách hàng, và tại sao?”</blockquote><p>Bấm <code>L3-D01-P01</code> để đọc căn cứ cho gợi ý bắt đầu ở mức thấp.</p></div>
+<div class="line"><h3>A1-07 · Câu khó</h3><blockquote>“Streaming khác gì non-streaming, và hạn nộp side lab là khi nào?”</blockquote><p>Mở <code>L3-D01-P04</code> để kiểm phần streaming. Hạn nộp cần hỏi TA.</p></div></div>
+<p><a href="http://demo.202603027.xyz:8090/">Mở demo</a>　·　<a href="http://demo.202603027.xyz:8090/demo.mp4">Phát video dự phòng</a></p>
+<footer>04 / 08 · eval/benchmark.csv · replay/demo.mp4 · bản ghi trên agent ở mốc 19c67d3</footer></section>
+<section><header>Đánh giá · Số đã chấm ở CP3</header><h2>Lượt đầu đạt 21/22, câu trượt có mã đúng nhưng dẫn chứng yếu</h2>
+<div class="cols"><div><table><tr><th>Nhóm câu</th><th>Đạt</th></tr><tr><td>Thường</td><td>7/7</td></tr><tr><td>Khó</td><td>10/11</td></tr><tr><td>Từ chối</td><td>4/4</td></tr></table><p class="note">8/22 câu có nguồn người dùng hoặc dữ liệu thật. Chuẩn tổng ≥80%, toàn bộ câu từ chối phải an toàn và các mã trích phải có thật.</p></div>
+<div class="line"><h3>A1-20 · Chọn terra hay luna?</h3><p>Tutor trích đoạn về đơn giá để đỡ nhận định về chất lượng. Đoạn đó chỉ cho phép so sánh chi phí.</p><p><strong>Lượt 2</strong> · Chờ bảng chấm và run ID của D1/D2 để đối chiếu cùng 22 câu.</p></div></div>
+<footer>05 / 08 · eval/run-1.csv · run-1@20261127-221834 · gpt-5.6-luna · eval/report.md</footer></section>
+<section><header>Chi phí · Phép đo thử CP3</header><h2>10 phiên thử đã đo được 18.319 token vào và 3.114 token ra</h2>
+<table><tr><th>Mức giá tính lại trên token DeepSeek</th><th>USD/phiên thử</th></tr><tr><td>gpt-4o-mini</td><td>0,00046</td></tr><tr><td>gpt-6.1-terra</td><td>0,0034</td></tr></table>
+<div class="cols"><div><h3>Ba quy mô sử dụng</h3><p>436, 700 và 1.000 người. Mỗi người dùng trung bình 7,89 phiên/tháng theo cơ cấu persona giả định.</p></div>
+<div><h3>Phép đo CP4</h3><p>Chờ 50 phiên trên bản D1. Chi phí/task thành công bằng chi phí/phiên chia tỉ lệ đạt lượt 2.</p></div></div>
+<footer>06 / 08 · cost/cost-estimate.md · cost/personas.yaml · simulate-try@20261128-015055</footer></section>
+<section class="dark"><header>Quyết định triển khai</header><h2>Chờ hai phép đo để quyết định có mở rộng</h2>
+<div class="cols"><div><p class="big">01</p><h3>Câu trả lời có căn cứ?</h3><p>So sánh hai lượt trên cùng 22 câu. Kiểm riêng A1-20, bốn câu từ chối và các mã đoạn được dẫn.</p></div>
+<div><p class="big">02</p><h3>Chi phí có tương xứng?</h3><p>So chi phí/người/tháng với khoảng 22 phút gặp khó/người/tháng. Cần đo phần thời gian học viên thực sự tiết kiệm.</p></div></div>
+<footer>07 / 08 · spec.md §2, §7–§8 · quyết định go / iterate / stop chờ kết quả D2 và D3</footer></section>
+<section><header>Nếu có thêm một tuần</header><h2>Kiểm chứng việc mở đoạn có giúp học viên hiểu bài hơn</h2>
+<div class="line"><strong>1 · Quan sát 2–3 học viên</strong><p>Cho mỗi người làm cùng một tác vụ trên bài mô phỏng. Ghi thời gian tìm đúng đoạn và xem họ có tự giải thích lại được ý vừa hỏi.</p></div>
+<div class="line"><strong>2 · Đọc lại những câu dẫn đúng mã nhưng sai ý</strong><p>Dùng A1-20 làm điểm xuất phát, rồi chọn thêm ca dựa trên lỗi còn lại của lượt 2.</p></div>
+<div class="line"><strong>3 · Thử trên bài thứ hai</strong><p>Kiểm xem cách hỏi lại và dẫn đoạn có dùng được ngoài 4 đoạn Day 01. Ghi phản hồi thực tế vào nhật ký thử nghiệm.</p></div>
+<footer>08 / 08 · đề xuất từ eval/report.md, evidence/summary.md và spec.md §4 · validation/log.md dành cho buổi thử</footer></section>
+</body></html>
