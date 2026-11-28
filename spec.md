@@ -187,7 +187,8 @@ Mỗi đường đi ứng với một nhánh trong sơ đồ §4 và một hành
 ## §9. Rủi ro & an toàn
 - Demo chỉ dùng 4 đoạn Day01 mô phỏng. Khi bấm Gửi, trình duyệt chuyển câu hỏi và tối đa 4 tin nhắn trước tới backend. Backend chuyển nội dung này cùng đoạn bài đến nhà cung cấp model. Lịch sử nằm trong bộ nhớ của tab, người dùng có thể xoá bằng “Hỏi lại từ đầu”. Tránh nhập tên thật, mã học viên hoặc nội dung riêng. Log ứng dụng chỉ ghi loại lỗi kỹ thuật.
 - Tutor có quyền đọc bài. Các yêu cầu giải hộ bài nộp, thao tác LMS, bịa mã đoạn hoặc tiết lộ chỉ dẫn thuộc nhóm phải từ chối. Học viên tự quyết định có hỏi TA tiếp hay không.
-- Học viên có thể hiểu sai dù mã đoạn có thật, như ca A1-20 của lượt 1. Backend đối chiếu mã và câu trích với bài trước khi hiển thị. Trên web, học viên bấm mã để đọc nguyên đoạn và tự kiểm ý diễn giải.
+- Học viên có thể hiểu sai dù mã đoạn có thật. Ở lượt 2, A1-02 bỏ điều kiện cùng số token và A1-14 trích câu thiếu đơn giá. Backend đối chiếu mã và câu trích với bài trước khi hiển thị. Trên web, học viên bấm mã để đọc nguyên đoạn và tự kiểm ý diễn giải. [Phân tích lỗi](eval/report.md#4-còn-lại)
+- Trang quản trị truy cập qua SSH tunnel và xác thực bằng token riêng. Nhóm có thể khoá lượt gọi model công khai sau demo. Số liệu trên trang là lượt mở trang và yêu cầu kỹ thuật. Nhật ký chỉ ghi loại sự kiện, thời gian, trạng thái và thời lượng. [Hướng dẫn vận hành](deploy/README.md#quản-trị-model-và-khoá-lượt-gọi-công-khai)
 
 ## §10. Phân công & changelog
 - Phân công có tên (theo chặng, chia cặp — guide "Cách chia việc"): __
@@ -209,6 +210,8 @@ Mỗi đường đi ứng với một nhánh trong sơ đồ §4 và một hành
 | 28/11 09:28 | D1 — sửa `agent.py`: chỉ dùng `partial` khi có ý hỏi riêng ngoài bài và phải ghi tên ý đó (`missing`), không có tên thì không hiện dòng báo thiếu; cấm ý "bài không nói…" trong `claims`; thiếu tiêu chí lựa chọn thì `clarify`. Chạy lượt 2 `run-2@20261128-092833`: 20/22. | Nhóm lỗi `partial_thua` (A1-08, A1-18, A1-20) ở lượt 1: 3/3 câu hết lỗi, A1-20 từ trượt thành đạt. Tệ đi: A1-02, A1-14 bỏ mất điều kiện / chữ "đơn giá ví dụ". Chi tiết `eval/run-2.csv` cột `ghi_chu`. |
 | 28/11 10:10 | Kiểm lặp 14 câu đầu bằng `python run.py eval --try 14` (`run-try@20261128-101005`), cùng code và model với lượt 2. Không tính là một lượt. | Tách dao động khỏi lỗi thật: A1-14 đạt lại → dao động; A1-02 trượt lại với câu trả lời gần như y hệt → lỗi của prompt mới. Output nguyên văn ở `eval/report.md` §3 vì file `run-try` không được commit. |
 | 28/11 11:50 | D3 — chạy `python run.py simulate --rate-from eval/run-2.csv` (`simulate-1@20261128-115039`, 50 phiên, seed 42). Điền `cost/cost-estimate.md` §2–3 và §8. | Đo token trên `gpt-5.6-luna`, tính giá `gpt-4o-mini` / `gpt-6.1-terra`: chi phí/task thành công $0.00045 / $0.0032; chi phí không phải điểm nghẽn. |
+| 28/11 | D4 — triển khai agent D1 qua HTTPS, ghi lại demo A1-01 và A1-07, hoàn thiện PDF 8 trang với kết quả D2/D3. | A1-07 nêu rõ phần thiếu. Lượt 2 còn lỗi A1-02 nên kết luận là thử tiếp với nhóm nhỏ. |
+| 28/11 | Thêm admin riêng cho BatOn để kiểm tra và áp dụng cấu hình model, theo dõi lượt truy cập và khoá lượt gọi công khai. | Nhóm có thể đổi cấu hình trong buổi demo và dừng phát sinh token sau demo. |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

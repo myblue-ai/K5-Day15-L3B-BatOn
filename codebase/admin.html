@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="vi" data-type="software">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="page-type" content="software"><meta name="site-kind" content="software">
+<title>Quản trị BatOn</title>
+<style>
+:root{color-scheme:light;--paper:#f7f8f1;--ink:#183d33;--muted:#51635b;--green:#174f3f;--line:#d1dcd0;--pale:#ecf2e6;--danger:#922e24;font:16px/1.5 'Segoe UI',sans-serif;color:var(--ink);background:var(--paper)}
+*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}button:disabled{cursor:default;opacity:.5}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #508a68;outline-offset:2px}
+header{background:#fff;border-bottom:1px solid var(--line)}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}.bar{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-size:20px;font-weight:750}.bar-right,.actions{display:flex;gap:10px;flex-wrap:wrap}
+main{padding:32px 0 48px}h1,h2,h3,p{margin:0}h1{font:normal clamp(29px,4vw,43px)/1.12 Cambria,Georgia,serif;margin:0 0 6px}h2{font-size:20px}h3{font-size:16px}.intro{color:var(--muted);margin-bottom:22px}.grid{display:grid;grid-template-columns:1fr 1.2fr;gap:20px;align-items:start}.stack{display:grid;gap:20px}.panel{background:white;border:1px solid var(--line);border-radius:14px;padding:22px}.panel h2{margin-bottom:12px}.login{max-width:460px;margin:25px auto}.field{display:grid;gap:5px;margin:0 0 13px}.field label{font-size:14px;font-weight:650}.field input,.field select{min-width:0;width:100%;border:1px solid #b5c5b9;border-radius:8px;padding:9px 10px;background:white;color:var(--ink)}.hint{font-size:13px;color:var(--muted);margin:7px 0 14px}.button{border:1px solid #b5c5b9;border-radius:8px;padding:8px 12px;min-height:42px;background:white;color:var(--ink);transition:transform .15s,filter .15s}.button.primary{background:var(--green);border-color:var(--green);color:white}.button.danger{color:var(--danger);border-color:#dcaaa4}.button:hover:enabled{transform:translateY(-1px);filter:brightness(.96)}.button:active:enabled{transform:translateY(1px)}
+.status{padding:8px 11px;border-radius:8px;background:var(--pale);font-size:14px;margin-bottom:10px}.status.blocked{background:#f9e9e5;color:var(--danger)}.summary{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;margin:0 0 14px}.summary div{min-width:0}.summary dt{font-size:12px;color:var(--muted)}.summary dd{margin:0;font-size:14px;font-weight:650;overflow-wrap:anywhere}.host-line{grid-column:1/-1}
+.numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0 16px}.number{padding:10px;background:var(--pale);border-radius:8px;font-size:13px;color:var(--muted)}.number strong{display:block;color:var(--ink);font-size:27px;line-height:1.2;font-variant-numeric:tabular-nums}.chart{display:grid;grid-template-columns:repeat(24,1fr);gap:3px;align-items:end;height:87px;border-bottom:1px solid var(--line)}.chart i{display:block;background:#518a70;min-height:2px;border-radius:3px 3px 0 0}.axis{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px}.log{max-height:325px;overflow:auto;margin-top:4px}.row{display:grid;grid-template-columns:105px minmax(95px,1fr) 68px;gap:8px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}.row:last-child{border-bottom:0}.row time{color:var(--muted);font-variant-numeric:tabular-nums}.row span:last-child{text-align:right}.message{margin:8px 0 12px;min-height:24px;font-size:14px}.message.error{color:var(--danger)}[hidden]{display:none!important}#workspace:not([hidden]){animation:enter .28s ease-out}@keyframes enter{from{opacity:0;transform:translateY(5px)}}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.stack{gap:14px}.grid{gap:14px}.panel{padding:16px}}@media(max-width:420px){.wrap{width:calc(100% - 24px)}.numbers{grid-template-columns:1fr 1fr}.row{grid-template-columns:86px 1fr 57px;font-size:12px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar"><span class="brand">BatOn · Quản trị</span><div id="bar-actions" class="bar-right" hidden>
+<button class="button" type="button" id="refresh">Làm mới</button><button class="button" type="button" id="logout">Đăng xuất</button>
+</div></div></header>
+<main class="wrap">
+<section class="panel login" id="login-panel">
+<h1>Quản trị BatOn</h1><p class="intro">Nhập token quản trị để mở cấu hình demo.</p>
+<form id="login" autocomplete="off"><div class="field"><label for="token">Token quản trị</label><input id="token" type="password" maxlength="160" required autocomplete="off"></div><button class="button primary">Mở trang quản trị</button></form>
+<p class="message" id="login-message" role="status"></p>
+</section>
+<div id="workspace" hidden>
+<h1>Quản trị demo</h1><p class="intro">Cấu hình model và theo dõi hoạt động của trợ giảng Day 01.</p>
+<p class="message" id="message" role="status"></p>
+<div class="grid">
+<div class="stack">
+<section class="panel" aria-labelledby="current-title">
+<h2 id="current-title">Cấu hình đang chạy</h2>
+<p class="status" id="public-state"></p>
+<dl class="summary"><div><dt>Provider</dt><dd id="active-provider"></dd></div><div><dt>Model</dt><dd id="active-model"></dd></div><div class="host-line"><dt>Base URL</dt><dd id="active-url"></dd></div><div><dt>API key</dt><dd id="active-key"></dd></div></dl>
+<div class="actions"><button class="button danger" type="button" id="toggle"></button><button class="button" type="button" id="rollback">Quay lại cấu hình trước</button></div>
+<p class="hint">Khoá lượt gọi công khai sau buổi demo để các câu hỏi mới dừng trước khi gọi model.</p>
+</section>
+<section class="panel" aria-labelledby="draft-title">
+<h2 id="draft-title">Đổi cấu hình model</h2>
+<form id="config" autocomplete="off">
+<div class="field"><label for="provider">Provider</label><select id="provider"><option value="deepinfra">DeepInfra</option><option value="openai">Gateway tương thích OpenAI</option></select></div>
+<div class="field"><label for="model">Model</label><input id="model" maxlength="160" placeholder="gpt-5.6-luna" required></div>
+<div class="field"><label for="base-url">Base URL HTTPS</label><input id="base-url" type="url" maxlength="1024" autocomplete="off"></div>
+<div class="field"><label for="api-key">API key</label><input id="api-key" type="password" maxlength="4096" autocomplete="new-password" spellcheck="false"></div>
+<p class="hint" id="key-hint">Để trống để giữ key hiện tại khi dùng cùng gateway. Khi đổi gateway, nhập key tương ứng.</p>
+<div class="actions"><button class="button" id="test">Kiểm tra gateway</button><button class="button primary" type="button" id="apply" disabled>Áp dụng</button></div>
+</form>
+</section>
+</div>
+<div class="stack">
+<section class="panel" aria-labelledby="traffic-title">
+<h2 id="traffic-title">Lưu lượng demo</h2>
+<p class="hint" id="since"></p>
+<div class="numbers">
+<div class="number"><strong id="page-count">0</strong>Lượt mở trang</div>
+<div class="number"><strong id="chat-count">0</strong>Yêu cầu chat</div>
+<div class="number"><strong id="ok-count">0</strong>Đã trả lời</div>
+<div class="number"><strong id="blocked-count">0</strong>Đã chặn</div>
+<div class="number"><strong id="limited-count">0</strong>Vượt giới hạn</div>
+<div class="number"><strong id="error-count">0</strong>Lỗi gateway</div>
+</div>
+<h3>Yêu cầu chat theo giờ</h3><div class="chart" id="chart" aria-label="Yêu cầu chat theo giờ"></div><div class="axis"><span id="chart-start"></span><span id="chart-end"></span></div>
+</section>
+<section class="panel" aria-labelledby="log-title">
+<h2 id="log-title">Nhật ký gần đây</h2>
+<p class="hint">Tối đa 100 sự kiện từ lần khởi động gần nhất. Mốc giờ theo trình duyệt.</p>
+<div class="log" id="log"></div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const defaults = {deepinfra:'https://api.deepinfra.com/v1/openai',openai:'https://api.openai.com/v1'};
+const titles = {deepinfra:'DeepInfra',openai:'Gateway tương thích OpenAI',fake:'Model giả'};
+const labels = {page_view:'Mở trang',chat_ok:'Đã trả lời',chat_blocked:'Đã chặn lượt gọi',chat_error:'Lỗi gateway',chat_limited:'Vượt giới hạn',chat_invalid:'Yêu cầu không hợp lệ',tested:'Đã thử cấu hình',test_failed:'Kiểm tra thất bại',applied:'Áp dụng cấu hình',rolled_back:'Quay lại cấu hình',public_enabled:'Mở lượt gọi công khai',public_disabled:'Khoá lượt gọi công khai',save_failed:'Lưu cấu hình thất bại'};
+let token = '', current = null, ticket = '', busy = false;
+const controls=['refresh','logout','provider','model','base-url','api-key','test','toggle','rollback','apply'];
+function note(id,text,error=false){$(id).textContent=text;$(id).classList.toggle('error',error);}
+function toggleControls(){
+  for(const id of controls)$(id).disabled=busy;
+  $('apply').disabled=busy || !ticket;
+  $('rollback').disabled=busy || !current?.can_rollback;
+}
+function fill(config){
+  $('provider').value=config.provider in defaults ? config.provider : 'deepinfra';
+  $('model').value=config.model || '';
+  $('base-url').value=config.base_url || defaults[$('provider').value];
+  $('api-key').value='';
+}
+function display(state){
+  if(current && state.revision<current.revision)return;
+  if(current && state.revision!==current.revision)ticket='';
+  current=state;
+  const c=state.config;
+  $('active-provider').textContent=titles[c.provider] || c.provider;
+  $('active-model').textContent=c.model || '—';
+  $('active-url').textContent=c.base_url || '—';
+  $('active-key').textContent=c.has_key ? 'Đã có key' : 'Chưa có key';
+  $('public-state').textContent=state.public_enabled ? 'Đang mở lượt gọi công khai' : 'Đang khoá lượt gọi công khai';
+  $('public-state').classList.toggle('blocked',!state.public_enabled);
+  $('toggle').textContent=state.public_enabled ? 'Khoá lượt gọi công khai' : 'Mở lượt gọi công khai';
+  $('toggle').classList.toggle('danger',state.public_enabled);
+  toggleControls();
+}
+const dateTime = date => new Date(date).toLocaleString('vi-VN');
+const timeOnly = date => new Date(date).toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'});
+const totalChat = counts => Object.entries(counts).reduce((n,[k,v])=>k.startsWith('chat_')?n+v:n,0);
+function renderTraffic(t){
+  const c=t.counts;
+  $('since').textContent='24 khung giờ gần nhất · Theo dõi từ '+dateTime(t.started_at);
+  for(const [id,value] of Object.entries({page:c.page_view,chat:totalChat(c),ok:c.chat_ok,blocked:c.chat_blocked,limited:c.chat_limited,error:c.chat_error})){
+    $(id+'-count').textContent=(value || 0).toLocaleString('vi-VN');
+  }
+  const chats=t.hours.map(hour=>totalChat(hour.counts)), max=Math.max(1,...chats);
+  $('chart').replaceChildren(...t.hours.map((hour,i)=>{
+    const bar=document.createElement('i');bar.style.height=(100*chats[i]/max)+'%';
+    bar.title=timeOnly(hour.at)+' · '+chats[i]+' yêu cầu';return bar;
+  }));
+  $('chart-start').textContent=dateTime(t.hours[0].at);
+  $('chart-end').textContent=dateTime(t.hours.at(-1).at);
+  const rows=t.events.map(event=>{
+    const row=document.createElement('div');row.className='row';
+    const time=document.createElement('time');time.dateTime=event.at;time.title=dateTime(event.at);
+    time.textContent=new Date(event.at).toLocaleTimeString('vi-VN');
+    const name=document.createElement('span'); name.textContent=labels[event.result] || 'Sự kiện';
+    const status=document.createElement('span');status.title=event.elapsed_ms===null?'':event.elapsed_ms+' ms';
+    status.textContent=[event.status,event.elapsed_ms===null?'':event.elapsed_ms+' ms'].filter(Boolean).join(' · ');
+    row.append(time,name,status);return row;
+  });
+  $('log').replaceChildren(...rows);
+  if(!rows.length)$('log').textContent='Chưa có hoạt động.';
+}
+async function api(path,body,auth=token){
+  const headers={Authorization:'Bearer '+auth};
+  const options={headers,cache:'no-store'};
+  if(body){headers['Content-Type']='application/json';options.method='POST';options.body=JSON.stringify(body);}
+  const response=await fetch(path,options), data=await response.json();
+  if(!response.ok)throw Error(data.error || 'Yêu cầu thất bại.');
+  return data;
+}
+async function refresh(){
+  const data=await api('/api/state');
+  display(data.state);renderTraffic(data.traffic);
+}
+async function action(fn){
+  if(busy)return;
+  busy=true;toggleControls();note('message','Đang xử lý…');
+  try{await fn();}catch(e){note('message',e.message,true);}
+  finally{busy=false;toggleControls();}
+}
+$('login').onsubmit=async e=>{
+  e.preventDefault();const value=$('token').value.trim(), submit=e.submitter;
+  if(submit.disabled)return;
+  submit.disabled=true;
+  try{
+    const data=await api('/api/state',null,value);
+    token=value;display(data.state);fill(current.config);renderTraffic(data.traffic);
+    $('login-panel').hidden=true;$('workspace').hidden=$('bar-actions').hidden=false;
+    $('token').value='';
+  }catch(e){note('login-message',e.message,true);}
+  finally{submit.disabled=false;}
+};
+$('logout').onclick=()=>{
+  token=ticket='';current=null;fill({});$('workspace').hidden=$('bar-actions').hidden=true;
+  $('login-panel').hidden=false;note('login-message','');note('message','');$('token').focus();
+};
+$('refresh').onclick=()=>action(async()=>{await refresh();note('message','Đã làm mới trạng thái.');});
+$('config').oninput=()=>{ticket='';toggleControls();};
+$('provider').onchange=()=>{$('base-url').value=defaults[$('provider').value];$('api-key').value='';};
+$('config').onsubmit=e=>{
+  e.preventDefault();
+  action(async()=>{
+    ticket='';
+    note('message','Đang kiểm tra gateway. Phản hồi có thể mất tới 60 giây…');
+    const data=await api('/api/model/test',{revision:current.revision,provider:$('provider').value,
+      model:$('model').value,base_url:$('base-url').value,api_key:$('api-key').value});
+    $('api-key').value='';ticket=data.ticket;
+    note('message','Gateway đã phản hồi. Bạn có thể áp dụng trong 5 phút.');
+  });
+};
+async function change(path,payload,text){
+  const data=await api(path,{...payload,revision:current.revision});
+  ticket='';display(data.state);fill(current.config);
+  note('message',text);
+  try{await refresh();}catch(e){note('message',text+' Chưa làm mới được lưu lượng.',true);}
+}
+$('apply').onclick=()=>action(()=>change('/api/model/apply',{ticket},'Đã áp dụng cho các lượt chat mới.'));
+$('rollback').onclick=()=>{
+  if(confirm('Quay lại cấu hình model liền trước?'))action(()=>change('/api/model/rollback',{},'Đã quay lại cấu hình trước.'));
+};
+$('toggle').onclick=()=>{
+  const enabled=!current.public_enabled;
+  if(!enabled && !confirm('Khoá tất cả lượt gọi model công khai?'))return;
+  action(()=>change('/api/public',{enabled},enabled?'Đã mở lượt gọi công khai.':'Đã khoá lượt gọi công khai.'));
+};
+setInterval(()=>{if(token && !busy)refresh().catch(()=>{});},15000);
+</script>
+</body>
+</html>

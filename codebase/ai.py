@@ -19,8 +19,10 @@ Không dán API key vào file này.
 """
 import json
 import os
-from urllib.request import Request, urlopen
+from pathlib import Path
+from urllib.request import HTTPRedirectHandler, Request, build_opener
 
+from model_config import DEFAULT_URLS, ModelConfig, ModelConfigStore
 from tracing import model_call
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,52 +42,65 @@ def load_env(path=os.path.join(ROOT, ".env")):
 
 
 load_env()
-MODEL_PROVIDER = (os.environ.get("MODEL_PROVIDER") or "fake").strip().lower()
-MODEL_NAME = (os.environ.get("MODEL_NAME") or "").strip()
-API_KEY = (os.environ.get("API_KEY") or "").strip()
-CHAT_ENDPOINTS = {
-    "deepinfra": "https://api.deepinfra.com/v1/openai/chat/completions",
-    "openai": "https://api.openai.com/v1/chat/completions",
-}
-# Nhà cung cấp trung gian theo chuẩn OpenAI: đặt OPENAI_BASE_URL (vd https://.../v1) trong .env.
-OPENAI_BASE_URL = (os.environ.get("OPENAI_BASE_URL") or "").strip().rstrip("/")
-if OPENAI_BASE_URL:
-    CHAT_ENDPOINTS["openai"] = OPENAI_BASE_URL + "/chat/completions"
+CONFIG_DIR = os.environ.get("MODEL_CONFIG_DIR", "").strip()
+provider = (os.environ.get("MODEL_PROVIDER") or "fake").strip().lower()
+base_url = os.environ.get("OPENAI_BASE_URL", "").strip().rstrip("/") if provider == "openai" else ""
+STORE = ModelConfigStore(
+    ModelConfig(provider, os.environ.get("MODEL_NAME", "").strip(),
+                base_url or DEFAULT_URLS.get(provider, ""), os.environ.get("API_KEY", "").strip()),
+    Path(CONFIG_DIR) / "model.json" if CONFIG_DIR else None,
+)
+
+
+class PublicModelDisabled(Exception):
+    pass
+
+
+class NoRedirect(HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        # Never forward a provider credential to a URL from a response header.
+        return None
 
 
 @model_call
 def call_model(system: str, user: str) -> dict:
-    if MODEL_PROVIDER == "fake":
+    state = STORE.snapshot()
+    if not state.public_enabled:
+        raise PublicModelDisabled
+    return request_model(state.config, system, user)
+
+
+def request_model(config, system, user, *, timeout=90, test=False):
+    if config.provider == "fake":
         return {"text": '{"action":"no_source"}', "model": "fake", "tokens_in": 0, "tokens_out": 0}
 
-    endpoint = CHAT_ENDPOINTS.get(MODEL_PROVIDER)
-    if endpoint is None:
-        raise NotImplementedError(f"Chưa hỗ trợ MODEL_PROVIDER={MODEL_PROVIDER}")
-    if not MODEL_NAME or not API_KEY:
-        raise ValueError(f"Điền MODEL_NAME và API_KEY trong .env để gọi {MODEL_PROVIDER}.")
+    if config.provider not in DEFAULT_URLS:
+        raise NotImplementedError("Nhà cung cấp model chưa được hỗ trợ.")
+    if not config.model or not config.api_key:
+        raise ValueError("Cần cấu hình model và API key.")
 
     messages = [{"role": "user", "content": user}]
     if system:
         messages.insert(0, {"role": "system", "content": system})
-    payload = {"model": MODEL_NAME, "messages": messages}
-    if MODEL_PROVIDER == "deepinfra":
+    payload = {"model": config.model, "messages": messages}
+    if config.provider == "deepinfra":
         payload.update(
             response_format={"type": "json_object"},
             reasoning_effort="none",
-            max_tokens=768,
+            max_tokens=256 if test else 768,
         )
     request = Request(
-        endpoint,
+        config.base_url + "/chat/completions",
         data=json.dumps(payload).encode("utf-8"),
-        headers={"Authorization": f"Bearer {API_KEY}", "Content-Type": "application/json"},
+        headers={"Authorization": f"Bearer {config.api_key}", "Content-Type": "application/json"},
         method="POST",
     )
-    with urlopen(request, timeout=90) as response:
-        result = json.load(response)
+    with build_opener(NoRedirect()).open(request, timeout=timeout) as response:
+        result = json.loads(response.read(1024 * 1024))
 
     text = result["choices"][0]["message"]["content"]
     if not isinstance(text, str) or not text.strip():
-        raise RuntimeError(f"{MODEL_PROVIDER} không trả nội dung văn bản.")
+        raise RuntimeError("Model không trả nội dung văn bản.")
     usage = result["usage"]
     return {
         "text": text,

@@ -4,6 +4,7 @@
 !.env.example
 /acme/
 /tls/
+/runtime-config/
 *.pem
 *service-account*.json
 credentials*.json

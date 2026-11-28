@@ -4,5 +4,9 @@
 !codebase/
 !codebase/*.py
 !codebase/index.html
+!codebase/admin.html
 !data/
 !data/a1_demo_lesson.json
+acme/
+tls/
+runtime-config/

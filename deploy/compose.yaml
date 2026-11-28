@@ -7,8 +7,15 @@ services:
       MODEL_PROVIDER: ${MODEL_PROVIDER:?}
       MODEL_NAME: ${MODEL_NAME:?}
       API_KEY: ${API_KEY:?}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
+      MODEL_ALLOWED_BASE_URLS: ${MODEL_ALLOWED_BASE_URLS:-}
+      MODEL_CONFIG_DIR: /var/lib/baton
+      ADMIN_PORT: "8092"
     ports:
       - "127.0.0.1:8091:8091"
+      - "127.0.0.1:8092:8092"
+    volumes:
+      - "../runtime-config:/var/lib/baton"
     read_only: true
     cap_drop: [ALL]
     security_opt: ["no-new-privileges:true"]

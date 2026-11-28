@@ -16,7 +16,7 @@ Ngày 28/11/2026, `python run.py simulate --try 10` hoàn tất **10/10 phiên**
 
 Tổng gồm **18 lượt hỏi**, **18.319 token vào** và **3.114 token ra**. Theo đơn giá trong `personas.yaml`, lượng token đo được tương ứng trung bình **0,00046 USD/phiên** nếu tính giá `gpt-4o-mini` và **0,0034 USD/phiên** nếu tính giá `gpt-6.1-terra`.
 
-Chi phí/task thành công còn trống. Lượt đánh giá đã chấm dùng `gpt-5.6-luna`, còn lượt mô phỏng này đo trên DeepSeek. Khung mô phỏng giữ số liệu thử chi tiết trong `cost/simulate-try.csv`, `cost/simulate-try-summary.md` và `traces/simulate-try.jsonl` ở máy chạy.
+Phép thử CP3 không dùng để tính chi phí/task thành công vì đo token trên DeepSeek. Phép đo D3 dùng cùng model `gpt-5.6-luna` với lượt đánh giá 2. [Kết quả D3](#2-kết-quả-mô-phỏng)
 
 ## 1. Đầu vào
 
