@@ -2,7 +2,9 @@
 
 Học viên hỏi về bài pre-class đang mở. Trợ giảng trả lời kèm mã đoạn và câu trích để học viên bấm vào đối chiếu, hỏi lại khi thiếu ngữ cảnh hoặc hướng dẫn hỏi TA khi bài thiếu căn cứ.
 
-[Mở phòng học](https://demo.202603027.xyz:8090/) · [Video demo dự phòng](https://demo.202603027.xyz:8090/demo.mp4) · [Slide CP4 đang chờ lượt 2](demo-slides.pdf)
+[Mở phòng học](https://demo.202603027.xyz:8090/) · [Video demo dự phòng](https://demo.202603027.xyz:8090/demo.mp4) · [Slide CP4 (PDF 8 trang)](demo-slides.pdf)
+
+**Kết quả:** lượt 1 → lượt 2 **21/22 (95%) → 20/22 (91%)**, đạt chuẩn ở cả hai lượt (`gpt-5.6-luna`, [eval/report.md](eval/report.md)) · chi phí / task thành công **$0.00045 (gpt-4o-mini) – $0.0032 (gpt-6.1-terra)**, token đo trên `gpt-5.6-luna` ([cost/cost-estimate.md](cost/cost-estimate.md)) · quyết định: **iterate**.
 
 **Thành viên, lớp, track:** xem [TEAMS.md](TEAMS.md). **Điền TEAMS.md đúng format**: khi chấm và đánh giá, BTC quét file này để ghép điểm cho từng người.
 
@@ -124,7 +126,7 @@ Nhóm dùng Codex để soạn khung agent, tạo các đoạn bài mô phỏng 
 | 2 | ☑ Impact có số | `spec.md` §2 |
 | 3 | ☑ Thiết kế giải pháp | `spec.md` §4 |
 | 4 | ☑ Bản chạy thử làm trọn lát cắt | `codebase/` · lệnh ở mục "Lệnh" |
-| 5 | ◐ Định nghĩa "tốt" + bộ câu thử | `data/DATA_CARD.md` · `eval/` · đã có 22 câu, 3 metric và lượt 1. Chờ đồng bộ kết quả lượt 2. |
-| 6 | ◐ Mô phỏng chi phí khi dùng thật | [Persona và lượt thử 10 phiên](cost/cost-estimate.md). Chờ lượt 2 và 50 phiên để chốt. |
-| 7 | ◐ Slide + demo + video dự phòng | [Slide 8 trang](demo-slides.pdf) · [Video public](https://demo.202603027.xyz:8090/demo.mp4) · [Bản MP4 phát offline](replay/demo.mp4). Slide 5–8 cần đối chiếu kết quả lượt 2 và D3 trước khi nộp. |
+| 5 | ☑ Định nghĩa "tốt" + bộ câu thử | `data/DATA_CARD.md` · `eval/` · 22 câu (7 thuong · 11 kho · 4 tu_choi), 3 metric. Lượt 1 → 2: **21/22 → 20/22** (`run-1@20261127-221834` → `run-2@20261128-092833`) · [báo cáo](eval/report.md) · [hồ sơ đánh giá](eval/README.md) |
+| 6 | ☑ Mô phỏng chi phí khi dùng thật | [cost/cost-estimate.md](cost/cost-estimate.md) · `simulate-1@20261128-115039`, 50 phiên, seed 42, tỉ lệ đạt từ `run-2` · chi phí / task thành công $0.00045 (gpt-4o-mini) · $0.0032 (gpt-6.1-terra) · 3 kịch bản 436 / 700 / 1.000 người |
+| 7 | ☑ Slide + demo + video dự phòng | [Slide 8 trang](demo-slides.pdf) (trang 5 lượt 1 → 2, trang 6 chi phí, trang 7 quyết định iterate) · [Video public](https://demo.202603027.xyz:8090/demo.mp4) · [Bản MP4 phát offline](replay/demo.mp4) · [Video 30s gọi AI thật (Drive)](https://drive.google.com/file/d/1blXiDiqi20w2_6hk1c_svHu2dM8Nu0aW/view?usp=sharing) |
 | + | *Bonus:* người dùng thử | `validation/log.md` |
