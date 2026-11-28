@@ -201,6 +201,7 @@ Mỗi đường đi ứng với một nhánh trong sơ đồ §4 và một hành
 | 28/11 rạng sáng | Thêm ba ảnh chụp và ghi nhận thao tác trên pre-class vào §0. | C3 — bổ sung nguồn quan sát trực tiếp cho luồng hiện tại và ghi mốc cần kiểm lại. |
 | 28/11 01:52 | Rà lại điểm A1-02, A1-05, A1-14, A1-20 và chạy thử chi phí 10 phiên. | CP3 — xác nhận lượt 1 đạt 21/22 và ghi số token thử C4 tại `cost/cost-estimate.md`. |
 | 28/11 09:28 | D1 — sửa `agent.py`: chỉ dùng `partial` khi có ý hỏi riêng ngoài bài và phải ghi tên ý đó (`missing`), không có tên thì không hiện dòng báo thiếu; cấm ý "bài không nói…" trong `claims`; thiếu tiêu chí lựa chọn thì `clarify`. Chạy lượt 2 `run-2@20261128-092833`: 20/22. | Nhóm lỗi `partial_thua` (A1-08, A1-18, A1-20) ở lượt 1: 3/3 câu hết lỗi, A1-20 từ trượt thành đạt. Tệ đi: A1-02, A1-14 bỏ mất điều kiện / chữ "đơn giá ví dụ". Chi tiết `eval/run-2.csv` cột `ghi_chu`. |
+| 28/11 10:10 | Kiểm lặp 14 câu đầu bằng `python run.py eval --try 14` (`run-try@20261128-101005`), cùng code và model với lượt 2. Không tính là một lượt. | Tách dao động khỏi lỗi thật: A1-14 đạt lại → dao động; A1-02 trượt lại với câu trả lời gần như y hệt → lỗi của prompt mới. Output nguyên văn ở `eval/report.md` §3 vì file `run-try` không được commit. |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

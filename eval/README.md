@@ -89,7 +89,12 @@ Cột B1 lấy từ bảng Trương Văn Hải gửi. Cột B3 lấy từ lượ
 | Lượt | Run ID | Model | Cấu hình (prompt / công cụ / thay đổi) | Đạt / tổng | % | Đạt chuẩn? |
 |---|---|---|---|---|---|---|
 | 1 | `run-1@20261127-221834` | gpt-5.6-luna | Prompt `SYSTEM` trong `agent.py` · 1 công cụ `read_lesson_segments` · bộ kiểm mã đoạn + câu trích | 21/22 | 95% | Đạt |
-| 2 | | | | __/__ | | |
+| 2 | `run-2@20261128-092833` | gpt-5.6-luna | Sửa prompt `SYSTEM` (D1): chỉ dùng `partial` khi có ý hỏi riêng ngoài bài và ghi tên ý đó vào `missing` · cấm ý "bài không nói…" trong `claims` · thiếu tiêu chí lựa chọn thì `clarify`. Công cụ và bộ kiểm giữ nguyên | 20/22 | 91% | Đạt |
+
+**Kiểm lặp (không tính là lượt):**
+- `run-try@20261128-101005`: 14 câu đầu, cùng cấu hình với lượt 2.
+- Kết quả: A1-14 đạt lại (lần trượt ở lượt 2 là dao động); A1-02 trượt lại (lỗi của prompt mới).
+- Khung không commit file `run-try`, nên output nguyên văn được trích ở `eval/report.md` §3.
 
 Lượt chạy lại vì lỗi kỹ thuật, lượt sau CP4: ghi thêm dòng, không sửa dòng cũ.
 
