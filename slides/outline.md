@@ -8,7 +8,7 @@
 | 1 | Người dùng & pain | Ai · việc gì · chỗ đau + số và trích dẫn | `evidence/summary.md` | Đã dựng |
 | 2 | Vì sao chọn bài này | Bảng impact rút gọn + hướng bị loại | `spec.md` §2 | Đã dựng |
 | 3 | Giải pháp | Lát cắt một câu · sơ đồ · AI tự làm đến đâu, vì sao | `spec.md` §4 | Đã dựng |
-| 4 | Demo live | 1 câu thường và 1 câu khó. Có video dự phòng trên bản D1. | `eval/benchmark.csv`, `replay/demo.mp4` | Đã kiểm tra |
+| 4 | Demo live | Hai câu đạt trên `gpt-5.6-luna`, gồm một câu thường và một câu khó. Video hiện tại minh họa thao tác trên DeepInfra. | `eval/run-2.csv`, `replay/demo.mp4` | Đã đối chiếu lượt 2 |
 | 5 | **Đánh giá thế nào** | So sánh hai lượt theo chuẩn CP2, mã lượt chạy và các câu thay đổi kết quả | `eval/README.md`, `eval/report.md` | Đã điền kết quả |
 | 6 | **Chi phí khi dùng thật** | Chi phí / task thành công · 3 kịch bản · so với impact | `cost/cost-estimate.md` | Đã điền số D3 (`simulate-1`) |
 | 7 | Kết luận | Thử tiếp với nhóm nhỏ dựa trên chất lượng lượt 2 và ước tính chi phí | `eval/report.md`, `cost/cost-estimate.md` | Đã điền kết luận |
@@ -20,7 +20,7 @@
 
 1. Mở Day 01, nhập câu A1-01 về temperature của chatbot. Bấm mã P01 để đối chiếu với đoạn nói về tính nhất quán.
 2. Bấm **Hỏi lại từ đầu**, nhập A1-07 về streaming và hạn nộp side lab. Mở P04, chỉ ra phần về hạn nộp cần hỏi TA.
-3. Khi diễn giải kết quả, dùng số ở trang 5–6 và nói rõ demo dùng DeepInfra, còn hai lượt đánh giá và phép đo token D3 dùng `gpt-5.6-luna`. Để xuất lại PDF, mở `slides/deck.html`, chọn in theo khổ trang của tài liệu, bật đồ hoạ nền và tắt đầu/chân trang của trình duyệt.
+3. Dùng kết quả `gpt-5.6-luna` từ lượt 2 ở trang 4–5 và phép đo token D3 ở trang 6. Video dự phòng hiện tại ghi thao tác trên DeepInfra. Để xuất lại PDF, mở `slides/deck.html`, chọn in theo khổ trang của tài liệu, bật đồ hoạ nền và tắt đầu/chân trang của trình duyệt.
 
 **Trước khi lên:** tải repo về một máy khác (hoặc thư mục mới), chạy theo mục "Chạy trong 3 phút" của `README.md` · `.env` có trên máy demo, đã gọi thử 1 câu trong vòng 1 giờ trước giờ demo · video dự phòng mở được bằng cửa sổ ẩn danh · biết bản chạy thử sẽ làm gì với **1 câu thử lạ** của giám khảo.
 

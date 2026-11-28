@@ -27,15 +27,15 @@ Từ máy ngoài VPS, kiểm tra `curl --fail https://demo.202603027.xyz:8090/he
 
 ## Quản trị model và khoá lượt gọi công khai
 
-Trên máy của bạn, giữ lệnh tunnel chạy và mở địa chỉ local bằng trình duyệt.
+Trên máy của bạn, giữ SSH tunnel chạy. Tunnel dùng cổng `18092` trên máy bạn và chuyển tiếp đến cổng `8092` trên VPS. Cổng `8092` trên máy bạn dành cho admin local khi chạy bằng Python.
 
 ```bash
-ssh -N -o ExitOnForwardFailure=yes -L 127.0.0.1:8092:127.0.0.1:8092 vps-aiv2
+ssh -N -o ExitOnForwardFailure=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -L 127.0.0.1:18092:127.0.0.1:8092 vps-aiv2
 ```
 
-[Mở trang quản trị qua tunnel](http://127.0.0.1:8092/)
+[Mở trang quản trị VPS qua tunnel](http://127.0.0.1:18092/)
 
-Trong cửa sổ PowerShell khác, lấy token vào clipboard rồi dán vào trang admin. Quyền đọc token thuộc người có quyền quản trị VPS.
+Trong cửa sổ PowerShell khác, lấy token VPS vào clipboard rồi dán vào trang admin ở `18092`. Quyền đọc token thuộc người có quyền quản trị VPS. Nếu gặp lỗi token, kiểm tra lại cổng trên thanh địa chỉ và lấy lại token bằng lệnh sau.
 
 ```powershell
 ssh vps-aiv2 'sudo -n cat /home/deploy/mini-hackathon/runtime-config/admin-token' | Set-Clipboard

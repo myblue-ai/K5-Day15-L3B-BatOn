@@ -52,7 +52,9 @@ fi
 python3 codebase/web.py
 ```
 
-Giữ terminal đang chạy. Mở [phòng học](http://127.0.0.1:8091/) và [trang admin](http://127.0.0.1:8092/). Dán token từ clipboard trên Windows. Trên macOS/Linux, lấy token từ `runtime-config/local/admin-token`. Nếu cổng đang bận, đổi `PORT` hoặc `ADMIN_PORT` trong `.env`.
+Giữ terminal đang chạy. Mở [phòng học local](http://127.0.0.1:8091/) và [trang admin local](http://127.0.0.1:8092/). Dán token local từ clipboard trên Windows. Trên macOS/Linux, lấy token từ `runtime-config/local/admin-token`. Nếu cổng đang bận, đổi `PORT` hoặc `ADMIN_PORT` trong `.env`.
+
+Admin VPS mở qua SSH tunnel ở cổng `18092` trên máy bạn và dùng token lấy từ VPS. [Cách mở admin VPS](../deploy/README.md#quản-trị-model-và-khoá-lượt-gọi-công-khai)
 
 ## 3. Test nhanh trong trình duyệt
 
